@@ -1,0 +1,115 @@
+{
+  "name": "@weeii/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for the Weeii platform — domain APIs, reactive store, and React hooks.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./sesion": {
+      "import": "./dist/modules/sesion/index.js",
+      "types": "./dist/modules/sesion/index.d.ts"
+    },
+    "./usuario": {
+      "import": "./dist/modules/usuario/index.js",
+      "types": "./dist/modules/usuario/index.d.ts"
+    },
+    "./entrega": {
+      "import": "./dist/modules/entrega/index.js",
+      "types": "./dist/modules/entrega/index.d.ts"
+    },
+    "./negocio": {
+      "import": "./dist/modules/negocio/index.js",
+      "types": "./dist/modules/negocio/index.d.ts"
+    },
+    "./cliente": {
+      "import": "./dist/modules/cliente/index.js",
+      "types": "./dist/modules/cliente/index.d.ts"
+    },
+    "./ubicacion": {
+      "import": "./dist/modules/ubicacion/index.js",
+      "types": "./dist/modules/ubicacion/index.d.ts"
+    },
+    "./orden": {
+      "import": "./dist/modules/orden/index.js",
+      "types": "./dist/modules/orden/index.d.ts"
+    },
+    "./producto": {
+      "import": "./dist/modules/producto/index.js",
+      "types": "./dist/modules/producto/index.d.ts"
+    },
+    "./saldo_usuario": {
+      "import": "./dist/modules/saldo_usuario/index.js",
+      "types": "./dist/modules/saldo_usuario/index.d.ts"
+    },
+    "./notificacion": {
+      "import": "./dist/modules/notificacion/index.js",
+      "types": "./dist/modules/notificacion/index.d.ts"
+    },
+    "./rol": {
+      "import": "./dist/modules/rol/index.js",
+      "types": "./dist/modules/rol/index.d.ts"
+    },
+    "./informacion_basica": {
+      "import": "./dist/modules/informacion_basica/index.js",
+      "types": "./dist/modules/informacion_basica/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@silasdevs/core": "file:../../../../Repositories/libraries/js/core",
+    "@silasdevs/transport": "file:../../../../Repositories/libraries/js/transport"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.14",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^10.2.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^2.0.0"
+  },
+  "keywords": [
+    "weeii",
+    "sdk",
+    "websocket",
+    "reactive",
+    "typescript"
+  ],
+  "license": "MIT"
+}
