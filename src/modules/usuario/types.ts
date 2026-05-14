@@ -30,6 +30,19 @@ export interface RegistrarClienteParams {
   email?:    string;
 }
 
+export interface RegistrarRepartidorParams {
+  nombre:   string;
+  telefono: string;
+  pais?:    string;
+  email?:   string;
+}
+
+export interface RegistrarInternoParams {
+  nombre:   string;
+  email:    string;
+  id_rol:   number;
+}
+
 export interface EditarUsuarioParams {
   nombre?:   string;
   apellido?: string;

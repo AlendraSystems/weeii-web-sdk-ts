@@ -10,3 +10,18 @@ export interface Ubicacion extends WeeiiRecord {
   es_principal: boolean;
   insertado_en: Timestamp;
 }
+export interface UbicacionQueryParams {
+  id_ultimo?:   Id;
+  filas?:       number;
+  profundidad?: number[];
+}
+
+export interface UbicacionSearchParams extends UbicacionQueryParams {
+  texto_busqueda: string;
+}
+
+export interface UbicacionGeoParams {
+  latitud:   number;
+  longitud:  number;
+  radio_km?: number;
+}

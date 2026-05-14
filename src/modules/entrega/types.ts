@@ -13,6 +13,14 @@ export interface Entrega extends WeeiiRecord {
   actualizado_en: Timestamp;
 }
 
+export interface EntregaEstadisticas {
+  total:          number;
+  exitosas:       number;
+  fallidas:       number;
+  canceladas:     number;
+  en_proceso:     number;
+}
+
 export interface EntregaQueryParams {
   id_ultimo?:   Id;
   filas?:       number;

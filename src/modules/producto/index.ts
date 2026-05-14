@@ -1,2 +1,22 @@
-export { productos, productoPorId, productoSearch, productosDeMiNegocio, registrarProducto, editarProducto, eliminarProducto } from './api.js';
+export {
+  productos,
+  productoSearch,
+  productoSearchCatalogo,
+  productoPorId,
+  productosPorIdUsuario,
+  productosPorIdNegocio,
+  productosPorIdCategoria,
+  productosAutorizados,
+  productosPermitidos,
+  productosCatalogo,
+  productosCatalogoPorIdUsuario,
+  productosCatalogoPorIdNegocio,
+  productosCatalogoPorIdCategoria,
+  productosDeMiNegocio,
+  registrarProducto,
+  editarProducto,
+  eliminarProducto,
+  sortPromoverIdNegocio,
+  sortPromoverIdCategoria,
+} from './api.js';
 export type { Producto } from './types.js';

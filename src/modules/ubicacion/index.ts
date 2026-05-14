@@ -1,2 +1,24 @@
-export { ubicaciones, misUbicaciones, ubicacionSearch, registrarUbicacion, editarUbicacion, eliminarUbicacion } from './api.js';
+export {
+  ubicaciones,
+  ubicacionSearch,
+  ubicacionPorId,
+  misUbicaciones,
+  misUbicacionesHistorial,
+  misUbicacionesGuardadas,
+  ubicacionesPorIdUsuarioPorHistorial,
+  ubicacionesGuardadas,
+  ubicacionesHistorial,
+  ubicacionesPorIdEntrega,
+  ubicacionesLatLonCent,
+  ubicacionesLatLonDec,
+  ubicacionesLatLonCentGuardadas,
+  ubicacionesLatLonCentHistorial,
+  ubicacionesLatLonDecGuardadas,
+  ubicacionesLatLonDecHistorial,
+  registrarUbicacion,
+  registrarAdmonOrigenDestinoDefault,
+  editarUbicacion,
+  editarUbicacionFrm,
+  eliminarUbicacion,
+} from './api.js';
 export type { Ubicacion } from './types.js';

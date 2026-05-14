@@ -9,3 +9,13 @@ export interface Orden extends WeeiiRecord {
   insertado_en:   Timestamp;
   actualizado_en: Timestamp;
 }
+
+export interface OrdenQueryParams {
+  id_ultimo?:   Id;
+  filas?:       number;
+  profundidad?: number[];
+}
+
+export interface OrdenSearchParams extends OrdenQueryParams {
+  texto_busqueda: string;
+}

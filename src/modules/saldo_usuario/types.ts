@@ -15,3 +15,8 @@ export interface MovimientoSaldo extends WeeiiRecord {
   descripcion:   string | null;
   insertado_en:  Timestamp;
 }
+export interface SaldoQueryParams {
+  id_ultimo?:   Id;
+  filas?:       number;
+  profundidad?: number[];
+}

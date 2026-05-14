@@ -1,2 +1,20 @@
-export { miSaldo, saldoPorIdUsuario, movimientosSaldo, depositarSaldo } from './api.js';
+export {
+  miSaldo,
+  saldos,
+  saldoPorId,
+  saldoPorIdUsuario,
+  saldoBalancePorIdUsuario,
+  saldosPositivos,
+  saldosNegativos,
+  saldosPositivosPorIdRol,
+  saldosNegativosPorIdRol,
+  searchSaldosPositivos,
+  searchSaldosNegativos,
+  movimientosSaldo,
+  depositarSaldo,
+  resolverSaldo,
+  retirarSaldo,
+  retirarPagoRepartidor,
+  registrarAdeudo,
+} from './api.js';
 export type { SaldoUsuario, MovimientoSaldo } from './types.js';

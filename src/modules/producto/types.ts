@@ -9,3 +9,13 @@ export interface Producto extends WeeiiRecord {
   disponible:   boolean;
   insertado_en: Timestamp;
 }
+
+export interface ProductoQueryParams {
+  id_ultimo?:   Id;
+  filas?:       number;
+  profundidad?: number[];
+}
+
+export interface ProductoSearchParams extends ProductoQueryParams {
+  texto_busqueda: string;
+}

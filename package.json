@@ -62,6 +62,22 @@
     "./informacion_basica": {
       "import": "./dist/modules/informacion_basica/index.js",
       "types": "./dist/modules/informacion_basica/index.d.ts"
+    },
+    "./categoria": {
+      "import": "./dist/modules/categoria/index.js",
+      "types": "./dist/modules/categoria/index.d.ts"
+    },
+    "./negocio_cliente": {
+      "import": "./dist/modules/negocio_cliente/index.js",
+      "types": "./dist/modules/negocio_cliente/index.d.ts"
+    },
+    "./link_pago": {
+      "import": "./dist/modules/link_pago/index.js",
+      "types": "./dist/modules/link_pago/index.d.ts"
+    },
+    "./concepto": {
+      "import": "./dist/modules/concepto/index.js",
+      "types": "./dist/modules/concepto/index.d.ts"
     }
   },
   "main": "./dist/index.js",
