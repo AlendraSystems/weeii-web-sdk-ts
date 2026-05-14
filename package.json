@@ -78,6 +78,42 @@
     "./concepto": {
       "import": "./dist/modules/concepto/index.js",
       "types": "./dist/modules/concepto/index.d.ts"
+    },
+    "./entrega_gps": {
+      "import": "./dist/modules/entrega_gps/index.js",
+      "types": "./dist/modules/entrega_gps/index.d.ts"
+    },
+    "./entrega_evidencia": {
+      "import": "./dist/modules/entrega_evidencia/index.js",
+      "types": "./dist/modules/entrega_evidencia/index.d.ts"
+    },
+    "./entrega_mensaje": {
+      "import": "./dist/modules/entrega_mensaje/index.js",
+      "types": "./dist/modules/entrega_mensaje/index.d.ts"
+    },
+    "./entrega_repartidor": {
+      "import": "./dist/modules/entrega_repartidor/index.js",
+      "types": "./dist/modules/entrega_repartidor/index.d.ts"
+    },
+    "./entrega_usuario_calificacion": {
+      "import": "./dist/modules/entrega_usuario_calificacion/index.js",
+      "types": "./dist/modules/entrega_usuario_calificacion/index.d.ts"
+    },
+    "./entrega_plantilla": {
+      "import": "./dist/modules/entrega_plantilla/index.js",
+      "types": "./dist/modules/entrega_plantilla/index.d.ts"
+    },
+    "./entrega_multa_aborcion": {
+      "import": "./dist/modules/entrega_multa_aborcion/index.js",
+      "types": "./dist/modules/entrega_multa_aborcion/index.d.ts"
+    },
+    "./entrega_multa_cancelacion": {
+      "import": "./dist/modules/entrega_multa_cancelacion/index.js",
+      "types": "./dist/modules/entrega_multa_cancelacion/index.d.ts"
+    },
+    "./estatus_entrega": {
+      "import": "./dist/modules/estatus_entrega/index.js",
+      "types": "./dist/modules/estatus_entrega/index.d.ts"
     }
   },
   "main": "./dist/index.js",
