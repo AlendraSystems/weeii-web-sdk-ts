@@ -37,5 +37,6 @@ export {
   clientesConEntregasExitosas,
   repartidoresConEntregasExitosas,
   ingresosEntregas,
+  editarParamsEntrega,
 } from './api.js';
 export type { Entrega, EntregaEstadisticas } from './types.js';

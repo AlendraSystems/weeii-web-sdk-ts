@@ -114,6 +114,58 @@
     "./estatus_entrega": {
       "import": "./dist/modules/estatus_entrega/index.js",
       "types": "./dist/modules/estatus_entrega/index.d.ts"
+    },
+    "./pago": {
+      "import": "./dist/modules/pago/index.js",
+      "types": "./dist/modules/pago/index.d.ts"
+    },
+    "./movimiento": {
+      "import": "./dist/modules/movimiento/index.js",
+      "types": "./dist/modules/movimiento/index.d.ts"
+    },
+    "./deposito": {
+      "import": "./dist/modules/deposito/index.js",
+      "types": "./dist/modules/deposito/index.d.ts"
+    },
+    "./retiro": {
+      "import": "./dist/modules/retiro/index.js",
+      "types": "./dist/modules/retiro/index.d.ts"
+    },
+    "./abono": {
+      "import": "./dist/modules/abono/index.js",
+      "types": "./dist/modules/abono/index.d.ts"
+    },
+    "./adeudo": {
+      "import": "./dist/modules/adeudo/index.js",
+      "types": "./dist/modules/adeudo/index.d.ts"
+    },
+    "./estatus_pago": {
+      "import": "./dist/modules/estatus_pago/index.js",
+      "types": "./dist/modules/estatus_pago/index.d.ts"
+    },
+    "./tipo_pago": {
+      "import": "./dist/modules/tipo_pago/index.js",
+      "types": "./dist/modules/tipo_pago/index.d.ts"
+    },
+    "./repartidor_on": {
+      "import": "./dist/modules/repartidor_on/index.js",
+      "types": "./dist/modules/repartidor_on/index.d.ts"
+    },
+    "./jornada": {
+      "import": "./dist/modules/jornada/index.js",
+      "types": "./dist/modules/jornada/index.d.ts"
+    },
+    "./uccc": {
+      "import": "./dist/modules/uccc/index.js",
+      "types": "./dist/modules/uccc/index.d.ts"
+    },
+    "./uve": {
+      "import": "./dist/modules/uve/index.js",
+      "types": "./dist/modules/uve/index.d.ts"
+    },
+    "./uvt": {
+      "import": "./dist/modules/uvt/index.js",
+      "types": "./dist/modules/uvt/index.d.ts"
     }
   },
   "main": "./dist/index.js",
@@ -124,7 +176,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "node --max-old-space-size=8192 node_modules/.bin/tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

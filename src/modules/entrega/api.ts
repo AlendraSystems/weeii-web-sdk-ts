@@ -251,3 +251,9 @@ export function ingresosEntregas(
 ): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
   return request('entrega_ingresos', params);
 }
+
+export function editarParamsEntrega(
+  params: Record<string, unknown>,
+): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
+  return request('entrega_edit_parms', params);
+}
