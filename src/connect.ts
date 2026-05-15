@@ -15,6 +15,7 @@
  * ```
  */
 import { getTransport } from './transport.js';
+import { getConfig } from './config.js';
 import { resumirSesion } from './modules/sesion/api.js';
 import { loadSessionToken, loadPushToken } from './session-storage.js';
 import type { WeeiiIncomingMessage } from './api.js';
@@ -45,8 +46,43 @@ export interface ConectarYResumir {
   onFailed?: () => void;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Server-push handler
+//
+// Subscribes to unmatched messages (i.e. server-initiated pushes with no
+// pending request handler) and routes them to the WeeiiConfig callbacks.
+// Called once per app lifetime from conectarYResumir().
+// ─────────────────────────────────────────────────────────────────────────────
+
+let _pushHandlerRegistered = false;
+
+function registerPushHandler(): void {
+  if (_pushHandlerRegistered) return;
+  _pushHandlerRegistered = true;
+
+  const transport = getTransport();
+
+  transport.on('message:unhandled', (msg) => {
+    const config = getConfig();
+    const code = (msg.code ?? '').toUpperCase();
+
+    if (code === 'ALERTA') {
+      config.onAlert(msg.description ?? '');
+    } else if (code === 'MENSAJE') {
+      config.onMessage(msg.description ?? '');
+    } else if (code === 'ERROR' || code === 'NO_AUTORIZADO' || code === 'NO_ENCONTRADO' || code === 'CONFLICTO') {
+      config.onError(msg.description ?? '');
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export function conectarYResumir(callbacks: ConectarYResumir = {}): void {
   const transport = getTransport();
+
+  // Wire server-push callbacks (idempotent).
+  registerPushHandler();
 
   // Listen for the first open event, then perform session resumption.
   const off = transport.once('connected', async () => {
@@ -75,3 +111,9 @@ export function conectarYResumir(callbacks: ConectarYResumir = {}): void {
   // Kick off the connection (idempotent if already open).
   transport.connect();
 }
+
+/** Exposed for testing only — resets the push-handler registration flag. */
+export function _resetConnect(): void {
+  _pushHandlerRegistered = false;
+}
+
