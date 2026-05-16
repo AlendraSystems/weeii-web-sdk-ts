@@ -5,7 +5,6 @@ export {
   openpayPorEstatus,
   openpayPorIdUsuario,
   misOpenPays,
-  openpayNuevoTokenVacio,
   openpayTokenizar,
   guardarOpenpay,
   eliminarOpenpay,

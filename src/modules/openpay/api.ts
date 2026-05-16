@@ -46,31 +46,25 @@ export function openpayPorIdUsuario(
 export function misOpenPays(
   params: OpenpayQueryParams = {},
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay[] }>> {
-  return request('openpay_mios', params);
-}
-
-export function openpayNuevoTokenVacio(
-  params: Record<string, unknown>,
-): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {
-  return request('openpay_nuevo_token_vacio', params);
+  return request('openpay_q_mios', params);
 }
 
 export function openpayTokenizar(
   params: { id: number; token: string },
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {
-  return request('openpay_tokenizar', params);
+  return request('openpay_tokenizar_tarjeta', params);
 }
 
 export function guardarOpenpay(
   params: Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {
-  return request('openpay_guardar', params);
+  return request('openpay_guardar_tarjeta', params);
 }
 
 export function eliminarOpenpay(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('openpay_eliminar', params);
+  return request('openpay_eliminar_tarjeta', params);
 }
 
 export function openpayListarTarjetas(

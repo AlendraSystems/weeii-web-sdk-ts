@@ -40,23 +40,23 @@ export function miEquipo(
 export function registrarEquipo(
   params: Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ equipo: Equipo }>> {
-  return request('equipo_registrar', params);
+  return request('registrar_equipo', params);
 }
 
 export function editarEquipo(
   params: { id: number } & Partial<Pick<Equipo, 'nombre' | 'descripcion' | 'activo'>>,
 ): Promise<WeeiiIncomingMessage<{ equipo: Equipo }>> {
-  return request('equipo_editar', params);
+  return request('editar_equipo', params);
 }
 
 export function tomarEquipo(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage<{ equipo: Equipo }>> {
-  return request('equipo_tomar', params);
+  return request('tomar_equipo', params);
 }
 
 export function soltarEquipo(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('equipo_soltar', params);
+  return request('soltar_equipo', params);
 }

@@ -46,7 +46,7 @@ export function conektaPorIdUsuario(
 export function misConektas(
   params: ConektaQueryParams = {},
 ): Promise<WeeiiIncomingMessage<{ conekta: Conekta[] }>> {
-  return request('conekta_mios', params);
+  return request('conekta_q_mios', params);
 }
 
 export function conektaNuevoTokenVacio(
@@ -58,19 +58,19 @@ export function conektaNuevoTokenVacio(
 export function conektaTokenizar(
   params: { id: number; token: string },
 ): Promise<WeeiiIncomingMessage<{ conekta: Conekta }>> {
-  return request('conekta_tokenizar', params);
+  return request('conekta_tokenizar_tarjeta', params);
 }
 
 export function guardarConekta(
   params: Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ conekta: Conekta }>> {
-  return request('conekta_guardar', params);
+  return request('conekta_guardar_tarjeta', params);
 }
 
 export function eliminarConekta(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('conekta_eliminar', params);
+  return request('conekta_eliminar_tarjeta', params);
 }
 
 export function conektaListarTarjetas(

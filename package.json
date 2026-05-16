@@ -1,6 +1,6 @@
 {
   "name": "@weeii/sdk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "TypeScript SDK for the Weeii platform — domain APIs, reactive store, and React hooks.",
   "type": "module",
   "engines": {
@@ -483,7 +483,7 @@
   },
   "dependencies": {
     "@silasdevs/core": "^0.3.0",
-    "@silasdevs/transport": "^0.1.0"
+    "@silasdevs/transport": "^1.0.0"
   },
   "peerDependencies": {
     "react": ">=18.0.0"

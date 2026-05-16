@@ -17,7 +17,7 @@ import { initStore } from './store.js';
 export type WeeiiEnv = 'production' | 'staging' | 'testing' | 'development';
 
 export interface WeeiiConfig {
-  /** WebSocket server URL, e.g. `wss://api.weeii.app/ws`. */
+  /** WebSocket server URL, e.g. `wss://api.weeii.app:7443/websocket`. */
   url: string;
 
   /** Runtime environment — affects logging verbosity. */

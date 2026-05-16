@@ -149,52 +149,52 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     tipo_reporte:                      named(),
 
     // ── Aplicaciones & Plataforma ─────────────────────────────────────────
-    aplicacion:                        named(),
-    plataforma:                        named(),
+    aplicacion:                        entity(21),
+    plataforma:                        entity(20),
 
     // ── Usuario Credenciales ──────────────────────────────────────────────
-    usuario_credenciales:              named(),
+    usuario_credenciales:              entity(91),
 
     // ── Contenido (Banners, Historias) ────────────────────────────────────
-    banner:                            named(),
-    historia:                          named(),
-    historia_post:                     named(),
+    banner:                            entity(130),
+    historia:                          entity(110),
+    historia_post:                     entity(111),
 
     // ── Comercio (Paquetes, Seguros) ──────────────────────────────────────
-    paquete:                           named(),
-    seguro:                            named(),
+    paquete:                           entity(50),
+    seguro:                            entity(70),
 
     // ── Métodos de Pago Legados ───────────────────────────────────────────
-    efectivo:                          named(),
-    saldo:                             named(),
-    terminal_externa:                  named(),
-    conekta:                           named(),
-    openpay:                           named(),
+    efectivo:                          entity(42),
+    saldo:                             entity(43),
+    terminal_externa:                  entity(46),
+    conekta:                           entity(45),
+    openpay:                           entity(47),
 
     // ── Equipos ───────────────────────────────────────────────────────────
-    equipo:                            named(),
-    lider:                             named(),
-    miembro:                           named(),
-    equipo_chat:                       named(),
-    equipo_chat_usr:                   named(),
-    equipo_chat_msj:                   named(),
+    equipo:                            entity(140),
+    lider:                             entity(141),
+    miembro:                           entity(142),
+    equipo_chat:                       entity(143),
+    equipo_chat_usr:                   entity(144),
+    equipo_chat_msj:                   entity(145),
 
     // ── Tickets de Soporte ────────────────────────────────────────────────
-    ticket:                            named(),
-    ticket_chat:                       named(),
-    ticket_chat_msj:                   named(),
-    ticket_chat_usr:                   named(),
+    ticket:                            entity(150),
+    ticket_chat:                       entity(151),
+    ticket_chat_msj:                   entity(153),
+    ticket_chat_usr:                   entity(152),
 
     // ── Trámites y Flujos de Trabajo ──────────────────────────────────────
-    tramite:                           named(),
-    requisito:                         named(),
-    validacion:                        named(),
-    prueba:                            named(),
-    solicitud:                         named(),
+    tramite:                           entity(120),
+    requisito:                         entity(121),
+    validacion:                        entity(122),
+    prueba:                            entity(123),
+    solicitud:                         entity(124),
 
     // ── Notificaciones Extendidas ─────────────────────────────────────────
-    notificacion_draft:                named(),
-    notificacion_obj:                  named(),
+    notificacion_draft:                entity(171),
+    notificacion_obj:                  entity(173),
   },
 };
 

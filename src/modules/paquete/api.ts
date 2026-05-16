@@ -52,7 +52,7 @@ export function paqueteCatalogo(
 export function paquetePermitido(
   params: PaqueteQueryParams = {},
 ): Promise<WeeiiIncomingMessage<{ paquete: Paquete[] }>> {
-  return request('paquete_permitido', params);
+  return request('paquete_q_permitido', params);
 }
 
 export function eliminarPaquete(
