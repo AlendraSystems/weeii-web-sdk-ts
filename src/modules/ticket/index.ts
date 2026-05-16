@@ -1,0 +1,23 @@
+export {
+  tickets,
+  ticketSearch,
+  ticketPorId,
+  ticketPorIdUsuario,
+  ticketPorIdUsuarioAbierto,
+  ticketPorIdChat,
+  ticketPorIdAsignado,
+  ticketsAsignados,
+  ticketsSinAsignar,
+  ticketsAbiertos,
+  ticketsCerrados,
+  ticketsAsignadosAbiertos,
+  ticketsAsignadosCerrados,
+  ticketsSinAsignarAbiertos,
+  ticketsSinAsignarCerrados,
+  registrarTicket,
+  ticketAutoAsignar,
+  soltarTicket,
+  cerrarTicket,
+  calificarTicket,
+} from './api.js';
+export type { Ticket } from './types.js';

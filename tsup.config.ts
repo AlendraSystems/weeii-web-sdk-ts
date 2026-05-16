@@ -89,6 +89,46 @@ export default defineConfig({
     'modules/tipo_descuento/index':           'src/modules/tipo_descuento/index.ts',
     'modules/tipo_promocion/index':           'src/modules/tipo_promocion/index.ts',
     'modules/tipo_reporte/index':             'src/modules/tipo_reporte/index.ts',
+    // ── Aplicaciones & Plataforma ─────────────────────────────────────────────
+    'modules/aplicacion/index':               'src/modules/aplicacion/index.ts',
+    'modules/plataforma/index':               'src/modules/plataforma/index.ts',
+    // ── Usuario Credenciales ──────────────────────────────────────────────────
+    'modules/usuario_credenciales/index':     'src/modules/usuario_credenciales/index.ts',
+    // ── Contenido ─────────────────────────────────────────────────────────────
+    'modules/banner/index':                   'src/modules/banner/index.ts',
+    'modules/historia/index':                 'src/modules/historia/index.ts',
+    'modules/historia_post/index':            'src/modules/historia_post/index.ts',
+    // ── Comercio ──────────────────────────────────────────────────────────────
+    'modules/paquete/index':                  'src/modules/paquete/index.ts',
+    'modules/seguro/index':                   'src/modules/seguro/index.ts',
+    // ── Métodos de Pago Legados ───────────────────────────────────────────────
+    'modules/efectivo/index':                 'src/modules/efectivo/index.ts',
+    'modules/saldo/index':                    'src/modules/saldo/index.ts',
+    'modules/terminal_externa/index':         'src/modules/terminal_externa/index.ts',
+    'modules/conekta/index':                  'src/modules/conekta/index.ts',
+    'modules/openpay/index':                  'src/modules/openpay/index.ts',
+    'modules/pagos_edit_parms/index':         'src/modules/pagos_edit_parms/index.ts',
+    // ── Equipos ───────────────────────────────────────────────────────────────
+    'modules/equipo/index':                   'src/modules/equipo/index.ts',
+    'modules/lider/index':                    'src/modules/lider/index.ts',
+    'modules/miembro/index':                  'src/modules/miembro/index.ts',
+    'modules/equipo_chat/index':              'src/modules/equipo_chat/index.ts',
+    'modules/equipo_chat_usr/index':          'src/modules/equipo_chat_usr/index.ts',
+    'modules/equipo_chat_msj/index':          'src/modules/equipo_chat_msj/index.ts',
+    // ── Tickets de Soporte ────────────────────────────────────────────────────
+    'modules/ticket/index':                   'src/modules/ticket/index.ts',
+    'modules/ticket_chat/index':              'src/modules/ticket_chat/index.ts',
+    'modules/ticket_chat_msj/index':          'src/modules/ticket_chat_msj/index.ts',
+    'modules/ticket_chat_usr/index':          'src/modules/ticket_chat_usr/index.ts',
+    // ── Trámites y Flujos de Trabajo ──────────────────────────────────────────
+    'modules/tramite/index':                  'src/modules/tramite/index.ts',
+    'modules/requisito/index':                'src/modules/requisito/index.ts',
+    'modules/validacion/index':               'src/modules/validacion/index.ts',
+    'modules/prueba/index':                   'src/modules/prueba/index.ts',
+    'modules/solicitud/index':                'src/modules/solicitud/index.ts',
+    // ── Notificaciones Extendidas ─────────────────────────────────────────────
+    'modules/notificacion_draft/index':       'src/modules/notificacion_draft/index.ts',
+    'modules/notificacion_obj/index':         'src/modules/notificacion_obj/index.ts',
   },
   format: ['esm'],
   dts: false,

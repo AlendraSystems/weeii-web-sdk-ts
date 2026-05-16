@@ -28,5 +28,5 @@ export function estatusEntregaSearch(
 export function editarEstatusEntrega(
   params: { id: number } & Partial<EstatusEntrega>,
 ): Promise<WeeiiIncomingMessage<{ estatus_entrega: EstatusEntrega }>> {
-  return request('estatus_entrega_editar', params);
+  return request('editar_estatus_entrega', params);
 }

@@ -147,6 +147,54 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     tipo_descuento:                    named(),
     tipo_promocion:                    named(),
     tipo_reporte:                      named(),
+
+    // ── Aplicaciones & Plataforma ─────────────────────────────────────────
+    aplicacion:                        named(),
+    plataforma:                        named(),
+
+    // ── Usuario Credenciales ──────────────────────────────────────────────
+    usuario_credenciales:              named(),
+
+    // ── Contenido (Banners, Historias) ────────────────────────────────────
+    banner:                            named(),
+    historia:                          named(),
+    historia_post:                     named(),
+
+    // ── Comercio (Paquetes, Seguros) ──────────────────────────────────────
+    paquete:                           named(),
+    seguro:                            named(),
+
+    // ── Métodos de Pago Legados ───────────────────────────────────────────
+    efectivo:                          named(),
+    saldo:                             named(),
+    terminal_externa:                  named(),
+    conekta:                           named(),
+    openpay:                           named(),
+
+    // ── Equipos ───────────────────────────────────────────────────────────
+    equipo:                            named(),
+    lider:                             named(),
+    miembro:                           named(),
+    equipo_chat:                       named(),
+    equipo_chat_usr:                   named(),
+    equipo_chat_msj:                   named(),
+
+    // ── Tickets de Soporte ────────────────────────────────────────────────
+    ticket:                            named(),
+    ticket_chat:                       named(),
+    ticket_chat_msj:                   named(),
+    ticket_chat_usr:                   named(),
+
+    // ── Trámites y Flujos de Trabajo ──────────────────────────────────────
+    tramite:                           named(),
+    requisito:                         named(),
+    validacion:                        named(),
+    prueba:                            named(),
+    solicitud:                         named(),
+
+    // ── Notificaciones Extendidas ─────────────────────────────────────────
+    notificacion_draft:                named(),
+    notificacion_obj:                  named(),
   },
 };
 

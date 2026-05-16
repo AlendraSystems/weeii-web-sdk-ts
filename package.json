@@ -338,6 +338,130 @@
     "./tipo_reporte": {
       "import": "./dist/modules/tipo_reporte/index.js",
       "types": "./dist/modules/tipo_reporte/index.d.ts"
+    },
+    "./aplicacion": {
+      "import": "./dist/modules/aplicacion/index.js",
+      "types": "./dist/modules/aplicacion/index.d.ts"
+    },
+    "./plataforma": {
+      "import": "./dist/modules/plataforma/index.js",
+      "types": "./dist/modules/plataforma/index.d.ts"
+    },
+    "./usuario_credenciales": {
+      "import": "./dist/modules/usuario_credenciales/index.js",
+      "types": "./dist/modules/usuario_credenciales/index.d.ts"
+    },
+    "./banner": {
+      "import": "./dist/modules/banner/index.js",
+      "types": "./dist/modules/banner/index.d.ts"
+    },
+    "./historia": {
+      "import": "./dist/modules/historia/index.js",
+      "types": "./dist/modules/historia/index.d.ts"
+    },
+    "./historia_post": {
+      "import": "./dist/modules/historia_post/index.js",
+      "types": "./dist/modules/historia_post/index.d.ts"
+    },
+    "./paquete": {
+      "import": "./dist/modules/paquete/index.js",
+      "types": "./dist/modules/paquete/index.d.ts"
+    },
+    "./seguro": {
+      "import": "./dist/modules/seguro/index.js",
+      "types": "./dist/modules/seguro/index.d.ts"
+    },
+    "./efectivo": {
+      "import": "./dist/modules/efectivo/index.js",
+      "types": "./dist/modules/efectivo/index.d.ts"
+    },
+    "./saldo": {
+      "import": "./dist/modules/saldo/index.js",
+      "types": "./dist/modules/saldo/index.d.ts"
+    },
+    "./terminal_externa": {
+      "import": "./dist/modules/terminal_externa/index.js",
+      "types": "./dist/modules/terminal_externa/index.d.ts"
+    },
+    "./conekta": {
+      "import": "./dist/modules/conekta/index.js",
+      "types": "./dist/modules/conekta/index.d.ts"
+    },
+    "./openpay": {
+      "import": "./dist/modules/openpay/index.js",
+      "types": "./dist/modules/openpay/index.d.ts"
+    },
+    "./pagos_edit_parms": {
+      "import": "./dist/modules/pagos_edit_parms/index.js",
+      "types": "./dist/modules/pagos_edit_parms/index.d.ts"
+    },
+    "./equipo": {
+      "import": "./dist/modules/equipo/index.js",
+      "types": "./dist/modules/equipo/index.d.ts"
+    },
+    "./lider": {
+      "import": "./dist/modules/lider/index.js",
+      "types": "./dist/modules/lider/index.d.ts"
+    },
+    "./miembro": {
+      "import": "./dist/modules/miembro/index.js",
+      "types": "./dist/modules/miembro/index.d.ts"
+    },
+    "./equipo_chat": {
+      "import": "./dist/modules/equipo_chat/index.js",
+      "types": "./dist/modules/equipo_chat/index.d.ts"
+    },
+    "./equipo_chat_usr": {
+      "import": "./dist/modules/equipo_chat_usr/index.js",
+      "types": "./dist/modules/equipo_chat_usr/index.d.ts"
+    },
+    "./equipo_chat_msj": {
+      "import": "./dist/modules/equipo_chat_msj/index.js",
+      "types": "./dist/modules/equipo_chat_msj/index.d.ts"
+    },
+    "./ticket": {
+      "import": "./dist/modules/ticket/index.js",
+      "types": "./dist/modules/ticket/index.d.ts"
+    },
+    "./ticket_chat": {
+      "import": "./dist/modules/ticket_chat/index.js",
+      "types": "./dist/modules/ticket_chat/index.d.ts"
+    },
+    "./ticket_chat_msj": {
+      "import": "./dist/modules/ticket_chat_msj/index.js",
+      "types": "./dist/modules/ticket_chat_msj/index.d.ts"
+    },
+    "./ticket_chat_usr": {
+      "import": "./dist/modules/ticket_chat_usr/index.js",
+      "types": "./dist/modules/ticket_chat_usr/index.d.ts"
+    },
+    "./tramite": {
+      "import": "./dist/modules/tramite/index.js",
+      "types": "./dist/modules/tramite/index.d.ts"
+    },
+    "./requisito": {
+      "import": "./dist/modules/requisito/index.js",
+      "types": "./dist/modules/requisito/index.d.ts"
+    },
+    "./validacion": {
+      "import": "./dist/modules/validacion/index.js",
+      "types": "./dist/modules/validacion/index.d.ts"
+    },
+    "./prueba": {
+      "import": "./dist/modules/prueba/index.js",
+      "types": "./dist/modules/prueba/index.d.ts"
+    },
+    "./solicitud": {
+      "import": "./dist/modules/solicitud/index.js",
+      "types": "./dist/modules/solicitud/index.d.ts"
+    },
+    "./notificacion_draft": {
+      "import": "./dist/modules/notificacion_draft/index.js",
+      "types": "./dist/modules/notificacion_draft/index.d.ts"
+    },
+    "./notificacion_obj": {
+      "import": "./dist/modules/notificacion_obj/index.js",
+      "types": "./dist/modules/notificacion_obj/index.d.ts"
     }
   },
   "main": "./dist/index.js",
