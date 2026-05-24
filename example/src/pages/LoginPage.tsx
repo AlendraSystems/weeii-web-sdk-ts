@@ -19,11 +19,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   // 'phone' | 'otp'
   const [step, setStep]         = useState<'phone' | 'otp'>('phone');
   const [telefono, setTelefono] = useState('');
+  const [idSesion, setIdSesion] = useState<number | null>(null);
   const [codigo, setCodigo]     = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const { mutate: requestOTP, isLoading: sending } = useRequestOTP({
-    onSuccess: (tel) => { setTelefono(tel); setStep('otp'); setErrorMsg(''); },
+  const { mutate: requestOTP, isLoading: sending, isProcessing } = useRequestOTP({
+    onSuccess: (tel, id) => { setTelefono(tel); setIdSesion(id); setStep('otp'); setErrorMsg(''); },
     onError:   setErrorMsg,
   });
 
@@ -41,7 +42,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   function handleOTPSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg('');
-    confirmOTP({ codigo, telefono });
+    if (!idSesion) return;
+    confirmOTP({ id_sesion: idSesion, codigo_2fa: codigo });
   }
 
   return (
@@ -63,7 +65,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           </label>
           {errorMsg && <p role="alert" style={errorStyle}>{errorMsg}</p>}
           <button type="submit" disabled={sending} style={btnStyle}>
-            {sending ? 'Enviando código…' : 'Enviar código SMS'}
+            {isProcessing ? 'Procesando…' : sending ? 'Enviando código…' : 'Enviar código SMS'}
           </button>
         </form>
       ) : (
@@ -91,6 +93,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             type="button"
             onClick={() => { setStep('phone'); setCodigo(''); setErrorMsg(''); }}
             style={{ ...btnStyle, background: 'transparent', color: '#3b82f6', border: '1px solid #3b82f6', marginTop: 0 }}
+            onClick={() => { setStep('phone'); setCodigo(''); setIdSesion(null); setErrorMsg(''); }}
           >
             Cambiar número
           </button>

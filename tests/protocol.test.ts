@@ -37,14 +37,12 @@ describe('WEEII_PROTOCOL', () => {
       expect(WEEII_PROTOCOL.codes?.success).toBe('OK');
     });
 
-    it('uses PROCESANDO as the interim code', () => {
-      expect(WEEII_PROTOCOL.codes?.interim).toBe('PROCESANDO');
+    it('uses NEUTRO as the interim code', () => {
+      expect(WEEII_PROTOCOL.codes?.interim).toBe('NEUTRO');
     });
 
-    it('lists the expected error codes', () => {
-      expect(WEEII_PROTOCOL.codes?.error).toEqual(
-        expect.arrayContaining(['ERROR', 'NO_AUTORIZADO', 'NO_ENCONTRADO', 'CONFLICTO']),
-      );
+    it('does not list explicit error codes (any non-OK non-NEUTRO code is an error)', () => {
+      expect(WEEII_PROTOCOL.codes?.error).toBeUndefined();
     });
   });
 });

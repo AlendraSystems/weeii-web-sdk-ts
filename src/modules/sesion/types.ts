@@ -22,14 +22,33 @@ export interface SesionSearchParams extends SesionQueryParams {
   texto_busqueda: string;
 }
 
-export interface IniciarSesionConTelefonoParams {
-  telefono_nacional: string;
-  telefono_codigo_pais?: string;
+interface IniciarSesionConTelefonoBase {
+  id_aplicacion?: number | null;
+  token_push?:    string | null;
+  user_agent?:    string;
 }
 
-export interface ConfirmarSesionParams {
-  codigo:  string;
+/** Provide the full E.164 international number (e.g. "+521234567890"). */
+export interface IniciarSesionConTelefonoInternacionalParams
+  extends IniciarSesionConTelefonoBase {
   telefono: string;
+}
+
+/** Provide the country code and national number separately. */
+export interface IniciarSesionConTelefonoPartsParams
+  extends IniciarSesionConTelefonoBase {
+  telefono_codigo_pais: string;
+  telefono_nacional:    string;
+}
+
+/** Either a full international number or country-code + national number. */
+export type IniciarSesionConTelefonoParams =
+  | IniciarSesionConTelefonoInternacionalParams
+  | IniciarSesionConTelefonoPartsParams;
+
+export interface ConfirmarSesionParams {
+  id_sesion: number;
+  codigo_2fa: string;
 }
 
 export interface ResumirSesionParams {

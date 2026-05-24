@@ -486,7 +486,7 @@
   },
   "dependencies": {
     "@silasdevs/core": "^0.3.0",
-    "@silasdevs/transport": "^1.1.0"
+    "@silasdevs/transport": "^1.2.1"
   },
   "peerDependencies": {
     "react": ">=18.0.0"

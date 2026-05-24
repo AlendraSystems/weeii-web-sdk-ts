@@ -3,8 +3,8 @@
  *
  * Replaces: `modulos/sesiones/sesion/sesion.js`
  */
-import { request } from '../../api.js';
-import type { WeeiiIncomingMessage } from '../../api.js';
+import { request, fire } from '../../api.js';
+import type { WeeiiIncomingMessage, WeeiiFireCallback } from '../../api.js';
 import { saveSessionToken, clearSession, savePushToken } from '../../session-storage.js';
 import type {
   Sesion,
@@ -17,7 +17,12 @@ import type {
 } from './types.js';
 
 export type { Sesion } from './types.js';
-export type { WeeiiIncomingMessage };
+export type {
+  IniciarSesionConTelefonoParams,
+  IniciarSesionConTelefonoInternacionalParams,
+  IniciarSesionConTelefonoPartsParams,
+} from './types.js';
+export type { WeeiiIncomingMessage, WeeiiFireCallback };
 
 // ── Query ───────────────────────────────────────────────────────────────────
 
@@ -43,23 +48,29 @@ export function sesionPorIdUsuario(
 
 export function iniciarSesionConTelefono(
   params: IniciarSesionConTelefonoParams,
-): Promise<WeeiiIncomingMessage> {
-  return request('iniciar_sesion_con_telefono', params);
+  callback: WeeiiFireCallback<{ id_sesion: number }>,
+): () => void {
+  return fire('iniciar_sesion_con_telefono', params, callback);
 }
 
 export function iniciarSesionConTelefonoTesting(
   params: IniciarSesionConTelefonoParams,
-): Promise<WeeiiIncomingMessage> {
-  return request('iniciar_sesion_con_telefono_testing', params);
+  callback: WeeiiFireCallback<{ id_sesion: number }>,
+): () => void {
+  return fire('iniciar_sesion_con_telefono_testing', params, callback);
 }
 
-export async function confirmarSesion(
+export function confirmarSesion(
   params: ConfirmarSesionParams,
-): Promise<WeeiiIncomingMessage<{ sesion: Sesion }>> {
-  const msg = await request<{ sesion: Sesion }>('confirmar_sesion', params);
-  const token = (msg.data.sesion as Sesion | undefined)?.token;
-  if (token) saveSessionToken(token);
-  return msg;
+  callback: WeeiiFireCallback<{ sesion: Sesion }>,
+): () => void {
+  return fire<{ sesion: Sesion }>('confirmar_sesion', params, (msg) => {
+    if (!msg.isInterim) {
+      const token = (msg.data?.sesion as Sesion | undefined)?.token;
+      if (token) saveSessionToken(token);
+    }
+    return callback(msg);
+  });
 }
 
 export async function resumirSesion(

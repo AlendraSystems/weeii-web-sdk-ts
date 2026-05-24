@@ -3,46 +3,57 @@
  *
  * The Weeii login flow is two steps:
  *   1. Enter phone → iniciarSesionConTelefono sends an OTP via SMS.
+ *      The server responds NEUTRO immediately (processing) then OK once the
+ *      SMS is dispatched. useWeeiiAsyncMutation surfaces both phases.
  *   2. Enter OTP   → confirmarSesion validates the code and returns a Sesion.
  *      (Token persistence is handled automatically inside confirmarSesion.)
  *
  * Logout: terminarSesion() invalidates the server session and clears the token.
  */
-import { useWeeiiMutation } from '@weeii/sdk/react';
+import { useRef, useCallback } from 'react';
+import { useWeeiiMutation, useWeeiiAsyncMutation } from '@weeii/sdk/react';
 import {
   iniciarSesionConTelefono,
   confirmarSesion,
   terminarSesion,
 } from '@weeii/sdk/sesion';
 import type { Sesion } from '@weeii/sdk/sesion';
-import type { WeeiiIncomingMessage } from '@weeii/sdk';
 
 // ---------------------------------------------------------------------------
 // Step 1 — request OTP
 // ---------------------------------------------------------------------------
 
 interface UseRequestOTPOptions {
-  onSuccess: (telefono: string) => void;
-  onError:   (description: string) => void;
+  onSuccess:    (telefono: string, idSesion: number) => void;
+  onProcessing?: () => void;
+  onError:      (description: string) => void;
 }
 
-export function useRequestOTP({ onSuccess, onError }: UseRequestOTPOptions) {
-  return useWeeiiMutation(
-    ({ telefono }: { telefono: string }) =>
-      iniciarSesionConTelefono({ telefono }),
+export function useRequestOTP({ onSuccess, onProcessing, onError }: UseRequestOTPOptions) {
+  // Capture the phone number so onSuccess can echo it back to the caller.
+  const telefonoRef = useRef('');
+
+  const { mutate: _mutate, isLoading, isProcessing } = useWeeiiAsyncMutation(
+    iniciarSesionConTelefono,
     {
-      onSuccess: (_msg, { telefono }) => {
-        console.log(344);
-        // Server sent an SMS — advance to code-entry step.
-        onSuccess(telefono);
-        console.log('123');
-      },
+      onInterim: () => onProcessing?.(),
+      onSuccess: (msg) => onSuccess(telefonoRef.current, msg.data.id_sesion),
       onError: (err) => {
         const e = err as { description?: string };
         onError(e.description ?? 'Error al enviar código');
       },
     },
   );
+
+  const mutate = useCallback(
+    ({ telefono }: { telefono: string }) => {
+      telefonoRef.current = telefono;
+      _mutate({ telefono });
+    },
+    [_mutate],
+  );
+
+  return { mutate, isLoading, isProcessing };
 }
 
 // ---------------------------------------------------------------------------
@@ -50,16 +61,17 @@ export function useRequestOTP({ onSuccess, onError }: UseRequestOTPOptions) {
 // ---------------------------------------------------------------------------
 
 interface UseConfirmOTPOptions {
-  onSuccess: (sesion: Sesion) => void;
-  onError:   (description: string) => void;
+  onSuccess:    (sesion: Sesion) => void;
+  onProcessing?: () => void;
+  onError:      (description: string) => void;
 }
 
-export function useConfirmOTP({ onSuccess, onError }: UseConfirmOTPOptions) {
-  return useWeeiiMutation(
-    ({ codigo, telefono }: { codigo: string; telefono: string }) =>
-      confirmarSesion({ codigo, telefono }),
+export function useConfirmOTP({ onSuccess, onProcessing, onError }: UseConfirmOTPOptions) {
+  return useWeeiiAsyncMutation(
+    confirmarSesion,
     {
-      onSuccess: (msg: WeeiiIncomingMessage<{ sesion: Sesion }>) => {
+      onInterim: () => onProcessing?.(),
+      onSuccess: (msg) => {
         // Token is already persisted inside confirmarSesion.
         onSuccess(msg.data.sesion);
       },

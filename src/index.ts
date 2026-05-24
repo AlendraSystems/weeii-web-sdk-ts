@@ -26,4 +26,5 @@ export {
 export type { WeeiiConfig, WeeiiEnv }                   from './config.js';
 export type { ConectarYResumir }                        from './connect.js';
 export type { WeeiiRecord, WeeiiResponse, WeeiiError, Id, Timestamp } from './types.js';
-export type { WeeiiIncomingMessage }                    from './api.js';
+export type { WeeiiIncomingMessage, WeeiiFireCallback }  from './api.js';
+export { request, fire }                                from './api.js';
