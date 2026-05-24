@@ -10,7 +10,7 @@ import { WEEII_PROTOCOL } from './protocol.js';
 
 let _transport: Transport | null = null;
 
-export function initTransport(url: string): Transport {
+export function initTransport(url: string, debug = false): Transport {
   if (_transport !== null) {
     return _transport;
   }
@@ -18,6 +18,7 @@ export function initTransport(url: string): Transport {
     url,
     protocol: WEEII_PROTOCOL,
     reconnect: { auto: true, delayMs: 5_000, maxAttempts: Infinity },
+    debug,
   });
   return _transport;
 }

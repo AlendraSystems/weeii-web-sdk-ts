@@ -23,8 +23,8 @@ export interface SesionSearchParams extends SesionQueryParams {
 }
 
 export interface IniciarSesionConTelefonoParams {
-  telefono:    string;
-  pais?:       string;
+  telefono_nacional: string;
+  telefono_codigo_pais?: string;
 }
 
 export interface ConfirmarSesionParams {

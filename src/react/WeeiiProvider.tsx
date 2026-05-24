@@ -83,6 +83,7 @@ export function WeeiiProvider({
   onFailed,
   children,
 }: WeeiiProviderProps): React.JSX.Element {
+  
   const [status, setStatus]       = useState<ConnectionStatus>('connecting');
   const [authState, setAuthState] = useState<AuthState>('pending');
 

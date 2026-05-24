@@ -32,8 +32,10 @@ export function useRequestOTP({ onSuccess, onError }: UseRequestOTPOptions) {
       iniciarSesionConTelefono({ telefono }),
     {
       onSuccess: (_msg, { telefono }) => {
+        console.log(344);
         // Server sent an SMS — advance to code-entry step.
         onSuccess(telefono);
+        console.log('123');
       },
       onError: (err) => {
         const e = err as { description?: string };

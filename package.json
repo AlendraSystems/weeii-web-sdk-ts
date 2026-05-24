@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "TypeScript SDK for the Weeii platform — domain APIs, reactive store, and React hooks.",
   "type": "module",
+  "workspaces": [
+    "example"
+  ],
   "engines": {
     "node": ">=20.19.0"
   },
@@ -472,7 +475,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "node --max-old-space-size=8192 node_modules/.bin/tsup && tsc --emitDeclarationOnly",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 tsup && tsc --emitDeclarationOnly",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -483,7 +486,7 @@
   },
   "dependencies": {
     "@silasdevs/core": "^0.3.0",
-    "@silasdevs/transport": "^1.0.0"
+    "@silasdevs/transport": "^1.1.0"
   },
   "peerDependencies": {
     "react": ">=18.0.0"
@@ -502,6 +505,8 @@
     "eslint": "^10.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "jsdom": "^26.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0",
     "typescript-eslint": "^8.58.2",

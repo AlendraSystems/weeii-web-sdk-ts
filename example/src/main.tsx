@@ -22,7 +22,7 @@ import { App } from './App.tsx';
 
 function Root() {
   const [usuario, setUsuario] = useState<Sesion | null>(null);
-
+  
   return (
     <WeeiiProvider
       config={{

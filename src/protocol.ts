@@ -18,7 +18,7 @@ export const WEEII_PROTOCOL: ProtocolSchema = {
   },
   codes: {
     success: 'OK',
-    interim: 'PROCESANDO',
-    error:   ['ERROR', 'NO_AUTORIZADO', 'NO_ENCONTRADO', 'CONFLICTO'],
+    interim: 'NEUTRO',
   },
+  includeIdInRequest: true,
 };

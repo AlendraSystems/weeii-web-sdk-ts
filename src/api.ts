@@ -32,11 +32,15 @@ export interface WeeiiIncomingMessage<BData = Record<string, unknown>>
 export async function request<BData = Record<string, unknown>>(
   channel: string,
   data: object = {},
+  options?: { flattenOutgoing?: boolean },
 ): Promise<WeeiiIncomingMessage<BData>> {
   let msg: IncomingMessage<BData>;
 
   try {
-    msg = await getTransport().request<BData>({ channel, data: data as Record<string, unknown> });
+    msg = await getTransport().request<BData>(
+      { channel, data: data as Record<string, unknown> },
+      { flattenOutgoing: options?.flattenOutgoing ?? true },
+    );
   } catch (err) {
     // On transport-level error, classify whatever data came back then re-throw.
     const te = err as TransportError;
@@ -45,7 +49,7 @@ export async function request<BData = Record<string, unknown>>(
     }
     throw err;
   }
-
+  
   const changes = classifyData(getStore(), msg.data as Record<string, unknown>);
 
   return { ...msg, changes };

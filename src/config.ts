@@ -63,7 +63,7 @@ export function configureWeeii(config: WeeiiConfig): void {
   };
 
   initStore();
-  initTransport(config.url);
+  initTransport(config.url, config.debug ?? false);
 }
 
 export function getConfig(): Required<WeeiiConfig> {
