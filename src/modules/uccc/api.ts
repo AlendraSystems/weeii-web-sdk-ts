@@ -3,16 +3,17 @@
  *
  * Replaces: `modulos/usuarios/uccc/uccc.js`
  */
-import { request } from '../../api.js';
-import type { WeeiiIncomingMessage } from '../../api.js';
+import { request, fire } from '../../api.js';
+import type { WeeiiIncomingMessage, WeeiiFireCallback } from '../../api.js';
 import type { Uccc, UcccSearchParams } from './types.js';
 
 export type { Uccc } from './types.js';
 
 export function solicitarCambioClave(
-  params: Record<string, unknown> = {},
-): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
-  return request('uccc_solicitar_cambio_clave', params);
+  params: { email: string },
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('uccc_solicitar_cambio_clave', params, callback);
 }
 
 export function ucccSearch(
@@ -22,7 +23,8 @@ export function ucccSearch(
 }
 
 export function cambiarClave(
-  params: { token: string; nueva_clave: string },
-): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
-  return request('uccc_cambiar_clave', params);
+  params: { token: string; clave1: string; clave2: string },
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('uccc_cambiar_clave', params, callback);
 }

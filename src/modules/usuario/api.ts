@@ -3,8 +3,8 @@
  *
  * Replaces: `modulos/usuarios/usuario/api.js`
  */
-import { request } from '../../api.js';
-import type { WeeiiIncomingMessage } from '../../api.js';
+import { request, fire } from '../../api.js';
+import type { WeeiiIncomingMessage, WeeiiFireCallback } from '../../api.js';
 import type {
   Usuario,
   UsuarioQueryParams,
@@ -117,26 +117,30 @@ export function usuariosDireccionValidada(
 
 export function registrarCliente(
   params: RegistrarClienteParams,
-): Promise<WeeiiIncomingMessage<{ usuario: Usuario }>> {
-  return request('usuario_registrar_cliente', params);
+  callback: WeeiiFireCallback<{ usuario: Usuario }>,
+): () => void {
+  return fire('usuario_registrar_cliente', params, callback);
 }
 
 export function registrarClienteTesting(
   params: RegistrarClienteParams,
-): Promise<WeeiiIncomingMessage<{ usuario: Usuario }>> {
-  return request('usuario_registrar_cliente_testing', params);
+  callback: WeeiiFireCallback<{ usuario: Usuario }>,
+): () => void {
+  return fire('usuario_registrar_cliente_testing', params, callback);
 }
 
 export function registrarRepartidor(
   params: RegistrarRepartidorParams,
-): Promise<WeeiiIncomingMessage<{ usuario: Usuario }>> {
-  return request('usuario_registrar_repartidor', params);
+  callback: WeeiiFireCallback<{ usuario: Usuario }>,
+): () => void {
+  return fire('usuario_registrar_repartidor', params, callback);
 }
 
 export function registrarRepartidorTesting(
   params: RegistrarRepartidorParams,
-): Promise<WeeiiIncomingMessage<{ usuario: Usuario }>> {
-  return request('usuario_registrar_repartidor_testing', params);
+  callback: WeeiiFireCallback<{ usuario: Usuario }>,
+): () => void {
+  return fire('usuario_registrar_repartidor_testing', params, callback);
 }
 
 export function registrarInterno(
@@ -152,21 +156,24 @@ export function editarUsuario(
 }
 
 export function editarMiEmail(
-  params: { email: string },
-): Promise<WeeiiIncomingMessage> {
-  return request('usuario_editar_mi_email', params);
+  params: { nuevo_email: string },
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('usuario_editar_mi_email', params, callback);
 }
 
 export function editarMiTelefono(
-  params: { telefono: string; pais?: string },
-): Promise<WeeiiIncomingMessage> {
-  return request('usuario_editar_mi_telefono', params);
+  params: { telefono_codigo_pais: string; telefono_nacional: string },
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('usuario_editar_mi_telefono', params, callback);
 }
 
 export function confirmarCambioDeTelefono(
-  params: { codigo: string; telefono: string },
-): Promise<WeeiiIncomingMessage> {
-  return request('usuario_confirmar_cambio_de_telefono', params);
+  params: { codigo_2fa: string },
+  callback: WeeiiFireCallback<{ usuario: Usuario }>,
+): () => void {
+  return fire('usuario_confirmar_cambio_de_telefono', params, callback);
 }
 
 export function confirmarRegistroExpress(

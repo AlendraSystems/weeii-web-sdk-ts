@@ -85,7 +85,7 @@ export function conectarYResumir(callbacks: ConectarYResumir = {}): void {
   registerPushHandler();
 
   // Listen for the first open event, then perform session resumption.
-  const off = transport.once('connected', async () => {
+  const off = transport.once('connected', () => {
     off(); // remove listener regardless of outcome
 
     // Let the caller know we're connected; they may abort the rest.
@@ -99,13 +99,15 @@ export function conectarYResumir(callbacks: ConectarYResumir = {}): void {
       return;
     }
 
-    try {
-      const params = token_push ? { token, token_push } : { token };
-      const msg = await resumirSesion(params);
-      callbacks.onSession?.(msg);
-    } catch {
-      callbacks.onFailed?.();
-    }
+    const params = token_push ? { token, token_push } : { token };
+    resumirSesion(params, (msg) => {
+      if (msg.isInterim) return;
+      if (msg.code === 'OK') {
+        callbacks.onSession?.(msg);
+      } else {
+        callbacks.onFailed?.();
+      }
+    });
   });
 
   // Kick off the connection (idempotent if already open).

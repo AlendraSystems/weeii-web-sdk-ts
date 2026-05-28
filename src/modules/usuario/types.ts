@@ -24,17 +24,17 @@ export interface UsuarioSearchParams extends UsuarioQueryParams {
 }
 
 export interface RegistrarClienteParams {
-  nombre:    string;
-  telefono:  string;
-  pais?:     string;
-  email?:    string;
+  nombre:               string;
+  telefono_codigo_pais: string;
+  telefono_nacional:    string;
+  email?:               string;
 }
 
 export interface RegistrarRepartidorParams {
-  nombre:   string;
-  telefono: string;
-  pais?:    string;
-  email?:   string;
+  nombre:               string;
+  telefono_codigo_pais: string;
+  telefono_nacional:    string;
+  email?:               string;
 }
 
 export interface RegistrarInternoParams {

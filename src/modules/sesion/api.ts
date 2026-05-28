@@ -73,19 +73,26 @@ export function confirmarSesion(
   });
 }
 
-export async function resumirSesion(
+export function resumirSesion(
   params: ResumirSesionParams,
-): Promise<WeeiiIncomingMessage<{ sesion: Sesion }>> {
-  const msg = await request<{ sesion: Sesion }>('resumir_sesion', params);
-  const token = (msg.data.sesion as Sesion | undefined)?.token;
-  if (token) saveSessionToken(token);
-  return msg;
+  callback: WeeiiFireCallback<{ sesion: Sesion }>,
+): () => void {
+  return fire<{ sesion: Sesion }>('resumir_sesion', params, (msg) => {
+    if (!msg.isInterim) {
+      const token = (msg.data?.sesion as Sesion | undefined)?.token;
+      if (token) saveSessionToken(token);
+    }
+    return callback(msg);
+  });
 }
 
-export async function terminarSesion(): Promise<WeeiiIncomingMessage> {
-  const msg = await request('terminar_sesion');
-  clearSession();
-  return msg;
+export function terminarSesion(
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('terminar_sesion', {}, (msg) => {
+    if (!msg.isInterim) clearSession();
+    return callback(msg);
+  });
 }
 
 export async function asignarTokenPush(

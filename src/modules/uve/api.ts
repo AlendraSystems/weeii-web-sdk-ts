@@ -3,16 +3,17 @@
  *
  * Replaces: `modulos/usuarios/uve/uve.js`
  */
-import { request } from '../../api.js';
-import type { WeeiiIncomingMessage } from '../../api.js';
+import { request, fire } from '../../api.js';
+import type { WeeiiIncomingMessage, WeeiiFireCallback } from '../../api.js';
 import type { Uve, UveSearchParams } from './types.js';
 
 export type { Uve } from './types.js';
 
 export function solicitarValidacionEmail(
-  params: Record<string, unknown> = {},
-): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
-  return request('uve_solicitar_validacion_email', params);
+  params: { email: string },
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('uve_solicitar_validacion_email', params, callback);
 }
 
 export function uveSearch(
@@ -23,6 +24,7 @@ export function uveSearch(
 
 export function validarEmail(
   params: { token: string },
-): Promise<WeeiiIncomingMessage<Record<string, unknown>>> {
-  return request('uve_validar_email', params);
+  callback: WeeiiFireCallback,
+): () => void {
+  return fire('uve_validar_email', params, callback);
 }

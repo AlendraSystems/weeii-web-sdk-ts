@@ -11,7 +11,7 @@
  * Logout: terminarSesion() invalidates the server session and clears the token.
  */
 import { useRef, useCallback } from 'react';
-import { useWeeiiMutation, useWeeiiAsyncMutation } from '@weeii/sdk/react';
+import { useWeeiiAsyncMutation } from '@weeii/sdk/react';
 import {
   iniciarSesionConTelefono,
   confirmarSesion,
@@ -92,8 +92,8 @@ interface UseLogoutOptions {
 }
 
 export function useLogout({ onSuccess }: UseLogoutOptions) {
-  return useWeeiiMutation(
-    () => terminarSesion(),
+  return useWeeiiAsyncMutation(
+    (_params, callback) => terminarSesion(callback),
     {
       // clearSession() is called automatically inside terminarSesion.
       onSuccess: () => onSuccess(),
