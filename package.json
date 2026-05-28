@@ -118,6 +118,14 @@
       "import": "./dist/modules/estatus_entrega/index.js",
       "types": "./dist/modules/estatus_entrega/index.d.ts"
     },
+    "./estatus_orden": {
+      "import": "./dist/modules/estatus_orden/index.js",
+      "types": "./dist/modules/estatus_orden/index.d.ts"
+    },
+    "./archivo": {
+      "import": "./dist/modules/archivo/index.js",
+      "types": "./dist/modules/archivo/index.d.ts"
+    },
     "./pago": {
       "import": "./dist/modules/pago/index.js",
       "types": "./dist/modules/pago/index.d.ts"
@@ -234,10 +242,6 @@
       "import": "./dist/modules/repartidor_disponibilidad/index.js",
       "types": "./dist/modules/repartidor_disponibilidad/index.d.ts"
     },
-    "./saldo_negocio": {
-      "import": "./dist/modules/saldo_negocio/index.js",
-      "types": "./dist/modules/saldo_negocio/index.d.ts"
-    },
     "./tarjeta": {
       "import": "./dist/modules/tarjeta/index.js",
       "types": "./dist/modules/tarjeta/index.d.ts"
@@ -245,18 +249,6 @@
     "./metodo_pago": {
       "import": "./dist/modules/metodo_pago/index.js",
       "types": "./dist/modules/metodo_pago/index.d.ts"
-    },
-    "./zona": {
-      "import": "./dist/modules/zona/index.js",
-      "types": "./dist/modules/zona/index.d.ts"
-    },
-    "./zona_negocio": {
-      "import": "./dist/modules/zona_negocio/index.js",
-      "types": "./dist/modules/zona_negocio/index.d.ts"
-    },
-    "./zona_repartidor": {
-      "import": "./dist/modules/zona_repartidor/index.js",
-      "types": "./dist/modules/zona_repartidor/index.d.ts"
     },
     "./horario": {
       "import": "./dist/modules/horario/index.js",
@@ -266,29 +258,9 @@
       "import": "./dist/modules/horario_negocio/index.js",
       "types": "./dist/modules/horario_negocio/index.d.ts"
     },
-    "./configuracion": {
-      "import": "./dist/modules/configuracion/index.js",
-      "types": "./dist/modules/configuracion/index.d.ts"
-    },
-    "./configuracion_negocio": {
-      "import": "./dist/modules/configuracion_negocio/index.js",
-      "types": "./dist/modules/configuracion_negocio/index.d.ts"
-    },
     "./notificacion_usuario": {
       "import": "./dist/modules/notificacion_usuario/index.js",
       "types": "./dist/modules/notificacion_usuario/index.d.ts"
-    },
-    "./permiso": {
-      "import": "./dist/modules/permiso/index.js",
-      "types": "./dist/modules/permiso/index.d.ts"
-    },
-    "./rol_permiso": {
-      "import": "./dist/modules/rol_permiso/index.js",
-      "types": "./dist/modules/rol_permiso/index.d.ts"
-    },
-    "./usuario_rol": {
-      "import": "./dist/modules/usuario_rol/index.js",
-      "types": "./dist/modules/usuario_rol/index.d.ts"
     },
     "./etiqueta": {
       "import": "./dist/modules/etiqueta/index.js",
@@ -297,26 +269,6 @@
     "./etiqueta_producto": {
       "import": "./dist/modules/etiqueta_producto/index.js",
       "types": "./dist/modules/etiqueta_producto/index.d.ts"
-    },
-    "./busqueda": {
-      "import": "./dist/modules/busqueda/index.js",
-      "types": "./dist/modules/busqueda/index.d.ts"
-    },
-    "./reporte": {
-      "import": "./dist/modules/reporte/index.js",
-      "types": "./dist/modules/reporte/index.d.ts"
-    },
-    "./log_actividad": {
-      "import": "./dist/modules/log_actividad/index.js",
-      "types": "./dist/modules/log_actividad/index.d.ts"
-    },
-    "./plantilla": {
-      "import": "./dist/modules/plantilla/index.js",
-      "types": "./dist/modules/plantilla/index.d.ts"
-    },
-    "./plantilla_mensaje": {
-      "import": "./dist/modules/plantilla_mensaje/index.js",
-      "types": "./dist/modules/plantilla_mensaje/index.d.ts"
     },
     "./tipo_ubicacion": {
       "import": "./dist/modules/tipo_ubicacion/index.js",

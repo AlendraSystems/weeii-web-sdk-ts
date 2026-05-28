@@ -17,7 +17,7 @@ describe('useWeeiiRecord', () => {
 
   it('returns the record after it is upserted into the store', () => {
     const store = initStore();
-    store.upsert('usuario', { id: 1, version: 1, eliminado: false, nombre: 'Ana' });
+    store.upsert('usuario', { id: 1, version: 1, activo: true, nombre: 'Ana' });
     const { result } = renderHook(() =>
       useWeeiiRecord<{ id: number; nombre: string }>('usuario', 1),
     );
@@ -26,14 +26,14 @@ describe('useWeeiiRecord', () => {
 
   it('re-renders when the record changes', async () => {
     const store = initStore();
-    store.upsert('usuario', { id: 2, version: 1, eliminado: false, nombre: 'Original' });
+    store.upsert('usuario', { id: 2, version: 1, activo: true, nombre: 'Original' });
     const { result } = renderHook(() =>
       useWeeiiRecord<{ id: number; nombre: string }>('usuario', 2),
     );
     expect(result.current?.nombre).toBe('Original');
 
     await act(async () => {
-      store.upsert('usuario', { id: 2, version: 2, eliminado: false, nombre: 'Updated' });
+      store.upsert('usuario', { id: 2, version: 2, activo: true, nombre: 'Updated' });
     });
     expect(result.current?.nombre).toBe('Updated');
   });

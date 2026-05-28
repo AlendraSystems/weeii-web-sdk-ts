@@ -37,7 +37,7 @@ describe('store operations', () => {
   it('upserts and retrieves a record', () => {
     initStore();
     const store = getStore();
-    store.upsert('usuario', { id: 1, version: 1, eliminado: true, nombre: 'Test' });
+    store.upsert('usuario', { id: 1, version: 1, activo: true, nombre: 'Test' });
     const record = store.get<{ id: number; nombre: string }>('usuario', 1);
     expect(record?.nombre).toBe('Test');
   });
@@ -50,7 +50,7 @@ describe('store operations', () => {
   it('clears a table', () => {
     initStore();
     const store = getStore();
-    store.upsert('usuario', { id: 1, version: 1, eliminado: true });
+    store.upsert('usuario', { id: 1, version: 1, activo: false });
     store.clear('usuario');
     expect(store.get('usuario', 1)).toBeUndefined();
   });

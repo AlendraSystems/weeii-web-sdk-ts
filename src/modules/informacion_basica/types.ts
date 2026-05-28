@@ -1,7 +1,6 @@
-import type { WeeiiRecord, Timestamp } from '../../types.js';
+import type { WeeiiRecord } from '../../types.js';
 
 export interface InformacionBasica extends WeeiiRecord {
-  clave:        string;
-  valor:        string | null;
-  insertado_en: Timestamp;
+  clave: string;
+  valor: string | null;
 }

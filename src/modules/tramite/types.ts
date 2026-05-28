@@ -1,12 +1,10 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Tramite extends WeeiiRecord {
-  nombre:         string;
-  descripcion:    string | null;
-  facultad:       string;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  nombre:      string;
+  descripcion: string | null;
+  facultad:    string;
+  activo:      boolean;
 }
 
 export interface TramiteQueryParams {

@@ -1,15 +1,13 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaPlantilla extends WeeiiRecord {
-  id_cliente:        Id;
-  nombre:            string;
-  codigo_grupo:      string | null;
-  id_paquete:        Id | null;
-  id_seguro:         Id | null;
-  id_tipo_pago:      Id | null;
-  es_default:        boolean;
-  insertado_en:      Timestamp;
-  actualizado_en:    Timestamp;
+  id_cliente:   Id;
+  nombre:       string;
+  codigo_grupo: string | null;
+  id_paquete:   Id | null;
+  id_seguro:    Id | null;
+  id_tipo_pago: Id | null;
+  es_default:   boolean;
 }
 
 export interface EntregaPlantillaQueryParams {

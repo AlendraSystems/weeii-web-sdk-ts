@@ -1,12 +1,10 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Prueba extends WeeiiRecord {
-  id_validacion:  Id;
-  id_usuario:     Id;
-  datos:          Record<string, unknown> | null;
-  aprobada:       boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_validacion: Id;
+  id_usuario:    Id;
+  datos:         Record<string, unknown> | null;
+  aprobada:      boolean;
 }
 
 export interface PruebaQueryParams {

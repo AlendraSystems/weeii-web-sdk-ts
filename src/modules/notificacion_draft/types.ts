@@ -1,4 +1,4 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface NotificacionDraft extends WeeiiRecord {
   id_tipo_notificacion: Id;
@@ -6,8 +6,6 @@ export interface NotificacionDraft extends WeeiiRecord {
   cuerpo:               string;
   datos:                Record<string, unknown> | null;
   publicado:            boolean;
-  insertado_en:         Timestamp;
-  actualizado_en:       Timestamp;
 }
 
 export interface NotificacionDraftQueryParams {

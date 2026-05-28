@@ -10,9 +10,19 @@ export type Timestamp = string;
 
 /** Base shape that every Weeii entity carries after classification. */
 export interface WeeiiRecord {
-  id:        Id;
-  version:   number;
-  eliminado: boolean | null;
+  id:         Id;
+  id_entidad: number;
+  version:    number;
+  activo:     boolean;
+  // Returned only to record owners and privileged roles:
+  timestamp_creacion?:     Timestamp | null;
+  timestamp_modificacion?: Timestamp | null;
+  timestamp_eliminacion?:  Timestamp | null;
+  id_creador?:             Id | null;
+  id_entidad_creador?:     number | null;
+  id_eliminador?:          Id | null;
+  id_entidad_eliminador?:  number | null;
+  creacion_activa?:        boolean | null;
 }
 
 /**

@@ -1,13 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EquipoChatMsj extends WeeiiRecord {
-  id_chat:        Id;
-  id_chat_usr:    Id;
-  id_usuario:     Id;
-  mensaje:        string;
-  visto:          boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_chat:     Id;
+  id_chat_usr: Id;
+  id_usuario:  Id;
+  mensaje:     string;
+  visto:       boolean;
 }
 
 export interface EquipoChatMsjQueryParams {

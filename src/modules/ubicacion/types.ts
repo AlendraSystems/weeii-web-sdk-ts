@@ -1,4 +1,4 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Ubicacion extends WeeiiRecord {
   id_usuario:   Id;
@@ -8,7 +8,6 @@ export interface Ubicacion extends WeeiiRecord {
   latitud:      number;
   longitud:     number;
   es_principal: boolean;
-  insertado_en: Timestamp;
 }
 export interface UbicacionQueryParams {
   id_ultimo?:   Id;

@@ -1,4 +1,4 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaEvidencia extends WeeiiRecord {
   id_entrega:   Id;
@@ -7,7 +7,6 @@ export interface EntregaEvidencia extends WeeiiRecord {
   cuerpo:       string;
   latitud:      number | null;
   longitud:     number | null;
-  insertado_en: Timestamp;
 }
 
 export interface EntregaEvidenciaQueryParams {

@@ -1,14 +1,12 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Banner extends WeeiiRecord {
-  titulo:         string;
-  descripcion:    string | null;
-  imagen:         string | null;
-  url:            string | null;
-  activo:         boolean;
-  publicado:      boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  titulo:      string;
+  descripcion: string | null;
+  imagen:      string | null;
+  url:         string | null;
+  activo:      boolean;
+  publicado:   boolean;
 }
 
 export interface BannerQueryParams {

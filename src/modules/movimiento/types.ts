@@ -1,13 +1,12 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Movimiento extends WeeiiRecord {
-  id_usuario:   Id;
+  id_usuario:     Id;
   oid_relacionado: string | null;
-  monto:        number;
-  in_out:       'in' | 'out';
-  favor_o_contra: 'favor' | 'contra';
-  concepto:     string | null;
-  insertado_en: Timestamp;
+  monto:           number;
+  in_out:          'in' | 'out';
+  favor_o_contra:  'favor' | 'contra';
+  concepto:        string | null;
 }
 
 export interface MovimientoQueryParams {

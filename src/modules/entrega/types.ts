@@ -1,16 +1,14 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Entrega extends WeeiiRecord {
-  id_orden:       Id;
-  id_repartidor:  Id | null;
-  id_estatus:     Id;
-  direccion:      string;
-  latitud:        number | null;
-  longitud:       number | null;
-  costo:          number;
-  notas:          string | null;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_orden:      Id;
+  id_repartidor: Id | null;
+  id_estatus:    Id;
+  direccion:     string;
+  latitud:       number | null;
+  longitud:      number | null;
+  costo:         number;
+  notas:         string | null;
 }
 
 export interface EntregaEstadisticas {

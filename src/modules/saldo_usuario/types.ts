@@ -1,19 +1,17 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface SaldoUsuario extends WeeiiRecord {
-  id_usuario:   Id;
-  saldo:        number;
-  actualizado_en: Timestamp;
+  id_usuario: Id;
+  saldo:      number;
 }
 
 export interface MovimientoSaldo extends WeeiiRecord {
-  id_usuario:   Id;
+  id_usuario:    Id;
   id_referencia: Id | null;
   tipo:          string;
   monto:         number;
   saldo_despues: number;
   descripcion:   string | null;
-  insertado_en:  Timestamp;
 }
 export interface SaldoQueryParams {
   id_ultimo?:   Id;

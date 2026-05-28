@@ -1,11 +1,10 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Abono extends WeeiiRecord {
   id_usuario:     Id;
   id_responsable: Id | null;
   monto:          number;
   concepto:       string | null;
-  insertado_en:   Timestamp;
 }
 
 export interface AbonoQueryParams {

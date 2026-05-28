@@ -18,8 +18,8 @@ describe('useWeeiiCollection', () => {
 
   it('reflects records that are already in the store at render time', () => {
     const store = initStore();
-    store.upsert('usuario', { id: 1, version: 1, eliminado: false, nombre: 'Ana' });
-    store.upsert('usuario', { id: 2, version: 1, eliminado: false, nombre: 'Bob' });
+    store.upsert('usuario', { id: 1, version: 1, activo: true, nombre: 'Ana' });
+    store.upsert('usuario', { id: 2, version: 1, activo: true, nombre: 'Bob' });
     const { result } = renderHook(() => useWeeiiCollection('usuario'));
     expect(result.current.count).toBe(2);
   });
@@ -30,14 +30,14 @@ describe('useWeeiiCollection', () => {
     expect(result.current.count).toBe(0);
 
     await act(async () => {
-      store.upsert('usuario', { id: 3, version: 1, eliminado: false, nombre: 'Carlos' });
+      store.upsert('usuario', { id: 3, version: 1, activo: true, nombre: 'Carlos' });
     });
     expect(result.current.count).toBe(1);
   });
 
   it('re-renders when a record is removed', async () => {
     const store = initStore();
-    store.upsert('usuario', { id: 4, version: 1, eliminado: false });
+    store.upsert('usuario', { id: 4, version: 1, activo: true });
     const { result } = renderHook(() => useWeeiiCollection('usuario'));
     expect(result.current.count).toBe(1);
 

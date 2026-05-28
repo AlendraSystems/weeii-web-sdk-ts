@@ -1,11 +1,10 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaMensaje extends WeeiiRecord {
   id_entrega:   Id;
   id_usuario:   Id | null;
   id_adjunto:   Id | null;
   cuerpo:       string;
-  insertado_en: Timestamp;
 }
 
 export interface EntregaMensajeQueryParams {

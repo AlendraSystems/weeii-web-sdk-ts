@@ -1,10 +1,9 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Notificacion extends WeeiiRecord {
-  id_usuario:   Id;
-  tipo:         string;
-  titulo:       string;
-  cuerpo:       string | null;
-  leida:        boolean;
-  insertado_en: Timestamp;
+  id_usuario: Id;
+  tipo:       string;
+  titulo:     string;
+  cuerpo:     string | null;
+  leida:      boolean;
 }

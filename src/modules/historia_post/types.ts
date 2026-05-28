@@ -1,13 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface HistoriaPost extends WeeiiRecord {
-  id_historia:    Id;
-  contenido:      string | null;
-  imagen:         string | null;
-  publicado:      boolean;
-  likes:          number;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_historia: Id;
+  contenido:   string | null;
+  imagen:      string | null;
+  publicado:   boolean;
+  likes:       number;
 }
 
 export interface HistoriaPostQueryParams {

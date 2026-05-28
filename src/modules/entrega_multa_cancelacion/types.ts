@@ -1,4 +1,4 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaMultaCancelacion extends WeeiiRecord {
   id_entrega:  Id;
@@ -6,7 +6,6 @@ export interface EntregaMultaCancelacion extends WeeiiRecord {
   monto:       number;
   motivo:      string | null;
   id_adjunto:  Id | null;
-  insertado_en: Timestamp;
 }
 
 export interface EntregaMultaCancelacionQueryParams {

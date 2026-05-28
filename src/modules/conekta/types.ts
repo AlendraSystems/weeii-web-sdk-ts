@@ -1,13 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Conekta extends WeeiiRecord {
-  id_usuario:     Id;
-  monto:          number;
-  referencia:     string | null;
-  token:          string | null;
-  id_estatus:     Id;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_usuario: Id;
+  monto:      number;
+  referencia: string | null;
+  token:      string | null;
+  id_estatus: Id;
 }
 
 export interface ConektaQueryParams {

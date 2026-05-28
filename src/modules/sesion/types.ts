@@ -1,13 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Sesion extends WeeiiRecord {
-  id_usuario:    Id;
-  token:         string;
-  activa:        boolean;
-  ip:            string | null;
-  agente:        string | null;
-  insertado_en:  Timestamp;
-  actualizado_en: Timestamp;
+  id_usuario: Id;
+  token:      string;
+  activa:     boolean;
+  ip:         string | null;
+  agente:     string | null;
 }
 
 // ── Query params ────────────────────────────────────────────────────────────

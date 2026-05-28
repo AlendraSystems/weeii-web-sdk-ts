@@ -1,11 +1,9 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Plataforma extends WeeiiRecord {
-  nombre:         string;
-  descripcion:    string | null;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  nombre:      string;
+  descripcion: string | null;
+  activo:      boolean;
 }
 
 export interface PlataformaQueryParams {

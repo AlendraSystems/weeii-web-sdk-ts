@@ -1,4 +1,4 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Usuario extends WeeiiRecord {
   nombre:         string;
@@ -9,8 +9,6 @@ export interface Usuario extends WeeiiRecord {
   avatar:         string | null;
   email_validado: boolean;
   tel_validado:   boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
 }
 
 export interface UsuarioQueryParams {

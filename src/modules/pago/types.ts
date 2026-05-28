@@ -1,12 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Pago extends WeeiiRecord {
-  id_usuario:    Id;
-  id_tipo_pago:  Id;
-  oid:           string | null;
+  id_usuario:      Id;
+  id_tipo_pago:    Id;
+  oid:             string | null;
   oid_relacionado: string | null;
-  monto:         number;
-  insertado_en:  Timestamp;
+  monto:           number;
 }
 
 export interface PagoQueryParams {

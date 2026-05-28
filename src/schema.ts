@@ -17,14 +17,14 @@ import type { SchemaConfig } from '@silasdevs/core/store';
 // Helper — table with a known Erlang entity ID.
 //   primary key : 'id'
 //   version     : 'version'
-//   soft-delete : 'eliminado'
+//   soft-delete : 'activo' (falsy = deleted)
 //   resolver    : 'id_entidad' matched against the given integer value
 // ---------------------------------------------------------------------------
 function entity(id: number): SchemaConfig['tables'][string] {
   return {
     key:           'id',
     version:       'version',
-    softDelete:    'eliminado',
+    softDelete:    'activo',
     resolverProp:  'id_entidad',
     resolverValue: id,
   };
@@ -37,7 +37,7 @@ function named(): SchemaConfig['tables'][string] {
   return {
     key:        'id',
     version:    'version',
-    softDelete: 'eliminado',
+    softDelete: 'activo',
   };
 }
 
@@ -98,6 +98,7 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     negocio:                           entity(200),
     categoria:                         entity(201),
     producto:                          entity(202),
+    estatus_orden:                     entity(203),
     orden:                             entity(204),
     concepto:                          entity(205),
     negocio_cliente:                   entity(206),
@@ -120,27 +121,13 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     repartidor:                        named(),
     repartidor_zona:                   named(),
     repartidor_disponibilidad:         named(),
-    saldo_negocio:                     named(),
     tarjeta:                           named(),
     metodo_pago:                       named(),
-    zona:                              named(),
-    zona_negocio:                      named(),
-    zona_repartidor:                   named(),
     horario:                           named(),
     horario_negocio:                   named(),
-    configuracion:                     named(),
-    configuracion_negocio:             named(),
     notificacion_usuario:              named(),
-    permiso:                           named(),
-    rol_permiso:                       named(),
-    usuario_rol:                       named(),
     etiqueta:                          named(),
     etiqueta_producto:                 named(),
-    busqueda:                          named(),
-    reporte:                           named(),
-    log_actividad:                     named(),
-    plantilla:                         named(),
-    plantilla_mensaje:                 named(),
     tipo_ubicacion:                    named(),
     tipo_movimiento:                   named(),
     tipo_producto:                     named(),

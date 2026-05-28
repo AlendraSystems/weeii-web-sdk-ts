@@ -1,9 +1,8 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaRepartidor extends WeeiiRecord {
   id_entrega:    Id;
   id_repartidor: Id;
-  insertado_en:  Timestamp;
 }
 
 export interface EntregaRepartidorSearchParams {

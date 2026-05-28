@@ -1,13 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface NegocioCliente extends WeeiiRecord {
-  id_negocio:     Id;
-  id_cliente:     Id;
-  id_usuario:     Id;
-  notas:          string | null;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_negocio: Id;
+  id_cliente: Id;
+  id_usuario: Id;
+  notas:      string | null;
+  activo:     boolean;
 }
 
 export interface NegocioClienteQueryParams {
