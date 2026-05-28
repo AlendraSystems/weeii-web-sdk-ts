@@ -1,10 +1,9 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface TicketChat extends WeeiiRecord {
-  id_ticket:      Id | null;
-  id_usuario:     Id;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_usuario:  Id;
+  id_asignado: Id | null;
+  id_ticket:   Id | null;
 }
 
 export interface TicketChatQueryParams {

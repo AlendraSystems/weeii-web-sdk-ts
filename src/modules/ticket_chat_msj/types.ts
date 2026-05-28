@@ -1,15 +1,15 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface TicketChatMsj extends WeeiiRecord {
-  id_chat:        Id;
-  id_chat_usr:    Id;
-  id_usuario:     Id;
-  id_ticket:      Id | null;
-  mensaje:        string;
-  tiene_adjunto:  boolean;
-  visto:          boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_sender:       Id;
+  id_chat:         Id;
+  id_chat_usr:     Id | null;
+  id_usuario_canal: Id;
+  id_reply:        Id | null;
+  cuerpo:          string | null;
+  id_adjunto:      Id | null;
+  latitud:         number | null;
+  longitud:        number | null;
 }
 
 export interface TicketChatMsjQueryParams {

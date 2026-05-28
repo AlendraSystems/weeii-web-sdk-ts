@@ -1,8 +1,10 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface SaldoUsuario extends WeeiiRecord {
-  id_usuario: Id;
-  saldo:      number;
+  id_usuario:    Id;
+  saldo_a_favor:   number;
+  saldo_en_contra: number;
+  saldo_reservado: number;
 }
 
 export interface MovimientoSaldo extends WeeiiRecord {

@@ -56,7 +56,7 @@ export function registrarNotificacionDraft(
 }
 
 export function editarNotificacionDraft(
-  params: { id: number } & Partial<Pick<NotificacionDraft, 'titulo' | 'cuerpo' | 'datos'>>,
+  params: { id: number } & Partial<Pick<NotificacionDraft, 'titulo' | 'contenido'>>,
 ): Promise<WeeiiIncomingMessage<{ notificacion_draft: NotificacionDraft }>> {
   return request('notificacion_draft_editar', params);
 }

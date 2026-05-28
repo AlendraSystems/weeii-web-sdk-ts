@@ -1,11 +1,15 @@
-import type { WeeiiRecord, Id } from '../../types.js';
+import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
 
 export interface Solicitud extends WeeiiRecord {
-  id_tramite:   Id;
-  id_usuario:   Id;
-  id_validador: Id | null;
-  facultad:     string;
-  validado:     boolean;
+  id_tramite:     Id;
+  facultad:       string;
+  id_validacion:  Id | null;
+  ie_relacionado: number | null;
+  id_relacionado: Id | null;
+  validado:       boolean;
+  ts_validado:    Timestamp | null;
+  id_validador:   Id | null;
+  notas:          string | null;
 }
 
 export interface SolicitudQueryParams {

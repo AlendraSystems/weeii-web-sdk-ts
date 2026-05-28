@@ -1,12 +1,14 @@
 import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
 
 export interface Historia extends WeeiiRecord {
-  titulo:         string;
-  descripcion:    string | null;
-  imagen:         string | null;
-  publicado:      boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  titulo:   string;
+  id_img:   number | null;
+  // Admin-only:
+  visible?:                           boolean | null;
+  publicada?:                         boolean | null;
+  vigente?:                           boolean | null;
+  timestamp_vigencia_inicio?:         Timestamp | null;
+  timestamp_vigencia_terminacion?:    Timestamp | null;
 }
 
 export interface HistoriaQueryParams {

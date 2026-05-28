@@ -3,10 +3,13 @@ import type { WeeiiRecord, Id } from '../../types.js';
 export interface Banner extends WeeiiRecord {
   titulo:      string;
   descripcion: string | null;
-  imagen:      string | null;
-  url:         string | null;
-  activo:      boolean;
-  publicado:   boolean;
+  id_img:      number | null;
+  link:        string | null;
+  // Live counters (default 0):
+  vistas:      number;
+  clics:       number;
+  likes:       number;
+  usuarios:    number;
 }
 
 export interface BannerQueryParams {

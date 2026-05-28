@@ -1,13 +1,15 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Ubicacion extends WeeiiRecord {
-  id_usuario:   Id;
-  id_negocio:   Id | null;
-  alias:        string | null;
-  direccion:    string;
-  latitud:      number;
-  longitud:     number;
-  es_principal: boolean;
+  id_usuario:            Id;
+  id_entrega:            number | null;
+  guardada:              boolean;
+  nombre:                string | null;
+  direccion:             string;
+  latitud:               number;
+  longitud:              number;
+  admon_origen_default:  boolean;
+  admon_destino_default: boolean;
 }
 export interface UbicacionQueryParams {
   id_ultimo?:   Id;

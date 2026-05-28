@@ -19,5 +19,5 @@ export function rolSearch(
 export function editarRol(
   params: { id: number } & Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ rol: Rol }>> {
-  return request('editar_rol', params);
+  return request('rol_editar', params);
 }

@@ -44,7 +44,7 @@ export function pruebaPorIdValidacion(
 }
 
 export function editarPrueba(
-  params: { id: number } & Partial<Pick<Prueba, 'datos'>>,
+  params: { id: number } & Partial<Pick<Prueba, 'contenido'>>,
 ): Promise<WeeiiIncomingMessage<{ prueba: Prueba }>> {
   return request('prueba_editar', params);
 }

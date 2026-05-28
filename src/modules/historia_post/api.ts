@@ -24,29 +24,29 @@ export function historiaPostPublicoGeneral(
 export function registrarHistoriaPost(
   params: { id_historia: number } & Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ historia_post: HistoriaPost }>> {
-  return request('registrar_historia_post', params);
+  return request('historia_post_registrar', params);
 }
 
 export function eliminarHistoriaPost(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('eliminar_historia_post', params);
+  return request('historia_post_eliminar', params);
 }
 
 export function publicarHistoriaPost(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage<{ historia_post: HistoriaPost }>> {
-  return request('publicar_historia_post', params);
+  return request('historia_post_publicar', params);
 }
 
 export function likeHistoriaPost(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('like_historia_post', params);
+  return request('historia_post_like', params);
 }
 
 export function vistoHistoriaPost(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
-  return request('visto_historia_post', params);
+  return request('historia_post_visto', params);
 }

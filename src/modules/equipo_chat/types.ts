@@ -1,8 +1,10 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EquipoChat extends WeeiiRecord {
-  id_equipo: Id;
-  nombre:    string;
+  id_equipo:   Id;
+  id_miembro:  Id | null;
+  id_lider:    Id | null;
+  n_mensajes:  number;
 }
 
 export interface EquipoChatQueryParams {

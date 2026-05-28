@@ -1,11 +1,17 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Sesion extends WeeiiRecord {
-  id_usuario: Id;
-  token:      string;
-  activa:     boolean;
-  ip:         string | null;
-  agente:     string | null;
+  id_usuario:           Id;
+  id_plataforma:        number | null;
+  id_aplicacion:        number | null;
+  telefono:             string | null;
+  token?:               string | null;
+  token_push:           string | null;
+  user_agent:           string | null;
+  creacion_latitud:     number | null;
+  creacion_longitud:    number | null;
+  creacion_angulo:      number | null;
+  creacion_mac_address: string | null;
 }
 
 // ── Query params ────────────────────────────────────────────────────────────

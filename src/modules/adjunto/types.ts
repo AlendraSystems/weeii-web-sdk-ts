@@ -1,11 +1,11 @@
-import type { WeeiiRecord } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Adjunto extends WeeiiRecord {
-  id_tipo_adjunto: number;
-  url:             string;
-  nombre:          string | null;
-  mime:            string | null;
-  tamano:          number | null;
+  id_tipo_adjunto: Id;
+  titulo:          string | null;
+  contenido:       string | null;
+  public_id:       string | null;
+  url:             string | null;
 }
 
 export interface AdjuntoSearchParams {

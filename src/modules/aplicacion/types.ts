@@ -1,11 +1,12 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Aplicacion extends WeeiiRecord {
-  nombre:         string;
-  descripcion:    string | null;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_plataforma:                   Id;
+  nombre:                          string;
+  descripcion:                     string | null;
+  // Admin-only:
+  id_proyecto_firebase?:           string | null;
+  clave_autorizacion_firebase?:    string | null;
 }
 
 export interface AplicacionQueryParams {

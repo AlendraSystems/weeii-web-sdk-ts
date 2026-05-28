@@ -1,13 +1,17 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Requisito extends WeeiiRecord {
-  id_tramite:     Id;
-  nombre:         string;
-  descripcion:    string | null;
-  facultad:       string;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_tramite:   Id;
+  facultad:     string;
+  tipo:         string;
+  nombre:       string;
+  descripcion:  string | null;
+  permitir_otro: boolean;
+  opciones:     string[] | null;
+  id_img_1:     string | null;
+  id_img_2:     string | null;
+  id_img_3:     string | null;
+  id_img_4:     string | null;
 }
 
 export interface RequisitoQueryParams {

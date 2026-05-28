@@ -62,7 +62,7 @@ export function registrarBanner(
 }
 
 export function editarBanner(
-  params: { id: number } & Partial<Pick<Banner, 'titulo' | 'descripcion' | 'imagen' | 'url' | 'activo'>>,
+  params: { id: number } & Partial<Pick<Banner, 'titulo' | 'descripcion' | 'id_img' | 'link'>>,
 ): Promise<WeeiiIncomingMessage<{ banner: Banner }>> {
   return request('banner_editar', params);
 }

@@ -1,10 +1,8 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Miembro extends WeeiiRecord {
-  id_equipo:    Id;
-  id_usuario:   Id;
-  id_asignador: Id;
-  activo:       boolean;
+  id_equipo:  Id;
+  id_usuario: Id;
 }
 
 export interface MiembroQueryParams {

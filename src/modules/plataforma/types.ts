@@ -3,7 +3,6 @@ import type { WeeiiRecord, Id } from '../../types.js';
 export interface Plataforma extends WeeiiRecord {
   nombre:      string;
   descripcion: string | null;
-  activo:      boolean;
 }
 
 export interface PlataformaQueryParams {

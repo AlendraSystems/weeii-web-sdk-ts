@@ -3,8 +3,11 @@ import type { WeeiiRecord, Id } from '../../types.js';
 export interface Seguro extends WeeiiRecord {
   nombre:      string;
   descripcion: string | null;
+  permitido:   boolean;
   precio:      number;
-  activo:      boolean;
+  cobertura:   number;
+  foto:        string | null;
+  banner:      string | null;
 }
 
 export interface SeguroQueryParams {

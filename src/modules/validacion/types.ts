@@ -2,11 +2,12 @@ import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
 
 export interface Validacion extends WeeiiRecord {
   id_tramite:     Id;
-  id_usuario:     Id;
   facultad:       string;
-  validada:       boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  ie_relacionado: number | null;
+  id_relacionado: Id | null;
+  validado:       boolean;
+  ts_validado:    Timestamp | null;
+  id_validador:   Id | null;
 }
 
 export interface ValidacionQueryParams {

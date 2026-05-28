@@ -1,11 +1,10 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface NotificacionObj extends WeeiiRecord {
-  id_notificacion: Id;
   id_usuario:      Id;
-  leida:           boolean;
-  insertado_en:    Timestamp;
-  actualizado_en:  Timestamp;
+  id_notificacion: Id;
+  ie_obj:          number | null;
+  id_obj:          Id | null;
 }
 
 export interface NotificacionObjQueryParams {

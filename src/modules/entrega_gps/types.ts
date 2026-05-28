@@ -1,11 +1,11 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaGps extends WeeiiRecord {
   id_entrega:   Id;
   id_usuario:   Id;
   latitud:      number;
   longitud:     number;
-  insertado_en: Timestamp;
+  orientacion:  number | null;
 }
 
 export interface EntregaGpsQueryParams {

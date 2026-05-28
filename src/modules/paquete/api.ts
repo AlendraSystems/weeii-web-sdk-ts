@@ -32,7 +32,7 @@ export function registrarPaquete(
 }
 
 export function editarPaquete(
-  params: { id: number } & Partial<Pick<Paquete, 'nombre' | 'descripcion' | 'precio' | 'activo'>>,
+  params: { id: number } & Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ paquete: Paquete }>> {
   return request('paquete_editar', params);
 }

@@ -2,9 +2,7 @@ import type { WeeiiRecord } from '../../types.js';
 
 export interface TipoNotificacion extends WeeiiRecord {
   nombre:      string;
-  clave:       string;
   descripcion: string | null;
-  orden:       number | null;
 }
 
 export interface TipoNotificacionQueryParams {

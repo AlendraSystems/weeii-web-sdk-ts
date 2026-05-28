@@ -1,11 +1,15 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Equipo extends WeeiiRecord {
+  id_lider:       Id | null;
+  id_usuario_lider: Id | null;
+  autorizado:     boolean;
+  abierto:        boolean;
   nombre:         string;
+  slogan:         string | null;
   descripcion:    string | null;
-  activo:         boolean;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  logo:           string | null;
+  banner:         string | null;
 }
 
 export interface EquipoQueryParams {

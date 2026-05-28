@@ -1,8 +1,10 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface EntregaRepartidor extends WeeiiRecord {
-  id_entrega:    Id;
-  id_repartidor: Id;
+  id_entrega:        Id;
+  id_cliente:        Id;
+  id_repartidor:     Id;
+  id_estatus_entrega: number;
 }
 
 export interface EntregaRepartidorSearchParams {

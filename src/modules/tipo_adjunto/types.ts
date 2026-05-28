@@ -2,9 +2,7 @@ import type { WeeiiRecord } from '../../types.js';
 
 export interface TipoAdjunto extends WeeiiRecord {
   nombre:      string;
-  clave:       string;
   descripcion: string | null;
-  orden:       number | null;
 }
 
 export interface TipoAdjuntoQueryParams {
@@ -20,7 +18,5 @@ export interface TipoAdjuntoSearchParams extends TipoAdjuntoQueryParams {
 export interface EditarTipoAdjuntoParams {
   id:           number;
   nombre?:      string;
-  clave?:       string;
   descripcion?: string | null;
-  orden?:       number | null;
 }

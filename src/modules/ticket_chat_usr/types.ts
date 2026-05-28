@@ -1,10 +1,14 @@
-import type { WeeiiRecord, Id, Timestamp } from '../../types.js';
+import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface TicketChatUsr extends WeeiiRecord {
-  id_chat:        Id;
-  id_usuario:     Id;
-  insertado_en:   Timestamp;
-  actualizado_en: Timestamp;
+  id_usuario:                Id;
+  id_chat:                   Id;
+  id_usuario_canal:          Id;
+  n_mensajes:                number;
+  id_ultimo_mensaje_visto:   Id | null;
+  id_ultimo_mensaje_enviado: Id | null;
+  // Own user only:
+  silenciado?: boolean | null;
 }
 
 export interface TicketChatUsrQueryParams {

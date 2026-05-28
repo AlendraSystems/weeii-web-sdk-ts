@@ -1,9 +1,17 @@
 import type { WeeiiRecord } from '../../types.js';
 
 export interface EntregaEstatus extends WeeiiRecord {
-  id_entrega:         number;
-  id_estatus_entrega: number;
-  descripcion:        string | null;
+  // Creation geo:
+  creacion_latitud:     number | null;
+  creacion_longitud:    number | null;
+  creacion_angulo:      number | null;
+  creacion_mac_address: string | null;
+  // Fields:
+  id_entrega:        number;
+  id_estatus_previo: number;
+  id_estatus_nuevo:  number;
+  latitud:           number | null;
+  longitud:          number | null;
 }
 
 export interface EntregaEstatusQueryParams {

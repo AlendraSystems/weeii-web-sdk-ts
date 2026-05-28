@@ -2,9 +2,9 @@ import type { WeeiiRecord } from '../../types.js';
 
 export interface TipoPago extends WeeiiRecord {
   nombre:      string;
-  clave:       string;
   descripcion: string | null;
-  activo:      boolean;
+  permitido:   boolean;
+  limite:      number | null;
 }
 
 export interface TipoPagoQueryParams {

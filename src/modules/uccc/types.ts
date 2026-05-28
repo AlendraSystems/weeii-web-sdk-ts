@@ -2,7 +2,6 @@ import type { WeeiiRecord, Timestamp, Id } from '../../types.js';
 
 export interface Uccc extends WeeiiRecord {
   id_usuario:          Id;
-  token:               string | null;
   duracion:            number;
   timestamp_caducidad: Timestamp | null;
 }

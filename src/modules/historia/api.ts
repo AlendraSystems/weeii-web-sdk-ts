@@ -44,7 +44,7 @@ export function registrarHistoria(
 }
 
 export function editarHistoria(
-  params: { id: number } & Partial<Pick<Historia, 'titulo' | 'descripcion' | 'imagen'>>,
+  params: { id: number } & Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ historia: Historia }>> {
   return request('historia_editar', params);
 }

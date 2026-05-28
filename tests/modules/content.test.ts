@@ -129,24 +129,24 @@ describe('historia_post', () => {
     await historiaPostPublicoGeneral({ id_historia: 1 });
     expect(request).toHaveBeenCalledWith('historia_post_publico_general', { id_historia: 1 });
   });
-  it('registrarHistoriaPost → registrar_historia_post', async () => {
+  it('registrarHistoriaPost → historia_post_registrar', async () => {
     await registrarHistoriaPost({ id_historia: 1, imagen: 'img.jpg' });
-    expect(request).toHaveBeenCalledWith('registrar_historia_post', { id_historia: 1, imagen: 'img.jpg' });
+    expect(request).toHaveBeenCalledWith('historia_post_registrar', { id_historia: 1, imagen: 'img.jpg' });
   });
-  it('eliminarHistoriaPost → eliminar_historia_post', async () => {
+  it('eliminarHistoriaPost → historia_post_eliminar', async () => {
     await eliminarHistoriaPost({ id: 1 });
-    expect(request).toHaveBeenCalledWith('eliminar_historia_post', { id: 1 });
+    expect(request).toHaveBeenCalledWith('historia_post_eliminar', { id: 1 });
   });
-  it('publicarHistoriaPost → publicar_historia_post', async () => {
+  it('publicarHistoriaPost → historia_post_publicar', async () => {
     await publicarHistoriaPost({ id: 1 });
-    expect(request).toHaveBeenCalledWith('publicar_historia_post', { id: 1 });
+    expect(request).toHaveBeenCalledWith('historia_post_publicar', { id: 1 });
   });
-  it('likeHistoriaPost → like_historia_post', async () => {
+  it('likeHistoriaPost → historia_post_like', async () => {
     await likeHistoriaPost({ id: 1 });
-    expect(request).toHaveBeenCalledWith('like_historia_post', { id: 1 });
+    expect(request).toHaveBeenCalledWith('historia_post_like', { id: 1 });
   });
-  it('vistoHistoriaPost → visto_historia_post', async () => {
+  it('vistoHistoriaPost → historia_post_visto', async () => {
     await vistoHistoriaPost({ id: 1 });
-    expect(request).toHaveBeenCalledWith('visto_historia_post', { id: 1 });
+    expect(request).toHaveBeenCalledWith('historia_post_visto', { id: 1 });
   });
 });

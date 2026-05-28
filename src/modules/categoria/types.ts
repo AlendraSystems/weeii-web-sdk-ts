@@ -1,11 +1,16 @@
 import type { WeeiiRecord, Id } from '../../types.js';
 
 export interface Categoria extends WeeiiRecord {
-  nombre:      string;
-  descripcion: string | null;
-  icono:       string | null;
-  id_negocio:  Id | null;
-  activa:      boolean;
+  id_usuario:      Id;
+  id_negocio:      Id | null;
+  nombre:          string;
+  descripcion:     string | null;
+  autorizada:      boolean;
+  permitida:       boolean;
+  horario_inicio:  number | null;
+  horario_fin:     number | null;
+  foto:            string | null;
+  banner:          string | null;
 }
 
 export interface CategoriaQueryParams {
