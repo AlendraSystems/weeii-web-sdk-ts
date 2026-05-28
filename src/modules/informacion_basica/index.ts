@@ -1,2 +1,2 @@
 export { informacionBasica } from './api.js';
-export type { InformacionBasica } from './types.js';
+export type { InformacionBasicaResponse } from './types.js';

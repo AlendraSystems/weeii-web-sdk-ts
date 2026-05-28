@@ -70,10 +70,6 @@
       "import": "./dist/modules/categoria/index.js",
       "types": "./dist/modules/categoria/index.d.ts"
     },
-    "./negocio_cliente": {
-      "import": "./dist/modules/negocio_cliente/index.js",
-      "types": "./dist/modules/negocio_cliente/index.d.ts"
-    },
     "./link_pago": {
       "import": "./dist/modules/link_pago/index.js",
       "types": "./dist/modules/link_pago/index.d.ts"
@@ -197,102 +193,6 @@
     "./tipo_notificacion": {
       "import": "./dist/modules/tipo_notificacion/index.js",
       "types": "./dist/modules/tipo_notificacion/index.d.ts"
-    },
-    "./producto_variante": {
-      "import": "./dist/modules/producto_variante/index.js",
-      "types": "./dist/modules/producto_variante/index.d.ts"
-    },
-    "./producto_presentacion": {
-      "import": "./dist/modules/producto_presentacion/index.js",
-      "types": "./dist/modules/producto_presentacion/index.d.ts"
-    },
-    "./inventario": {
-      "import": "./dist/modules/inventario/index.js",
-      "types": "./dist/modules/inventario/index.d.ts"
-    },
-    "./precio": {
-      "import": "./dist/modules/precio/index.js",
-      "types": "./dist/modules/precio/index.d.ts"
-    },
-    "./descuento": {
-      "import": "./dist/modules/descuento/index.js",
-      "types": "./dist/modules/descuento/index.d.ts"
-    },
-    "./promocion": {
-      "import": "./dist/modules/promocion/index.js",
-      "types": "./dist/modules/promocion/index.d.ts"
-    },
-    "./orden_linea": {
-      "import": "./dist/modules/orden_linea/index.js",
-      "types": "./dist/modules/orden_linea/index.d.ts"
-    },
-    "./orden_pago": {
-      "import": "./dist/modules/orden_pago/index.js",
-      "types": "./dist/modules/orden_pago/index.d.ts"
-    },
-    "./repartidor": {
-      "import": "./dist/modules/repartidor/index.js",
-      "types": "./dist/modules/repartidor/index.d.ts"
-    },
-    "./repartidor_zona": {
-      "import": "./dist/modules/repartidor_zona/index.js",
-      "types": "./dist/modules/repartidor_zona/index.d.ts"
-    },
-    "./repartidor_disponibilidad": {
-      "import": "./dist/modules/repartidor_disponibilidad/index.js",
-      "types": "./dist/modules/repartidor_disponibilidad/index.d.ts"
-    },
-    "./tarjeta": {
-      "import": "./dist/modules/tarjeta/index.js",
-      "types": "./dist/modules/tarjeta/index.d.ts"
-    },
-    "./metodo_pago": {
-      "import": "./dist/modules/metodo_pago/index.js",
-      "types": "./dist/modules/metodo_pago/index.d.ts"
-    },
-    "./horario": {
-      "import": "./dist/modules/horario/index.js",
-      "types": "./dist/modules/horario/index.d.ts"
-    },
-    "./horario_negocio": {
-      "import": "./dist/modules/horario_negocio/index.js",
-      "types": "./dist/modules/horario_negocio/index.d.ts"
-    },
-    "./notificacion_usuario": {
-      "import": "./dist/modules/notificacion_usuario/index.js",
-      "types": "./dist/modules/notificacion_usuario/index.d.ts"
-    },
-    "./etiqueta": {
-      "import": "./dist/modules/etiqueta/index.js",
-      "types": "./dist/modules/etiqueta/index.d.ts"
-    },
-    "./etiqueta_producto": {
-      "import": "./dist/modules/etiqueta_producto/index.js",
-      "types": "./dist/modules/etiqueta_producto/index.d.ts"
-    },
-    "./tipo_ubicacion": {
-      "import": "./dist/modules/tipo_ubicacion/index.js",
-      "types": "./dist/modules/tipo_ubicacion/index.d.ts"
-    },
-    "./tipo_movimiento": {
-      "import": "./dist/modules/tipo_movimiento/index.js",
-      "types": "./dist/modules/tipo_movimiento/index.d.ts"
-    },
-    "./tipo_producto": {
-      "import": "./dist/modules/tipo_producto/index.js",
-      "types": "./dist/modules/tipo_producto/index.d.ts"
-    },
-    "./tipo_descuento": {
-      "import": "./dist/modules/tipo_descuento/index.js",
-      "types": "./dist/modules/tipo_descuento/index.d.ts"
-    },
-    "./tipo_promocion": {
-      "import": "./dist/modules/tipo_promocion/index.js",
-      "types": "./dist/modules/tipo_promocion/index.d.ts"
-    },
-    "./tipo_reporte": {
-      "import": "./dist/modules/tipo_reporte/index.js",
-      "types": "./dist/modules/tipo_reporte/index.d.ts"
     },
     "./aplicacion": {
       "import": "./dist/modules/aplicacion/index.js",

@@ -23,7 +23,34 @@ export interface WeeiiRecord {
   id_eliminador?:          Id | null;
   id_entidad_eliminador?:  number | null;
   creacion_activa?:        boolean | null;
+  eliminacion_activa?:     boolean | null;
 }
+
+/** Real-world payment form used by an external transaction (cash, terminal, transfer, etc.). */
+export const FormasPago = {
+  Otro:          1,
+  Efectivo:      2,
+  Terminal:      3,
+  Transferencia: 4,
+  Link:          5,
+  Envio:         6,
+  Cheque:        7,
+  Tienda:        8,
+} as const;
+export type FormaPago = typeof FormasPago[keyof typeof FormasPago];
+
+/** Vehicle type for delivery drivers. `null` means on foot. */
+export const TiposVehiculo = {
+  Otro:    1,
+  Bici:    2,
+  Scooter: 3,
+  Moto:    4,
+  Coche:   5,
+  Pickup:  6,
+  Van:     7,
+  Trailer: 8,
+} as const;
+export type TipoVehiculo = typeof TiposVehiculo[keyof typeof TiposVehiculo] | null;
 
 /**
  * Wrapper around a server response body after classification.

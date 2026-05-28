@@ -30,17 +30,6 @@ function entity(id: number): SchemaConfig['tables'][string] {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Helper — table without a confirmed entity ID (name-based resolution).
-// ---------------------------------------------------------------------------
-function named(): SchemaConfig['tables'][string] {
-  return {
-    key:        'id',
-    version:    'version',
-    softDelete: 'activo',
-  };
-}
-
 export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
   tables: {
     // ── Adjuntos ────────────────────────────────────────────────────────────
@@ -71,6 +60,7 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     adeudo:                            entity(181),
     deposito:                          entity(183),
     abono:                             entity(184),
+    link_pago:                         entity(185),
 
     // ── Roles & Acceso ───────────────────────────────────────────────────────
     rol:                               entity(60),
@@ -101,39 +91,12 @@ export const WEEII_SCHEMA_CONFIG: SchemaConfig = {
     estatus_orden:                     entity(203),
     orden:                             entity(204),
     concepto:                          entity(205),
-    negocio_cliente:                   entity(206),
 
     // ── Jornadas ─────────────────────────────────────────────────────────────
     jornada:                           entity(220),
 
     // ── Clientes ─────────────────────────────────────────────────────────────
     cliente:                           entity(230),
-
-    // ── Tables without a confirmed Erlang entity ID (name-based resolution) ──
-    producto_variante:                 named(),
-    producto_presentacion:             named(),
-    inventario:                        named(),
-    precio:                            named(),
-    descuento:                         named(),
-    promocion:                         named(),
-    orden_linea:                       named(),
-    orden_pago:                        named(),
-    repartidor:                        named(),
-    repartidor_zona:                   named(),
-    repartidor_disponibilidad:         named(),
-    tarjeta:                           named(),
-    metodo_pago:                       named(),
-    horario:                           named(),
-    horario_negocio:                   named(),
-    notificacion_usuario:              named(),
-    etiqueta:                          named(),
-    etiqueta_producto:                 named(),
-    tipo_ubicacion:                    named(),
-    tipo_movimiento:                   named(),
-    tipo_producto:                     named(),
-    tipo_descuento:                    named(),
-    tipo_promocion:                    named(),
-    tipo_reporte:                      named(),
 
     // ── Aplicaciones & Plataforma ─────────────────────────────────────────
     aplicacion:                        entity(21),
