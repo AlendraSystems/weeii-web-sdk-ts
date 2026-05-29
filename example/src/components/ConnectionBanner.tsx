@@ -4,7 +4,7 @@
  * Displays a non-intrusive banner when the WebSocket is reconnecting or
  * fully disconnected. Uses useWeeiiContext() — must be inside <WeeiiProvider>.
  */
-import { useWeeiiContext } from '@weeii/sdk/react';
+import { useWeeiiContext } from '@silasdevs/sdk/react';
 
 export function ConnectionBanner() {
   const { status } = useWeeiiContext();

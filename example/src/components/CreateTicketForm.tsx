@@ -8,8 +8,8 @@
  * subscribes to the 'ticket' table via useWeeiiPaginatedCollection.
  */
 import { useState }         from 'react';
-import { useWeeiiMutation } from '@weeii/sdk/react';
-import { registrarTicket }  from '@weeii/sdk/ticket';
+import { useWeeiiMutation } from '@silasdevs/sdk/react';
+import { registrarTicket }  from '@silasdevs/sdk/ticket';
 
 export function CreateTicketForm() {
   const [titulo, setTitulo]           = useState('');

@@ -7,7 +7,7 @@
  *   - useWeeiiQuery to load data on mount
  *   - Composing child components that each handle one responsibility
  */
-import type { Sesion } from '@weeii/sdk/sesion';
+import type { Sesion } from '@silasdevs/sdk/sesion';
 import { useLogout }           from '../hooks/useAuth.tsx';
 import { CreateTicketForm }    from '../components/CreateTicketForm.tsx';
 import { TicketList }          from '../components/TicketList.tsx';

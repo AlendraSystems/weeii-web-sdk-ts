@@ -16,10 +16,10 @@
  *      into the store, and this component re-renders automatically.
  */
 import { useEffect, useRef }               from 'react';
-import { useWeeiiQuery, useWeeiiPaginatedCollection } from '@weeii/sdk/react';
-import { tickets }                          from '@weeii/sdk/ticket';
-import type { Ticket }                      from '@weeii/sdk/ticket';
-import type { WeeiiIncomingMessage }        from '@weeii/sdk';
+import { useWeeiiQuery, useWeeiiPaginatedCollection } from '@silasdevs/sdk/react';
+import { tickets }                          from '@silasdevs/sdk/ticket';
+import type { Ticket }                      from '@silasdevs/sdk/ticket';
+import type { WeeiiIncomingMessage }        from '@silasdevs/sdk';
 
 const PAGE_SIZE = 20;
 

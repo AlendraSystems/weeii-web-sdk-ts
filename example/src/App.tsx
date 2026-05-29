@@ -6,8 +6,8 @@
  *   'unauthenticated' → no valid session                    (shows LoginPage)
  *   'authenticated'   → session resumed successfully        (shows TicketsPage)
  */
-import { useWeeiiContext } from '@weeii/sdk/react';
-import type { Sesion } from '@weeii/sdk/sesion';
+import { useWeeiiContext } from '@silasdevs/sdk/react';
+import type { Sesion } from '@silasdevs/sdk/sesion';
 import { ConnectionBanner } from './components/ConnectionBanner.tsx';
 import { LoginPage }        from './pages/LoginPage.tsx';
 import { TicketsPage }      from './pages/TicketsPage.tsx';

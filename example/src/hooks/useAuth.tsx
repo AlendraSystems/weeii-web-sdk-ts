@@ -11,13 +11,13 @@
  * Logout: terminarSesion() invalidates the server session and clears the token.
  */
 import { useRef, useCallback } from 'react';
-import { useWeeiiAsyncMutation } from '@weeii/sdk/react';
+import { useWeeiiAsyncMutation } from '@silasdevs/sdk/react';
 import {
   iniciarSesionConTelefono,
   confirmarSesion,
   terminarSesion,
-} from '@weeii/sdk/sesion';
-import type { Sesion } from '@weeii/sdk/sesion';
+} from '@silasdevs/sdk/sesion';
+import type { Sesion } from '@silasdevs/sdk/sesion';
 
 // ---------------------------------------------------------------------------
 // Step 1 — request OTP

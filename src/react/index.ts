@@ -1,4 +1,4 @@
-// @weeii/sdk/react — Public API
+// @silasdevs/sdk/react — Public API
 export { WeeiiProvider, useWeeiiContext }    from './WeeiiProvider.js';
 export type { WeeiiProviderProps, WeeiiContextValue, AuthState } from './WeeiiProvider.js';
 export { useWeeiiRecord }                   from './useWeeiiRecord.js';
