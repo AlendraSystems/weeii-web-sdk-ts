@@ -8,7 +8,7 @@
  * Demonstrates useRequestOTP + useConfirmOTP from useAuth.tsx.
  */
 import { useState }    from 'react';
-import type { Sesion }  from '@weeii/sdk/sesion';
+import type { Sesion }  from '@silasdevs/sdk/sesion';
 import { useRequestOTP, useConfirmOTP } from '../hooks/useAuth.tsx';
 
 interface LoginPageProps {

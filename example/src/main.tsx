@@ -11,9 +11,9 @@
  */
 import { StrictMode, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { WeeiiProvider } from '@weeii/sdk/react';
-import type { WeeiiIncomingMessage } from '@weeii/sdk';
-import type { Sesion } from '@weeii/sdk/sesion';
+import { WeeiiProvider } from '@silasdevs/sdk/react';
+import type { WeeiiIncomingMessage } from '@silasdevs/sdk';
+import type { Sesion } from '@silasdevs/sdk/sesion';
 import { App } from './App.tsx';
 
 // ---------------------------------------------------------------------------

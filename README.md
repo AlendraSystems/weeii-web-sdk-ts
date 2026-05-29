@@ -1,4 +1,4 @@
-# @weeii/sdk
+# @silasdevs/sdk
 
 TypeScript SDK for the Weeii platform. Provides a fully-typed, reactive client that communicates over a persistent WebSocket connection with automatic session resumption, a normalised entity store, and React hooks.
 
@@ -55,7 +55,7 @@ Your App
   │         Stores: { token, token_push }
   │         Loaded on connect → resumirSesion() called automatically
   │
-  └─── Domain Modules  (@weeii/sdk/<module>) ──────────────────────────────────
+  └─── Domain Modules  (@silasdevs/sdk/<module>) ──────────────────────────────────
             request('channel_name', params)
             Returns: WeeiiIncomingMessage<{ entity: T }>
                        .data     — typed payload
@@ -75,9 +75,9 @@ Every domain API call follows the same path:
 ## Installation
 
 ```bash
-npm install @weeii/sdk
+npm install @silasdevs/sdk
 # or
-pnpm add @weeii/sdk
+pnpm add @silasdevs/sdk
 ```
 
 React hooks require React 18+:
@@ -91,9 +91,9 @@ pnpm add react react-dom @types/react @types/react-dom
 ## Quick Start
 
 ```typescript
-import { configureWeeii, conectarYResumir } from '@weeii/sdk';
-import { iniciarSesionConTelefono, saveSessionToken } from '@weeii/sdk/sesion';
-import { pedidos } from '@weeii/sdk/orden';
+import { configureWeeii, conectarYResumir } from '@silasdevs/sdk';
+import { iniciarSesionConTelefono, saveSessionToken } from '@silasdevs/sdk/sesion';
+import { pedidos } from '@silasdevs/sdk/orden';
 
 // 1. Configure once at app startup (idempotent — safe to call multiple times)
 configureWeeii({
@@ -127,8 +127,8 @@ console.log(changes);       // { upserted: { orden: [...] }, deleted: {} }
 `configureWeeii(config)` must be called once before any API call. It is **idempotent** — subsequent calls are silently ignored, so it is safe to call inside a component.
 
 ```typescript
-import { configureWeeii } from '@weeii/sdk';
-import type { WeeiiConfig } from '@weeii/sdk';
+import { configureWeeii } from '@silasdevs/sdk';
+import type { WeeiiConfig } from '@silasdevs/sdk';
 
 const config: WeeiiConfig = {
   // Required ─────────────────────────────────────────────────────────────────
@@ -160,7 +160,7 @@ The transport connects automatically when `configureWeeii` is called and reconne
 `conectarYResumir` listens for the first `connected` event and then attempts session resumption using a token from `localStorage`. It is the recommended way to bootstrap your app.
 
 ```typescript
-import { conectarYResumir } from '@weeii/sdk';
+import { conectarYResumir } from '@silasdevs/sdk';
 
 conectarYResumir({
   /**
@@ -190,7 +190,7 @@ conectarYResumir({
 You can also listen to transport events directly for granular connection state tracking:
 
 ```typescript
-import { getTransport } from '@weeii/sdk';
+import { getTransport } from '@silasdevs/sdk';
 
 const transport = getTransport();
 
@@ -206,9 +206,9 @@ transport.on('reconnecting', () => setStatus('reconnecting'));
 Every domain module exposes typed async functions. They all return `Promise<WeeiiIncomingMessage<T>>`.
 
 ```typescript
-import { pedidoPorId, editarOrden } from '@weeii/sdk/orden';
-import type { Orden } from '@weeii/sdk/orden';
-import type { WeeiiIncomingMessage } from '@weeii/sdk';
+import { pedidoPorId, editarOrden } from '@silasdevs/sdk/orden';
+import type { Orden } from '@silasdevs/sdk/orden';
+import type { WeeiiIncomingMessage } from '@silasdevs/sdk';
 
 // Query
 const res: WeeiiIncomingMessage<{ orden: Orden }> = await pedidoPorId({ id: 42 });
@@ -237,7 +237,7 @@ interface WeeiiIncomingMessage<BData = Record<string, unknown>> {
 Paginated queries accept `id_ultimo` (cursor) and `filas` (page size):
 
 ```typescript
-import { pedidos } from '@weeii/sdk/orden';
+import { pedidos } from '@silasdevs/sdk/orden';
 
 // First page
 const page1 = await pedidos({ id_ultimo: 0, filas: 20 });
@@ -270,7 +270,7 @@ The server sends responses containing one or more entity arrays (e.g. `{ orden: 
 ### Accessing the store directly
 
 ```typescript
-import { getStore } from '@weeii/sdk';
+import { getStore } from '@silasdevs/sdk';
 
 const store = getStore();
 
@@ -295,7 +295,7 @@ import {
   loadPushToken,
   clearSession,
   clearAll,
-} from '@weeii/sdk';
+} from '@silasdevs/sdk';
 
 // After a successful login
 const { data } = await iniciarSesionConTelefono({ telefono: '55...', clave: '...' });
@@ -320,7 +320,7 @@ On the next page load, `conectarYResumir()` will automatically read the stored t
 If the server returns an error code (`ERROR`, `NO_AUTORIZADO`, `NO_ENCONTRADO`, `CONFLICTO`) for a specific request, the promise rejects with a `TransportError`:
 
 ```typescript
-import { registrarTicket } from '@weeii/sdk/ticket';
+import { registrarTicket } from '@silasdevs/sdk/ticket';
 
 try {
   const { data } = await registrarTicket({ titulo: 'Mi problema' });
@@ -360,14 +360,14 @@ configureWeeii({
 
 ## React Integration
 
-All React utilities live in `@weeii/sdk/react`. They require React 18+ and must be used inside a `<WeeiiProvider>`.
+All React utilities live in `@silasdevs/sdk/react`. They require React 18+ and must be used inside a `<WeeiiProvider>`.
 
 ### WeeiiProvider
 
 Wrap your entire app once. The provider calls `configureWeeii`, opens the WebSocket, and attempts session resumption. All child components have access to connection and auth state.
 
 ```tsx
-import { WeeiiProvider } from '@weeii/sdk/react';
+import { WeeiiProvider } from '@silasdevs/sdk/react';
 
 function Root() {
   return (
@@ -392,7 +392,7 @@ function Root() {
 Reads connection status and auth state from anywhere inside the provider.
 
 ```tsx
-import { useWeeiiContext } from '@weeii/sdk/react';
+import { useWeeiiContext } from '@silasdevs/sdk/react';
 
 function StatusBar() {
   const { connected, reconnecting, authState } = useWeeiiContext();
@@ -415,7 +415,7 @@ function StatusBar() {
 Standalone hook (outside `WeeiiProvider`) to track the transport state.
 
 ```tsx
-import { useWeeiiConnection } from '@weeii/sdk/react';
+import { useWeeiiConnection } from '@silasdevs/sdk/react';
 
 function Indicator() {
   const { connected, reconnecting } = useWeeiiConnection();
@@ -428,9 +428,9 @@ function Indicator() {
 Fetches data on mount (or when deps change) and manages `isLoading` / `error` state. Mirrors the React Query `useQuery` API.
 
 ```tsx
-import { useWeeiiQuery } from '@weeii/sdk/react';
-import { tickets, ticketsAbiertos } from '@weeii/sdk/ticket';
-import type { Ticket } from '@weeii/sdk/ticket';
+import { useWeeiiQuery } from '@silasdevs/sdk/react';
+import { tickets, ticketsAbiertos } from '@silasdevs/sdk/ticket';
+import type { Ticket } from '@silasdevs/sdk/ticket';
 
 function TicketList({ showAll }: { showAll: boolean }) {
   const { data, isLoading, error, refetch } = useWeeiiQuery(
@@ -466,8 +466,8 @@ function TicketList({ showAll }: { showAll: boolean }) {
 Provides `mutate` and `mutateAsync` functions for write operations (create, edit, delete). Does not run automatically.
 
 ```tsx
-import { useWeeiiMutation } from '@weeii/sdk/react';
-import { registrarTicket } from '@weeii/sdk/ticket';
+import { useWeeiiMutation } from '@silasdevs/sdk/react';
+import { registrarTicket } from '@silasdevs/sdk/ticket';
 
 function CreateTicketButton() {
   const { mutate, isLoading, error } = useWeeiiMutation(
@@ -502,8 +502,8 @@ function CreateTicketButton() {
 Subscribes to an entire table in the store. Re-renders automatically when any record in that table is upserted or deleted.
 
 ```tsx
-import { useWeeiiCollection } from '@weeii/sdk/react';
-import type { Ticket } from '@weeii/sdk/ticket';
+import { useWeeiiCollection } from '@silasdevs/sdk/react';
+import type { Ticket } from '@silasdevs/sdk/ticket';
 
 function TicketCounter() {
   const { items, count } = useWeeiiCollection<Ticket>('ticket');
@@ -518,8 +518,8 @@ function TicketCounter() {
 Subscribes to a single record by ID. Returns `undefined` until the record is fetched.
 
 ```tsx
-import { useWeeiiRecord } from '@weeii/sdk/react';
-import type { Ticket } from '@weeii/sdk/ticket';
+import { useWeeiiRecord } from '@silasdevs/sdk/react';
+import type { Ticket } from '@silasdevs/sdk/ticket';
 
 function TicketDetail({ id }: { id: number }) {
   const ticket = useWeeiiRecord<Ticket>('ticket', id);
@@ -535,9 +535,9 @@ Bidirectional paginated list powered by a cursor. Keeps loaded pages in memory a
 
 ```tsx
 import { useEffect } from 'react';
-import { useWeeiiPaginatedCollection } from '@weeii/sdk/react';
-import { tickets } from '@weeii/sdk/ticket';
-import type { Ticket } from '@weeii/sdk/ticket';
+import { useWeeiiPaginatedCollection } from '@silasdevs/sdk/react';
+import { tickets } from '@silasdevs/sdk/ticket';
+import type { Ticket } from '@silasdevs/sdk/ticket';
 
 const PAGE_SIZE = 20;
 
@@ -578,8 +578,8 @@ function PaginatedTickets() {
 The SDK works without React. Use the store directly and subscribe to transport events for reactive updates.
 
 ```typescript
-import { configureWeeii, conectarYResumir, getStore, getTransport } from '@weeii/sdk';
-import { tickets } from '@weeii/sdk/ticket';
+import { configureWeeii, conectarYResumir, getStore, getTransport } from '@silasdevs/sdk';
+import { tickets } from '@silasdevs/sdk/ticket';
 
 configureWeeii({ url: 'wss://api.weeii.app/ws' });
 const store     = getStore();
@@ -609,224 +609,224 @@ An annotated minimal app demonstrating the full lifecycle (session, listing, pag
 
 ## Module Reference
 
-112 modules are available as individual subpath exports (`@weeii/sdk/<module>`).
+112 modules are available as individual subpath exports (`@silasdevs/sdk/<module>`).
 
 ### Core
 
 | Module | Export path | Description |
 |---|---|---|
-| `sesion` | `@weeii/sdk/sesion` | Session management |
-| `usuario` | `@weeii/sdk/usuario` | Users |
-| `informacion_basica` | `@weeii/sdk/informacion_basica` | Profile / basic info |
-| `negocio` | `@weeii/sdk/negocio` | Business entity |
-| `negocio_cliente` | `@weeii/sdk/negocio_cliente` | Business ↔ client relations |
-| `cliente` | `@weeii/sdk/cliente` | Clients |
-| `ubicacion` | `@weeii/sdk/ubicacion` | Addresses / locations |
+| `sesion` | `@silasdevs/sdk/sesion` | Session management |
+| `usuario` | `@silasdevs/sdk/usuario` | Users |
+| `informacion_basica` | `@silasdevs/sdk/informacion_basica` | Profile / basic info |
+| `negocio` | `@silasdevs/sdk/negocio` | Business entity |
+| `negocio_cliente` | `@silasdevs/sdk/negocio_cliente` | Business ↔ client relations |
+| `cliente` | `@silasdevs/sdk/cliente` | Clients |
+| `ubicacion` | `@silasdevs/sdk/ubicacion` | Addresses / locations |
 
 ### Aplicaciones & Plataforma
 
 | Module | Export path | Description |
 |---|---|---|
-| `aplicacion` | `@weeii/sdk/aplicacion` | Applications |
-| `plataforma` | `@weeii/sdk/plataforma` | Platforms |
-| `usuario_credenciales` | `@weeii/sdk/usuario_credenciales` | User credentials |
+| `aplicacion` | `@silasdevs/sdk/aplicacion` | Applications |
+| `plataforma` | `@silasdevs/sdk/plataforma` | Platforms |
+| `usuario_credenciales` | `@silasdevs/sdk/usuario_credenciales` | User credentials |
 
 ### Pedidos & Entregas
 
 | Module | Export path | Description |
 |---|---|---|
-| `orden` | `@weeii/sdk/orden` | Orders |
-| `orden_linea` | `@weeii/sdk/orden_linea` | Order lines |
-| `orden_pago` | `@weeii/sdk/orden_pago` | Order payments |
-| `entrega` | `@weeii/sdk/entrega` | Deliveries |
-| `entrega_estatus` | `@weeii/sdk/entrega_estatus` | Delivery status |
-| `entrega_evidencia` | `@weeii/sdk/entrega_evidencia` | Delivery evidence |
-| `entrega_gps` | `@weeii/sdk/entrega_gps` | Delivery GPS tracking |
-| `entrega_mensaje` | `@weeii/sdk/entrega_mensaje` | Delivery messages |
-| `entrega_repartidor` | `@weeii/sdk/entrega_repartidor` | Delivery ↔ courier |
-| `entrega_usuario_calificacion` | `@weeii/sdk/entrega_usuario_calificacion` | Delivery ratings |
-| `entrega_plantilla` | `@weeii/sdk/entrega_plantilla` | Delivery templates |
-| `entrega_multa_aborcion` | `@weeii/sdk/entrega_multa_aborcion` | Abandonment penalties |
-| `entrega_multa_cancelacion` | `@weeii/sdk/entrega_multa_cancelacion` | Cancellation penalties |
-| `estatus_entrega` | `@weeii/sdk/estatus_entrega` | Delivery status catalogue |
+| `orden` | `@silasdevs/sdk/orden` | Orders |
+| `orden_linea` | `@silasdevs/sdk/orden_linea` | Order lines |
+| `orden_pago` | `@silasdevs/sdk/orden_pago` | Order payments |
+| `entrega` | `@silasdevs/sdk/entrega` | Deliveries |
+| `entrega_estatus` | `@silasdevs/sdk/entrega_estatus` | Delivery status |
+| `entrega_evidencia` | `@silasdevs/sdk/entrega_evidencia` | Delivery evidence |
+| `entrega_gps` | `@silasdevs/sdk/entrega_gps` | Delivery GPS tracking |
+| `entrega_mensaje` | `@silasdevs/sdk/entrega_mensaje` | Delivery messages |
+| `entrega_repartidor` | `@silasdevs/sdk/entrega_repartidor` | Delivery ↔ courier |
+| `entrega_usuario_calificacion` | `@silasdevs/sdk/entrega_usuario_calificacion` | Delivery ratings |
+| `entrega_plantilla` | `@silasdevs/sdk/entrega_plantilla` | Delivery templates |
+| `entrega_multa_aborcion` | `@silasdevs/sdk/entrega_multa_aborcion` | Abandonment penalties |
+| `entrega_multa_cancelacion` | `@silasdevs/sdk/entrega_multa_cancelacion` | Cancellation penalties |
+| `estatus_entrega` | `@silasdevs/sdk/estatus_entrega` | Delivery status catalogue |
 
 ### Repartidores
 
 | Module | Export path | Description |
 |---|---|---|
-| `repartidor` | `@weeii/sdk/repartidor` | Couriers |
-| `repartidor_on` | `@weeii/sdk/repartidor_on` | Courier online status |
-| `repartidor_zona` | `@weeii/sdk/repartidor_zona` | Courier zones |
-| `repartidor_disponibilidad` | `@weeii/sdk/repartidor_disponibilidad` | Courier availability |
-| `jornada` | `@weeii/sdk/jornada` | Work shifts |
+| `repartidor` | `@silasdevs/sdk/repartidor` | Couriers |
+| `repartidor_on` | `@silasdevs/sdk/repartidor_on` | Courier online status |
+| `repartidor_zona` | `@silasdevs/sdk/repartidor_zona` | Courier zones |
+| `repartidor_disponibilidad` | `@silasdevs/sdk/repartidor_disponibilidad` | Courier availability |
+| `jornada` | `@silasdevs/sdk/jornada` | Work shifts |
 
 ### Catálogo
 
 | Module | Export path | Description |
 |---|---|---|
-| `categoria` | `@weeii/sdk/categoria` | Categories |
-| `producto` | `@weeii/sdk/producto` | Products |
-| `producto_variante` | `@weeii/sdk/producto_variante` | Product variants |
-| `producto_presentacion` | `@weeii/sdk/producto_presentacion` | Product presentations |
-| `inventario` | `@weeii/sdk/inventario` | Inventory |
-| `precio` | `@weeii/sdk/precio` | Prices |
-| `descuento` | `@weeii/sdk/descuento` | Discounts |
-| `promocion` | `@weeii/sdk/promocion` | Promotions |
-| `etiqueta` | `@weeii/sdk/etiqueta` | Tags |
-| `etiqueta_producto` | `@weeii/sdk/etiqueta_producto` | Product tags |
+| `categoria` | `@silasdevs/sdk/categoria` | Categories |
+| `producto` | `@silasdevs/sdk/producto` | Products |
+| `producto_variante` | `@silasdevs/sdk/producto_variante` | Product variants |
+| `producto_presentacion` | `@silasdevs/sdk/producto_presentacion` | Product presentations |
+| `inventario` | `@silasdevs/sdk/inventario` | Inventory |
+| `precio` | `@silasdevs/sdk/precio` | Prices |
+| `descuento` | `@silasdevs/sdk/descuento` | Discounts |
+| `promocion` | `@silasdevs/sdk/promocion` | Promotions |
+| `etiqueta` | `@silasdevs/sdk/etiqueta` | Tags |
+| `etiqueta_producto` | `@silasdevs/sdk/etiqueta_producto` | Product tags |
 
 ### Comercio
 
 | Module | Export path | Description |
 |---|---|---|
-| `paquete` | `@weeii/sdk/paquete` | Packages / bundles |
-| `seguro` | `@weeii/sdk/seguro` | Insurance products |
-| `link_pago` | `@weeii/sdk/link_pago` | Payment links |
+| `paquete` | `@silasdevs/sdk/paquete` | Packages / bundles |
+| `seguro` | `@silasdevs/sdk/seguro` | Insurance products |
+| `link_pago` | `@silasdevs/sdk/link_pago` | Payment links |
 
 ### Pagos & Finanzas
 
 | Module | Export path | Description |
 |---|---|---|
-| `pago` | `@weeii/sdk/pago` | Payments |
-| `estatus_pago` | `@weeii/sdk/estatus_pago` | Payment status catalogue |
-| `tipo_pago` | `@weeii/sdk/tipo_pago` | Payment type catalogue |
-| `metodo_pago` | `@weeii/sdk/metodo_pago` | Payment methods |
-| `movimiento` | `@weeii/sdk/movimiento` | Balance movements |
-| `abono` | `@weeii/sdk/abono` | Credits / payments applied |
-| `adeudo` | `@weeii/sdk/adeudo` | Debts |
-| `deposito` | `@weeii/sdk/deposito` | Deposits |
-| `retiro` | `@weeii/sdk/retiro` | Withdrawals |
-| `concepto` | `@weeii/sdk/concepto` | Payment concepts |
-| `saldo_usuario` | `@weeii/sdk/saldo_usuario` | User balance |
-| `saldo_negocio` | `@weeii/sdk/saldo_negocio` | Business balance |
-| `tarjeta` | `@weeii/sdk/tarjeta` | Cards |
+| `pago` | `@silasdevs/sdk/pago` | Payments |
+| `estatus_pago` | `@silasdevs/sdk/estatus_pago` | Payment status catalogue |
+| `tipo_pago` | `@silasdevs/sdk/tipo_pago` | Payment type catalogue |
+| `metodo_pago` | `@silasdevs/sdk/metodo_pago` | Payment methods |
+| `movimiento` | `@silasdevs/sdk/movimiento` | Balance movements |
+| `abono` | `@silasdevs/sdk/abono` | Credits / payments applied |
+| `adeudo` | `@silasdevs/sdk/adeudo` | Debts |
+| `deposito` | `@silasdevs/sdk/deposito` | Deposits |
+| `retiro` | `@silasdevs/sdk/retiro` | Withdrawals |
+| `concepto` | `@silasdevs/sdk/concepto` | Payment concepts |
+| `saldo_usuario` | `@silasdevs/sdk/saldo_usuario` | User balance |
+| `saldo_negocio` | `@silasdevs/sdk/saldo_negocio` | Business balance |
+| `tarjeta` | `@silasdevs/sdk/tarjeta` | Cards |
 
 ### Métodos de Pago Legados
 
 | Module | Export path | Description |
 |---|---|---|
-| `efectivo` | `@weeii/sdk/efectivo` | Cash payments |
-| `saldo` | `@weeii/sdk/saldo` | Balance payments |
-| `terminal_externa` | `@weeii/sdk/terminal_externa` | External terminal payments |
-| `conekta` | `@weeii/sdk/conekta` | Conekta card payments |
-| `openpay` | `@weeii/sdk/openpay` | OpenPay card payments |
-| `pagos_edit_parms` | `@weeii/sdk/pagos_edit_parms` | Payment edit parameters |
+| `efectivo` | `@silasdevs/sdk/efectivo` | Cash payments |
+| `saldo` | `@silasdevs/sdk/saldo` | Balance payments |
+| `terminal_externa` | `@silasdevs/sdk/terminal_externa` | External terminal payments |
+| `conekta` | `@silasdevs/sdk/conekta` | Conekta card payments |
+| `openpay` | `@silasdevs/sdk/openpay` | OpenPay card payments |
+| `pagos_edit_parms` | `@silasdevs/sdk/pagos_edit_parms` | Payment edit parameters |
 
 ### Contenido
 
 | Module | Export path | Description |
 |---|---|---|
-| `banner` | `@weeii/sdk/banner` | Banners |
-| `historia` | `@weeii/sdk/historia` | Stories |
-| `historia_post` | `@weeii/sdk/historia_post` | Story posts |
+| `banner` | `@silasdevs/sdk/banner` | Banners |
+| `historia` | `@silasdevs/sdk/historia` | Stories |
+| `historia_post` | `@silasdevs/sdk/historia_post` | Story posts |
 
 ### Zonas & Horarios
 
 | Module | Export path | Description |
 |---|---|---|
-| `zona` | `@weeii/sdk/zona` | Delivery zones |
-| `zona_negocio` | `@weeii/sdk/zona_negocio` | Business zones |
-| `zona_repartidor` | `@weeii/sdk/zona_repartidor` | Courier zones |
-| `horario` | `@weeii/sdk/horario` | Schedules |
-| `horario_negocio` | `@weeii/sdk/horario_negocio` | Business schedules |
+| `zona` | `@silasdevs/sdk/zona` | Delivery zones |
+| `zona_negocio` | `@silasdevs/sdk/zona_negocio` | Business zones |
+| `zona_repartidor` | `@silasdevs/sdk/zona_repartidor` | Courier zones |
+| `horario` | `@silasdevs/sdk/horario` | Schedules |
+| `horario_negocio` | `@silasdevs/sdk/horario_negocio` | Business schedules |
 
 ### Configuración
 
 | Module | Export path | Description |
 |---|---|---|
-| `configuracion` | `@weeii/sdk/configuracion` | Configuration |
-| `configuracion_negocio` | `@weeii/sdk/configuracion_negocio` | Business configuration |
+| `configuracion` | `@silasdevs/sdk/configuracion` | Configuration |
+| `configuracion_negocio` | `@silasdevs/sdk/configuracion_negocio` | Business configuration |
 
 ### Equipos
 
 | Module | Export path | Description |
 |---|---|---|
-| `equipo` | `@weeii/sdk/equipo` | Teams |
-| `lider` | `@weeii/sdk/lider` | Team leaders |
-| `miembro` | `@weeii/sdk/miembro` | Team members |
-| `equipo_chat` | `@weeii/sdk/equipo_chat` | Team chats |
-| `equipo_chat_usr` | `@weeii/sdk/equipo_chat_usr` | Team chat users |
-| `equipo_chat_msj` | `@weeii/sdk/equipo_chat_msj` | Team chat messages |
+| `equipo` | `@silasdevs/sdk/equipo` | Teams |
+| `lider` | `@silasdevs/sdk/lider` | Team leaders |
+| `miembro` | `@silasdevs/sdk/miembro` | Team members |
+| `equipo_chat` | `@silasdevs/sdk/equipo_chat` | Team chats |
+| `equipo_chat_usr` | `@silasdevs/sdk/equipo_chat_usr` | Team chat users |
+| `equipo_chat_msj` | `@silasdevs/sdk/equipo_chat_msj` | Team chat messages |
 
 ### Tickets de Soporte
 
 | Module | Export path | Description |
 |---|---|---|
-| `ticket` | `@weeii/sdk/ticket` | Support tickets |
-| `ticket_chat` | `@weeii/sdk/ticket_chat` | Ticket chats |
-| `ticket_chat_msj` | `@weeii/sdk/ticket_chat_msj` | Ticket chat messages |
-| `ticket_chat_usr` | `@weeii/sdk/ticket_chat_usr` | Ticket chat users |
+| `ticket` | `@silasdevs/sdk/ticket` | Support tickets |
+| `ticket_chat` | `@silasdevs/sdk/ticket_chat` | Ticket chats |
+| `ticket_chat_msj` | `@silasdevs/sdk/ticket_chat_msj` | Ticket chat messages |
+| `ticket_chat_usr` | `@silasdevs/sdk/ticket_chat_usr` | Ticket chat users |
 
 ### Trámites y Flujos de Trabajo
 
 | Module | Export path | Description |
 |---|---|---|
-| `tramite` | `@weeii/sdk/tramite` | Procedures / workflows |
-| `requisito` | `@weeii/sdk/requisito` | Workflow requirements |
-| `validacion` | `@weeii/sdk/validacion` | Validations |
-| `prueba` | `@weeii/sdk/prueba` | Tests / verifications |
-| `solicitud` | `@weeii/sdk/solicitud` | Requests / applications |
+| `tramite` | `@silasdevs/sdk/tramite` | Procedures / workflows |
+| `requisito` | `@silasdevs/sdk/requisito` | Workflow requirements |
+| `validacion` | `@silasdevs/sdk/validacion` | Validations |
+| `prueba` | `@silasdevs/sdk/prueba` | Tests / verifications |
+| `solicitud` | `@silasdevs/sdk/solicitud` | Requests / applications |
 
 ### Notificaciones
 
 | Module | Export path | Description |
 |---|---|---|
-| `notificacion` | `@weeii/sdk/notificacion` | Notifications |
-| `notificacion_usuario` | `@weeii/sdk/notificacion_usuario` | User notifications |
-| `notificacion_draft` | `@weeii/sdk/notificacion_draft` | Notification drafts |
-| `notificacion_obj` | `@weeii/sdk/notificacion_obj` | Notification objects |
-| `tipo_notificacion` | `@weeii/sdk/tipo_notificacion` | Notification type catalogue |
+| `notificacion` | `@silasdevs/sdk/notificacion` | Notifications |
+| `notificacion_usuario` | `@silasdevs/sdk/notificacion_usuario` | User notifications |
+| `notificacion_draft` | `@silasdevs/sdk/notificacion_draft` | Notification drafts |
+| `notificacion_obj` | `@silasdevs/sdk/notificacion_obj` | Notification objects |
+| `tipo_notificacion` | `@silasdevs/sdk/tipo_notificacion` | Notification type catalogue |
 
 ### Permisos & Roles
 
 | Module | Export path | Description |
 |---|---|---|
-| `rol` | `@weeii/sdk/rol` | Roles |
-| `permiso` | `@weeii/sdk/permiso` | Permissions |
-| `rol_permiso` | `@weeii/sdk/rol_permiso` | Role ↔ permission relations |
-| `usuario_rol` | `@weeii/sdk/usuario_rol` | User roles |
+| `rol` | `@silasdevs/sdk/rol` | Roles |
+| `permiso` | `@silasdevs/sdk/permiso` | Permissions |
+| `rol_permiso` | `@silasdevs/sdk/rol_permiso` | Role ↔ permission relations |
+| `usuario_rol` | `@silasdevs/sdk/usuario_rol` | User roles |
 
 ### Adjuntos
 
 | Module | Export path | Description |
 |---|---|---|
-| `adjunto` | `@weeii/sdk/adjunto` | Attachments |
-| `adjunto_referencia` | `@weeii/sdk/adjunto_referencia` | Attachment references |
-| `tipo_adjunto` | `@weeii/sdk/tipo_adjunto` | Attachment type catalogue |
+| `adjunto` | `@silasdevs/sdk/adjunto` | Attachments |
+| `adjunto_referencia` | `@silasdevs/sdk/adjunto_referencia` | Attachment references |
+| `tipo_adjunto` | `@silasdevs/sdk/tipo_adjunto` | Attachment type catalogue |
 
 ### Reportes & Auditoría
 
 | Module | Export path | Description |
 |---|---|---|
-| `reporte` | `@weeii/sdk/reporte` | Reports |
-| `log_actividad` | `@weeii/sdk/log_actividad` | Activity logs |
-| `busqueda` | `@weeii/sdk/busqueda` | Search logs |
+| `reporte` | `@silasdevs/sdk/reporte` | Reports |
+| `log_actividad` | `@silasdevs/sdk/log_actividad` | Activity logs |
+| `busqueda` | `@silasdevs/sdk/busqueda` | Search logs |
 
 ### Plantillas
 
 | Module | Export path | Description |
 |---|---|---|
-| `plantilla` | `@weeii/sdk/plantilla` | Templates |
-| `plantilla_mensaje` | `@weeii/sdk/plantilla_mensaje` | Message templates |
+| `plantilla` | `@silasdevs/sdk/plantilla` | Templates |
+| `plantilla_mensaje` | `@silasdevs/sdk/plantilla_mensaje` | Message templates |
 
 ### Catálogos de Tipos
 
 | Module | Export path | Description |
 |---|---|---|
-| `tipo_ubicacion` | `@weeii/sdk/tipo_ubicacion` | Location types |
-| `tipo_movimiento` | `@weeii/sdk/tipo_movimiento` | Movement types |
-| `tipo_producto` | `@weeii/sdk/tipo_producto` | Product types |
-| `tipo_descuento` | `@weeii/sdk/tipo_descuento` | Discount types |
-| `tipo_promocion` | `@weeii/sdk/tipo_promocion` | Promotion types |
-| `tipo_reporte` | `@weeii/sdk/tipo_reporte` | Report types |
+| `tipo_ubicacion` | `@silasdevs/sdk/tipo_ubicacion` | Location types |
+| `tipo_movimiento` | `@silasdevs/sdk/tipo_movimiento` | Movement types |
+| `tipo_producto` | `@silasdevs/sdk/tipo_producto` | Product types |
+| `tipo_descuento` | `@silasdevs/sdk/tipo_descuento` | Discount types |
+| `tipo_promocion` | `@silasdevs/sdk/tipo_promocion` | Promotion types |
+| `tipo_reporte` | `@silasdevs/sdk/tipo_reporte` | Report types |
 
 ### Utilidades Internas
 
 | Module | Export path | Description |
 |---|---|---|
-| `uccc` | `@weeii/sdk/uccc` | UCCC utility |
-| `uve` | `@weeii/sdk/uve` | UVE utility |
-| `uvt` | `@weeii/sdk/uvt` | UVT utility |
+| `uccc` | `@silasdevs/sdk/uccc` | UCCC utility |
+| `uve` | `@silasdevs/sdk/uve` | UVE utility |
+| `uvt` | `@silasdevs/sdk/uvt` | UVT utility |
 
 ## Build & Test
 

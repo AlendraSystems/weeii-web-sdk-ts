@@ -1,9 +1,9 @@
-// @weeii/sdk — Public API
+// @silasdevs/sdk — Public API
 //
 // Domain module APIs are available via subpath imports:
-//   import { iniciarSesionConTelefono } from '@weeii/sdk/sesion'
-//   import { usuario }                  from '@weeii/sdk/usuario'
-//   import { useWeeiiRecord }           from '@weeii/sdk/react'
+//   import { iniciarSesionConTelefono } from '@silasdevs/sdk/sesion'
+//   import { usuario }                  from '@silasdevs/sdk/usuario'
+//   import { useWeeiiRecord }           from '@silasdevs/sdk/react'
 //
 // This root entry re-exports the setup function, bootstrap helpers, and
 // shared primitives.
