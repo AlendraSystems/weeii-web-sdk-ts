@@ -47,7 +47,7 @@ export function entregasInconclusas(
 }
 
 export function entregasPorEstatus(
-  params: { id_estatus: number } & EntregaQueryParams,
+  params: { estatus: number } & EntregaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega: Entrega[] }>> {
   return request('entrega_q_estatus', params);
 }
@@ -103,13 +103,13 @@ export function cotizarRuta(
 }
 
 export function recotizar(
-  params: { id: number } & Record<string, unknown>,
+  params: { id_entrega: number } & Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ entrega: Entrega }>> {
   return request('entrega_recotizar', params);
 }
 
 export function descartarPresupuesto(
-  params: { id: number },
+  params: { id_entrega?: number | null },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_descartar_presupuesto', params);
 }
@@ -135,7 +135,7 @@ export function editarEntrega(
 }
 
 export function eliminarEntrega(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('eliminar_entrega', params);
 }
@@ -143,79 +143,79 @@ export function eliminarEntrega(
 // ── Status transitions ────────────────────────────────────────────────────────
 
 export function entregaEnCola(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_en_cola', params);
 }
 
 export function aceptarEntrega(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_aceptada', params);
 }
 
 export function rechazarEntrega(
-  params: { id: number; motivo?: string },
+  params: { id_entrega: number; motivo?: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_rechazada', params);
 }
 
 export function abortarEntrega(
-  params: { id: number; motivo?: string },
+  params: { id_entrega: number; motivo?: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_abortada', params);
 }
 
 export function cancelarEntrega(
-  params: { id: number; motivo?: string },
+  params: { id_entrega: number; motivo?: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_cancelada', params);
 }
 
 export function entregaAOrigen(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_a_origen', params);
 }
 
 export function entregaEnOrigen(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_en_origen', params);
 }
 
 export function entregaADestino(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_a_destino', params);
 }
 
 export function entregaEnDestino(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_en_destino', params);
 }
 
 export function entregaEntregada(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_entregada', params);
 }
 
 export function entregaExitosa(
-  params: { id: number },
+  params: { id_entrega: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_exitosa', params);
 }
 
 export function entregaFallida(
-  params: { id: number; motivo?: string },
+  params: { id_entrega: number; motivo?: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_fallida', params);
 }
 
 export function calificarEntrega(
-  params: { id: number; calificacion: number; comentario?: string },
+  params: { id_entrega: number; calificacion: number; comentario?: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_calificar', params);
 }

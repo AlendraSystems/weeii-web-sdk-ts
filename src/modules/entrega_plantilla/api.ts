@@ -61,13 +61,13 @@ export function entregaPlantillaQIdClienteCodigoGrupo(
 }
 
 export function entregaPlantillaQCodigoGrupoAdmon(
-  params: { codigo_grupo: string } & EntregaPlantillaQueryParams,
+  params: { codigo_grupo_admon: string } & EntregaPlantillaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
   return request('entrega_plantilla_q_codigo_grupo_admon', params);
 }
 
 export function entregaPlantillaQIdClienteCodigoGrupoAdmon(
-  params: { id_cliente: number; codigo_grupo: string } & EntregaPlantillaQueryParams,
+  params: { id_cliente: number; codigo_grupo_admon: string } & EntregaPlantillaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
   return request('entrega_plantilla_q_id_cliente_codigo_grupo_admon', params);
 }
@@ -103,7 +103,7 @@ export function entregaPlantillaQIdTarjeta(
 }
 
 export function entregaPlantillaQEnviarRecibir(
-  params: { enviar_recibir: string } & EntregaPlantillaQueryParams,
+  params: { estatus: boolean } & EntregaPlantillaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
   return request('entrega_plantilla_q_enviar_recibir', params);
 }
@@ -127,7 +127,7 @@ export function entregaPlantillaQLatLonDestino(
 }
 
 export function entregaPlantillaQContactoTelefonoCodigoPaisOrigen(
-  params: { telefono: string; codigo_pais: string } & EntregaPlantillaQueryParams,
+  params: { telefono_codigo_pais: string } & EntregaPlantillaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
   return request('entrega_plantilla_q_contacto_telefono_codigo_pais_origen', params);
 }
@@ -139,7 +139,7 @@ export function entregaPlantillaQContactoTelefonoOrigen(
 }
 
 export function entregaPlantillaQContactoTelefonoCodigoPaisDestino(
-  params: { telefono: string; codigo_pais: string } & EntregaPlantillaQueryParams,
+  params: { telefono_codigo_pais: string } & EntregaPlantillaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
   return request('entrega_plantilla_q_contacto_telefono_codigo_pais_destino', params);
 }

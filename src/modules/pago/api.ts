@@ -34,9 +34,9 @@ export function pagoQIdTipoPago(
 }
 
 export function pagoQOid(
-  params: { oid: string } & PagoQueryParams,
+  params: { ie_pago: string; id_pago: number } & PagoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ pago: Pago[] }>> {
-  return request('pago_q_oid', params);
+  return request('pago_q_oid_pago', params);
 }
 
 export function pagoQIdUsuario(
