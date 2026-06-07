@@ -19,6 +19,10 @@ coverage/
 .DS_Store
 Thumbs.db
 
+# Lock files from other package managers
+package-lock.json
+yarn.lock
+
 # Editor
 .vscode/
 .idea/
