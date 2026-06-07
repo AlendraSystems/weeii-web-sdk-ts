@@ -40,6 +40,5 @@ export {
   ordenExitosa,
   ordenFallida,
   cancelarOrden,
-  cerrarOrden,
 } from './api.js';
 export type { Orden } from './types.js';
