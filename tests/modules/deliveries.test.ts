@@ -114,6 +114,10 @@ import {
   registrarPlantilla,
   editarPlantilla,
   eliminarPlantilla,
+  entregaPlantillaQIdClienteClienteBool1, entregaPlantillaQIdClienteClienteBool2,
+  entregaPlantillaQIdClienteClienteBool3,
+  entregaPlantillaQIdClienteAdmonBool1, entregaPlantillaQIdClienteAdmonBool2,
+  entregaPlantillaQIdClienteAdmonBool3,
 } from '../../src/modules/entrega_plantilla/api.js';
 
 import {
@@ -121,7 +125,7 @@ import {
 } from '../../src/modules/entrega_repartidor/api.js';
 
 import {
-  calificacionUsuario,
+  calificacionUsuario, calificacionesPorIdUsuario,
   entregaUsuarioCalificacionSearch,
 } from '../../src/modules/entrega_usuario_calificacion/api.js';
 
@@ -637,6 +641,30 @@ describe('entrega_plantilla', () => {
     await eliminarPlantilla({ id: 1 });
     expect(request).toHaveBeenCalledWith('entrega_plantilla_eliminar', { id: 1 });
   });
+  it('entregaPlantillaQIdClienteClienteBool1 → entrega_plantilla_q_id_cliente_cliente_bool_1', async () => {
+    await entregaPlantillaQIdClienteClienteBool1({ id_cliente: 1 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_cliente_bool_1', { id_cliente: 1 });
+  });
+  it('entregaPlantillaQIdClienteClienteBool2 → entrega_plantilla_q_id_cliente_cliente_bool_2', async () => {
+    await entregaPlantillaQIdClienteClienteBool2({ id_cliente: 1 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_cliente_bool_2', { id_cliente: 1 });
+  });
+  it('entregaPlantillaQIdClienteClienteBool3 → entrega_plantilla_q_id_cliente_cliente_bool_3', async () => {
+    await entregaPlantillaQIdClienteClienteBool3({ id_cliente: 1 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_cliente_bool_3', { id_cliente: 1 });
+  });
+  it('entregaPlantillaQIdClienteAdmonBool1 → entrega_plantilla_q_id_cliente_admon_bool_1', async () => {
+    await entregaPlantillaQIdClienteAdmonBool1({ id_cliente: 2 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_admon_bool_1', { id_cliente: 2 });
+  });
+  it('entregaPlantillaQIdClienteAdmonBool2 → entrega_plantilla_q_id_cliente_admon_bool_2', async () => {
+    await entregaPlantillaQIdClienteAdmonBool2({ id_cliente: 2 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_admon_bool_2', { id_cliente: 2 });
+  });
+  it('entregaPlantillaQIdClienteAdmonBool3 → entrega_plantilla_q_id_cliente_admon_bool_3', async () => {
+    await entregaPlantillaQIdClienteAdmonBool3({ id_cliente: 2 });
+    expect(request).toHaveBeenCalledWith('entrega_plantilla_q_id_cliente_admon_bool_3', { id_cliente: 2 });
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -661,6 +689,10 @@ describe('entrega_usuario_calificacion', () => {
   it('entregaUsuarioCalificacionSearch → entrega_usuario_calificacion_search', async () => {
     await entregaUsuarioCalificacionSearch({ texto_busqueda: 'q' });
     expect(request).toHaveBeenCalledWith('entrega_usuario_calificacion_search', { texto_busqueda: 'q' });
+  });
+  it('calificacionesPorIdUsuario → entrega_usuario_calificacion_q_id_usuario', async () => {
+    await calificacionesPorIdUsuario({ id_usuario: 5 });
+    expect(request).toHaveBeenCalledWith('entrega_usuario_calificacion_q_id_usuario', { id_usuario: 5 });
   });
 });
 

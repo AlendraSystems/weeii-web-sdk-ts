@@ -10,16 +10,16 @@ export function misNotificaciones(
   return request('notificacion_q_mias', params);
 }
 
+export function notificacionSearch(
+  params: { texto_busqueda: string; id_ultimo?: number; filas?: number },
+): Promise<WeeiiIncomingMessage<{ notificacion: Notificacion[] }>> {
+  return request('notificacion_search', params);
+}
+
 export function marcarNotificacionVista(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('notificacion_vista', params);
-}
-
-export function marcarTodasVistas(
-  params: Record<string, unknown> = {},
-): Promise<WeeiiIncomingMessage> {
-  return request('notificacion_todas_vistas', params);
 }
 
 export function eliminarNotificacion(

@@ -182,10 +182,22 @@ export function confirmarRegistroExpress(
   return request('usuario_confirmar_registro_express', params);
 }
 
+export function usuarioDarseDeBaja(
+  params: { motivo?: string } = {},
+): Promise<WeeiiIncomingMessage> {
+  return request('usuario_darse_de_baja', params);
+}
+
 export function usuarioSepuku(
   params: { motivo?: string } = {},
 ): Promise<WeeiiIncomingMessage> {
   return request('usuario_sepuku', params);
+}
+
+export function eliminarUsuario(
+  params: { id: number; motivo?: string },
+): Promise<WeeiiIncomingMessage> {
+  return request('usuario_eliminar', params);
 }
 
 export function usuarioMassatsu(

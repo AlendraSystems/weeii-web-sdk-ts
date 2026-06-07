@@ -55,6 +55,12 @@ export function openpayTokenizar(
   return request('openpay_tokenizar_tarjeta', params);
 }
 
+export function registrarTarjetaOpenpay(
+  params: Record<string, unknown>,
+): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {
+  return request('openpay_registrar_tarjeta', params);
+}
+
 export function guardarOpenpay(
   params: Record<string, unknown>,
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {

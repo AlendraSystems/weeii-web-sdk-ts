@@ -33,7 +33,6 @@ import {
 import {
   misNotificaciones,
   marcarNotificacionVista,
-  marcarTodasVistas,
   eliminarNotificacion,
 } from '../../src/modules/notificacion/api.js';
 import {
@@ -190,11 +189,6 @@ describe('notificacion', () => {
   it('marcarNotificacionVista → notificacion_vista', async () => {
     await marcarNotificacionVista({ id: 5 });
     expect(request).toHaveBeenCalledWith('notificacion_vista', { id: 5 });
-  });
-
-  it('marcarTodasVistas → notificacion_todas_vistas', async () => {
-    await marcarTodasVistas();
-    expect(request).toHaveBeenCalledWith('notificacion_todas_vistas', {});
   });
 
   it('eliminarNotificacion → notificacion_eliminar', async () => {

@@ -119,3 +119,9 @@ export function pagarLinkPago(
 ): Promise<WeeiiIncomingMessage<{ link_pago: LinkPago }>> {
   return request('link_pago_pagar', params);
 }
+
+export function linkPagoEditParms(
+  params: Record<string, unknown> = {},
+): Promise<WeeiiIncomingMessage> {
+  return request('link_pago_edit_parms', params);
+}

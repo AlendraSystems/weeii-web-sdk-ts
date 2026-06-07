@@ -14,12 +14,13 @@ import {
   registrarRepartidorTesting, registrarInterno, editarUsuario,
   editarMiEmail, editarMiTelefono, confirmarCambioDeTelefono,
   confirmarRegistroExpress, usuarioSepuku, usuarioMassatsu,
+  usuarioDarseDeBaja, eliminarUsuario,
 } from '../../src/modules/usuario/api.js';
 
 import {
   misSesiones, sesionSearch, sesionPorIdUsuario,
   iniciarSesionConTelefono, iniciarSesionConTelefonoTesting,
-  confirmarSesion, resumirSesion, terminarSesion,
+  confirmarSesion, resumirSesion, terminarSesion, asignarTokenPush,
 } from '../../src/modules/sesion/api.js';
 
 import {
@@ -186,6 +187,14 @@ describe('usuario', () => {
     await usuarioMassatsu({ id: 5 });
     expect(request).toHaveBeenCalledWith('usuario_massatsu', { id: 5 });
   });
+  it('usuarioDarseDeBaja → usuario_darse_de_baja', async () => {
+    await usuarioDarseDeBaja();
+    expect(request).toHaveBeenCalledWith('usuario_darse_de_baja', {});
+  });
+  it('eliminarUsuario → usuario_eliminar', async () => {
+    await eliminarUsuario({ id: 7 });
+    expect(request).toHaveBeenCalledWith('usuario_eliminar', { id: 7 });
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -223,6 +232,10 @@ describe('sesion', () => {
   it('terminarSesion → terminar_sesion (fire)', () => {
     terminarSesion(noop as never);
     expect(fire).toHaveBeenCalledWith('terminar_sesion', {}, expect.any(Function));
+  });
+  it('asignarTokenPush → sesion_asignar_token_push', async () => {
+    await asignarTokenPush({ token_push: 'tok_abc' });
+    expect(request).toHaveBeenCalledWith('sesion_asignar_token_push', { token_push: 'tok_abc' });
   });
 });
 

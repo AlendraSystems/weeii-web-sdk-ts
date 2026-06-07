@@ -20,8 +20,8 @@ import {
 } from '../../src/modules/conekta/api.js';
 import {
   openpays, openpaySearch, openpayPorId, openpayPorEstatus, openpayPorIdUsuario,
-  misOpenPays, openpayTokenizar, guardarOpenpay, eliminarOpenpay,
-  openpayListarTarjetas,
+  misOpenPays, openpayTokenizar, guardarOpenpay, registrarTarjetaOpenpay,
+  eliminarOpenpay, openpayListarTarjetas,
 } from '../../src/modules/openpay/api.js';
 import {
   abonos, abonoSearch, abonoQId, abonoQIdUsuario, abonoQIdResponsable,
@@ -61,7 +61,7 @@ import {
   linkPagoPorToken, linksPagoSinCreacionLatLon, linksPagoCreacionLatLonCent,
   linksPagoCreacionLatLonDec, linksPagoSinCreacionMacAddress, linksPagoCreacionMacAddress,
   linksPagoAdmon, linksPagoPorEstatus, accederLinkPagoConToken,
-  registrarLinkPago, editarLinkPago, pagarLinkPago,
+  registrarLinkPago, editarLinkPago, pagarLinkPago, linkPagoEditParms,
 } from '../../src/modules/link_pago/api.js';
 import {
   tiposPago, tipoPagoSearch, editarTipoPago,
@@ -235,6 +235,10 @@ describe('openpay', () => {
   it('guardarOpenpay → openpay_guardar_tarjeta', async () => {
     await guardarOpenpay({ id_usuario: 1 });
     expect(request).toHaveBeenCalledWith('openpay_guardar_tarjeta', { id_usuario: 1 });
+  });
+  it('registrarTarjetaOpenpay → openpay_registrar_tarjeta', async () => {
+    await registrarTarjetaOpenpay({ id_usuario: 1, token: 'tok_op' });
+    expect(request).toHaveBeenCalledWith('openpay_registrar_tarjeta', { id_usuario: 1, token: 'tok_op' });
   });
   it('eliminarOpenpay → openpay_eliminar_tarjeta', async () => {
     await eliminarOpenpay({ id: 1 });
@@ -619,6 +623,10 @@ describe('link_pago', () => {
   it('pagarLinkPago → link_pago_pagar', async () => {
     await pagarLinkPago({ token: 'abc123', id_tipo_pago: 1 });
     expect(request).toHaveBeenCalledWith('link_pago_pagar', { token: 'abc123', id_tipo_pago: 1 });
+  });
+  it('linkPagoEditParms → link_pago_edit_parms', async () => {
+    await linkPagoEditParms();
+    expect(request).toHaveBeenCalledWith('link_pago_edit_parms', {});
   });
 });
 
