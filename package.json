@@ -1,6 +1,6 @@
 {
   "name": "@silasdevs/sdk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "TypeScript SDK for the Weeii platform — domain APIs, reactive store, and React hooks.",
   "type": "module",
   "engines": {
