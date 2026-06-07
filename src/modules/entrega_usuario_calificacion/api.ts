@@ -18,6 +18,12 @@ export function calificacionUsuario(
   return request('entrega_usuario_calificacion_usuario', params);
 }
 
+export function calificacionesPorIdUsuario(
+  params: { id_usuario: number },
+): Promise<WeeiiIncomingMessage<{ entrega_usuario_calificacion: EntregaUsuarioCalificacion[] }>> {
+  return request('entrega_usuario_calificacion_q_id_usuario', params);
+}
+
 export function entregaUsuarioCalificacionSearch(
   params: EntregaUsuarioCalificacionSearchParams,
 ): Promise<WeeiiIncomingMessage<{ entrega_usuario_calificacion: EntregaUsuarioCalificacion[] }>> {

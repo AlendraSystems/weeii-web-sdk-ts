@@ -35,7 +35,7 @@ import {
   registrarOrden, editarOrden, accederConToken, cotizarEntrega,
   ordenEnCola, ordenRechazada, ordenAbortada, ordenAceptada, ordenEnProceso,
   ordenLista, ordenEnviando, ordenEnviada, ordenEntregada, ordenExitosa,
-  ordenFallida, cancelarOrden, cerrarOrden,
+  ordenFallida, cancelarOrden, ordenEditParms,
 } from '../../src/modules/orden/api.js';
 
 import {
@@ -376,9 +376,9 @@ describe('orden', () => {
     await cancelarOrden({ id: 5 });
     expect(request).toHaveBeenCalledWith('orden_cancelada', { id: 5 });
   });
-  it('cerrarOrden → orden_cerrar', async () => {
-    await cerrarOrden({ id: 5 });
-    expect(request).toHaveBeenCalledWith('orden_cerrar', { id: 5 });
+  it('ordenEditParms → orden_edit_parms', async () => {
+    await ordenEditParms();
+    expect(request).toHaveBeenCalledWith('orden_edit_parms', {});
   });
 });
 

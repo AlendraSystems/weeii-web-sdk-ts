@@ -98,7 +98,7 @@ export function terminarSesion(
 export async function asignarTokenPush(
   params: AsignarTokenPushParams,
 ): Promise<WeeiiIncomingMessage> {
-  const msg = await request('asignar_token_push', params);
+  const msg = await request('sesion_asignar_token_push', params);
   savePushToken(params.token_push);
   return msg;
 }

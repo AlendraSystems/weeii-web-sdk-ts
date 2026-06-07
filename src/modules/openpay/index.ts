@@ -6,6 +6,7 @@ export {
   openpayPorIdUsuario,
   misOpenPays,
   openpayTokenizar,
+  registrarTarjetaOpenpay,
   guardarOpenpay,
   eliminarOpenpay,
   openpayListarTarjetas,

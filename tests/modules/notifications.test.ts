@@ -10,6 +10,10 @@ import {
   eliminarNotificacionDraft, publicarNotificacionDraft,
 } from '../../src/modules/notificacion_draft/api.js';
 import { misNotificaciones } from '../../src/modules/notificacion_obj/api.js';
+import {
+  misNotificaciones as notificacionQMias, notificacionSearch,
+  marcarNotificacionVista, eliminarNotificacion,
+} from '../../src/modules/notificacion/api.js';
 
 const OK = { data: {}, changes: { upserted: {}, deleted: {} } };
 
@@ -66,5 +70,26 @@ describe('notificacion_obj', () => {
   it('misNotificaciones → notificacion_obj_q_mias', async () => {
     await misNotificaciones();
     expect(request).toHaveBeenCalledWith('notificacion_obj_q_mias', {});
+  });
+});
+
+// ── notificacion ────────────────────────────────────────────────────────────────────────────
+
+describe('notificacion', () => {
+  it('notificacionQMias → notificacion_q_mias', async () => {
+    await notificacionQMias();
+    expect(request).toHaveBeenCalledWith('notificacion_q_mias', {});
+  });
+  it('notificacionSearch → notificacion_search', async () => {
+    await notificacionSearch({ texto_busqueda: 'pago' });
+    expect(request).toHaveBeenCalledWith('notificacion_search', { texto_busqueda: 'pago' });
+  });
+  it('marcarNotificacionVista → notificacion_vista', async () => {
+    await marcarNotificacionVista({ id: 1 });
+    expect(request).toHaveBeenCalledWith('notificacion_vista', { id: 1 });
+  });
+  it('eliminarNotificacion → notificacion_eliminar', async () => {
+    await eliminarNotificacion({ id: 2 });
+    expect(request).toHaveBeenCalledWith('notificacion_eliminar', { id: 2 });
   });
 });

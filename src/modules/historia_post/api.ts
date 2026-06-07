@@ -18,7 +18,13 @@ export function historiasPosts(
 export function historiaPostPublicoGeneral(
   params: HistoriaPostQueryParams,
 ): Promise<WeeiiIncomingMessage<{ historia_post: HistoriaPost[] }>> {
-  return request('historia_post_publico_general', params);
+  return request('historia_post_q_publico_general', params);
+}
+
+export function historiaPostsPorIdHistoria(
+  params: HistoriaPostQueryParams,
+): Promise<WeeiiIncomingMessage<{ historia_post: HistoriaPost[] }>> {
+  return request('historia_post_q_id_historia', params);
 }
 
 export function registrarHistoriaPost(

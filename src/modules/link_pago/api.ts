@@ -115,7 +115,13 @@ export function editarLinkPago(
 }
 
 export function pagarLinkPago(
-  params: { id: number } & Record<string, unknown>,
+  params: { token: string; id_tipo_pago: number },
 ): Promise<WeeiiIncomingMessage<{ link_pago: LinkPago }>> {
   return request('link_pago_pagar', params);
+}
+
+export function linkPagoEditParms(
+  params: Record<string, unknown> = {},
+): Promise<WeeiiIncomingMessage> {
+  return request('link_pago_edit_parms', params);
 }

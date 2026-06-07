@@ -16,5 +16,6 @@ export {
   registrarLinkPago,
   editarLinkPago,
   pagarLinkPago,
+  linkPagoEditParms,
 } from './api.js';
 export type { LinkPago } from './types.js';

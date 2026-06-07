@@ -24,5 +24,11 @@ export {
   registrarPlantilla,
   editarPlantilla,
   eliminarPlantilla,
+  entregaPlantillaQIdClienteClienteBool1,
+  entregaPlantillaQIdClienteClienteBool2,
+  entregaPlantillaQIdClienteClienteBool3,
+  entregaPlantillaQIdClienteAdmonBool1,
+  entregaPlantillaQIdClienteAdmonBool2,
+  entregaPlantillaQIdClienteAdmonBool3,
 } from './api.js';
 export type { EntregaPlantilla } from './types.js';

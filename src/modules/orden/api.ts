@@ -260,8 +260,8 @@ export function cancelarOrden(
   return request('orden_cancelada', params);
 }
 
-export function cerrarOrden(
-  params: { id: number },
+export function ordenEditParms(
+  params: Record<string, unknown> = {},
 ): Promise<WeeiiIncomingMessage> {
-  return request('orden_cerrar', params);
+  return request('orden_edit_parms', params);
 }

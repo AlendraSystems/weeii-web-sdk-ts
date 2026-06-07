@@ -15,7 +15,7 @@ import {
   publicarHistoria, mostrarHistoria, historiaPublicoGeneralSortPromover,
 } from '../../src/modules/historia/api.js';
 import {
-  historiasPosts, historiaPostPublicoGeneral,
+  historiasPosts, historiaPostPublicoGeneral, historiaPostsPorIdHistoria,
   registrarHistoriaPost, eliminarHistoriaPost, publicarHistoriaPost,
   likeHistoriaPost, vistoHistoriaPost,
 } from '../../src/modules/historia_post/api.js';
@@ -125,9 +125,13 @@ describe('historia_post', () => {
     await historiasPosts({ id_historia: 1 });
     expect(request).toHaveBeenCalledWith('historia_post', { id_historia: 1 });
   });
-  it('historiaPostPublicoGeneral → historia_post_publico_general', async () => {
+  it('historiaPostPublicoGeneral → historia_post_q_publico_general', async () => {
     await historiaPostPublicoGeneral({ id_historia: 1 });
-    expect(request).toHaveBeenCalledWith('historia_post_publico_general', { id_historia: 1 });
+    expect(request).toHaveBeenCalledWith('historia_post_q_publico_general', { id_historia: 1 });
+  });
+  it('historiaPostsPorIdHistoria → historia_post_q_id_historia', async () => {
+    await historiaPostsPorIdHistoria({ id_historia: 2 });
+    expect(request).toHaveBeenCalledWith('historia_post_q_id_historia', { id_historia: 2 });
   });
   it('registrarHistoriaPost → historia_post_registrar', async () => {
     await registrarHistoriaPost({ id_historia: 1, imagen: 'img.jpg' });

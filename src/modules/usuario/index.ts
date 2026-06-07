@@ -25,6 +25,8 @@ export {
   editarMiTelefono,
   confirmarCambioDeTelefono,
   confirmarRegistroExpress,
+  usuarioDarseDeBaja,
+  eliminarUsuario,
   usuarioSepuku,
   usuarioMassatsu,
 } from './api.js';

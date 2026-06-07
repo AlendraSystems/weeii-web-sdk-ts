@@ -171,3 +171,39 @@ export function eliminarPlantilla(
 ): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla }>> {
   return request('entrega_plantilla_eliminar', params);
 }
+
+export function entregaPlantillaQIdClienteClienteBool1(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_cliente_bool_1', params);
+}
+
+export function entregaPlantillaQIdClienteClienteBool2(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_cliente_bool_2', params);
+}
+
+export function entregaPlantillaQIdClienteClienteBool3(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_cliente_bool_3', params);
+}
+
+export function entregaPlantillaQIdClienteAdmonBool1(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_admon_bool_1', params);
+}
+
+export function entregaPlantillaQIdClienteAdmonBool2(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_admon_bool_2', params);
+}
+
+export function entregaPlantillaQIdClienteAdmonBool3(
+  params: { id_cliente: number } & EntregaPlantillaQueryParams,
+): Promise<WeeiiIncomingMessage<{ entrega_plantilla: EntregaPlantilla[] }>> {
+  return request('entrega_plantilla_q_id_cliente_admon_bool_3', params);
+}

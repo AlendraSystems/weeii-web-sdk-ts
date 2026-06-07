@@ -1,6 +1,7 @@
 export {
   historiasPosts,
   historiaPostPublicoGeneral,
+  historiaPostsPorIdHistoria,
   registrarHistoriaPost,
   eliminarHistoriaPost,
   publicarHistoriaPost,
