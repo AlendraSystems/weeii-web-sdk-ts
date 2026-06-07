@@ -56,7 +56,7 @@ export function openpayTokenizar(
 }
 
 export function registrarTarjetaOpenpay(
-  params: Record<string, unknown>,
+  params: { id_usuario: number; token: string },
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay }>> {
   return request('openpay_registrar_tarjeta', params);
 }
