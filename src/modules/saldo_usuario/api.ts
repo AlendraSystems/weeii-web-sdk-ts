@@ -1,6 +1,6 @@
 import { request } from '../../api.js';
 import type { WeeiiIncomingMessage } from '../../api.js';
-import type { SaldoUsuario, MovimientoSaldo, SaldoQueryParams } from './types.js';
+import type { SaldoUsuario, SaldoQueryParams } from './types.js';
 
 export type { SaldoUsuario, MovimientoSaldo } from './types.js';
 
