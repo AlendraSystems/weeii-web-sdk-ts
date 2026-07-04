@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [#5](https://github.com/AlendraSystems/weeii-web-sdk-ts/pull/5) [`6566a0d`](https://github.com/AlendraSystems/weeii-web-sdk-ts/commit/6566a0dedd63f0646c791a7404eaa52a53113e6f) Thanks [@maldonadoj8](https://github.com/maldonadoj8)! - Full server-parity audit
+
 ## 2.0.0
 
 ### Major Changes
