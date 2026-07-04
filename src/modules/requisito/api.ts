@@ -44,7 +44,7 @@ export function registrarRequisito(
 }
 
 export function editarRequisito(
-  params: { id: number } & Partial<Pick<Requisito, 'nombre' | 'descripcion' | 'activo'>>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ requisito: Requisito }>> {
   return request('requisito_editar', params);
 }

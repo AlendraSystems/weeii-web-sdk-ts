@@ -35,8 +35,8 @@ describe('notificacion_draft', () => {
     expect(request).toHaveBeenCalledWith('notificacion_draft_q_id', { id: 1 });
   });
   it('notificacionDraftPorTipo → notificacion_draft_q_id_tipo_notificacion', async () => {
-    await notificacionDraftPorTipo({ id_tipo_notificacion: 3 });
-    expect(request).toHaveBeenCalledWith('notificacion_draft_q_id_tipo_notificacion', { id_tipo_notificacion: 3 });
+    await notificacionDraftPorTipo({ tipo: 3 });
+    expect(request).toHaveBeenCalledWith('notificacion_draft_q_id_tipo_notificacion', { tipo: 3 });
   });
   it('notificacionesDraftPublicadas → notificacion_draft_q_publicado', async () => {
     await notificacionesDraftPublicadas();

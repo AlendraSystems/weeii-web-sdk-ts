@@ -85,8 +85,8 @@ describe('requisito', () => {
     expect(request).toHaveBeenCalledWith('requisito_registrar', { id_tramite: 1, nombre: 'R' });
   });
   it('editarRequisito → requisito_editar', async () => {
-    await editarRequisito({ id: 1, nombre: 'S' });
-    expect(request).toHaveBeenCalledWith('requisito_editar', { id: 1, nombre: 'S' });
+    await editarRequisito({ id: 1, campo: 'nombre', valor: 'S' });
+    expect(request).toHaveBeenCalledWith('requisito_editar', { id: 1, campo: 'nombre', valor: 'S' });
   });
 });
 
@@ -134,8 +134,8 @@ describe('validacion', () => {
     expect(request).toHaveBeenCalledWith('validacion_registrar', { id_tramite: 1 });
   });
   it('validar → validacion_validar', async () => {
-    await validar({ id: 1 });
-    expect(request).toHaveBeenCalledWith('validacion_validar', { id: 1 });
+    await validar({ id_validacion: 1, estatus: true });
+    expect(request).toHaveBeenCalledWith('validacion_validar', { id_validacion: 1, estatus: true });
   });
   it('validarUsuarioFacultadTesting → validacion_validar_usuario_facultad_testing', async () => {
     await validarUsuarioFacultadTesting({ facultad: 'f1', id_usuario: 3 });
@@ -167,12 +167,12 @@ describe('prueba', () => {
     expect(request).toHaveBeenCalledWith('prueba_q_id_validacion', { id_validacion: 2 });
   });
   it('editarPrueba → prueba_editar', async () => {
-    await editarPrueba({ id: 1 });
-    expect(request).toHaveBeenCalledWith('prueba_editar', { id: 1 });
+    await editarPrueba({ id: 1, campo: 'contenido', valor: null });
+    expect(request).toHaveBeenCalledWith('prueba_editar', { id: 1, campo: 'contenido', valor: null });
   });
   it('validarPrueba → prueba_validar', async () => {
-    await validarPrueba({ id: 1 });
-    expect(request).toHaveBeenCalledWith('prueba_validar', { id: 1 });
+    await validarPrueba({ id_prueba: 1, estatus: true });
+    expect(request).toHaveBeenCalledWith('prueba_validar', { id_prueba: 1, estatus: true });
   });
 });
 
@@ -216,23 +216,23 @@ describe('solicitud', () => {
     expect(request).toHaveBeenCalledWith('solicitud_q_id_validador', { id_validador: 4 });
   });
   it('solicitudValidadas → solicitud_q_validado', async () => {
-    await solicitudValidadas();
-    expect(request).toHaveBeenCalledWith('solicitud_q_validado', {});
+    await solicitudValidadas({ estatus: null });
+    expect(request).toHaveBeenCalledWith('solicitud_q_validado', { estatus: null });
   });
   it('registrarSolicitud → solicitud_registrar', async () => {
-    await registrarSolicitud({ id_tramite: 1 });
-    expect(request).toHaveBeenCalledWith('solicitud_registrar', { id_tramite: 1 });
+    await registrarSolicitud({ id_validacion: 1 });
+    expect(request).toHaveBeenCalledWith('solicitud_registrar', { id_validacion: 1 });
   });
   it('tomarSolicitud → solicitud_tomar', async () => {
-    await tomarSolicitud({ id: 1 });
-    expect(request).toHaveBeenCalledWith('solicitud_tomar', { id: 1 });
+    await tomarSolicitud({ id_solicitud: 1 });
+    expect(request).toHaveBeenCalledWith('solicitud_tomar', { id_solicitud: 1 });
   });
   it('solicitudAutoAsignar → solicitud_auto_asignar', async () => {
     await solicitudAutoAsignar({ id: 1 });
     expect(request).toHaveBeenCalledWith('solicitud_auto_asignar', { id: 1 });
   });
   it('validarSolicitud → solicitud_validar', async () => {
-    await validarSolicitud({ id: 1 });
-    expect(request).toHaveBeenCalledWith('solicitud_validar', { id: 1 });
+    await validarSolicitud({ id_solicitud: 1, estatus: true });
+    expect(request).toHaveBeenCalledWith('solicitud_validar', { id_solicitud: 1, estatus: true });
   });
 });

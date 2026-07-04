@@ -32,7 +32,7 @@ export function efectivoPorId(
 }
 
 export function efectivoPorEstatus(
-  params: { id_estatus: number } & EfectivoQueryParams,
+  params: { estatus: number } & EfectivoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ efectivo: Efectivo[] }>> {
   return request('efectivo_q_estatus', params);
 }

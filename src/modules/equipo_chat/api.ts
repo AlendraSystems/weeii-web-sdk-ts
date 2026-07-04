@@ -38,7 +38,7 @@ export function equipoChatPorIdUsuarioMiembro(
 }
 
 export function registrarEquipoChat(
-  params: { id_equipo: number } & Record<string, unknown>,
+  params: { id_miembro?: number | null; id_usuario?: number | null },
 ): Promise<WeeiiIncomingMessage<{ equipo_chat: EquipoChat }>> {
   return request('equipo_chat_registrar', params);
 }

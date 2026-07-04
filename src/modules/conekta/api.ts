@@ -32,7 +32,7 @@ export function conektaPorId(
 }
 
 export function conektaPorEstatus(
-  params: { id_estatus: number } & ConektaQueryParams,
+  params: { estatus: number } & ConektaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ conekta: Conekta[] }>> {
   return request('conekta_q_estatus', params);
 }

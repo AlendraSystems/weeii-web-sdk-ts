@@ -51,9 +51,9 @@ import {
   misRetiros, editarRetiro,
 } from '../../src/modules/retiro/api.js';
 import {
-  miSaldo, saldos, saldoPorId, saldoPorIdUsuario, saldoBalancePorIdUsuario,
+  miSaldo, saldos, saldoPorId, saldoBalancePorIdUsuario,
   saldosPositivos, saldosNegativos, saldosPositivosPorIdRol, saldosNegativosPorIdRol,
-  searchSaldosPositivos, searchSaldosNegativos, movimientosSaldo,
+  searchSaldosPositivos, searchSaldosNegativos,
   depositarSaldo, resolverSaldo, retirarSaldo, retirarPagoRepartidor, registrarAdeudo,
 } from '../../src/modules/saldo_usuario/api.js';
 import {
@@ -93,8 +93,8 @@ describe('efectivo', () => {
     expect(request).toHaveBeenCalledWith('efectivo_q_id', { id: 1 });
   });
   it('efectivoPorEstatus → efectivo_q_estatus', async () => {
-    await efectivoPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('efectivo_q_estatus', { id_estatus: 2 });
+    await efectivoPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('efectivo_q_estatus', { estatus: 2 });
   });
   it('misPagosEfectivo → efectivo_mis_pagos', async () => {
     await misPagosEfectivo();
@@ -118,8 +118,8 @@ describe('saldo', () => {
     expect(request).toHaveBeenCalledWith('saldo_q_id', { id: 1 });
   });
   it('saldoPagoPorEstatus → saldo_q_estatus', async () => {
-    await saldoPagoPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('saldo_q_estatus', { id_estatus: 2 });
+    await saldoPagoPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('saldo_q_estatus', { estatus: 2 });
   });
   it('misPagosSaldo → saldo_mis_pagos', async () => {
     await misPagosSaldo();
@@ -143,8 +143,8 @@ describe('terminal_externa', () => {
     expect(request).toHaveBeenCalledWith('terminal_externa_q_id', { id: 1 });
   });
   it('terminalExternaPorEstatus → terminal_externa_q_estatus', async () => {
-    await terminalExternaPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('terminal_externa_q_estatus', { id_estatus: 2 });
+    await terminalExternaPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('terminal_externa_q_estatus', { estatus: 2 });
   });
   it('misPagosTerminalExterna → terminal_externa_mis_pagos', async () => {
     await misPagosTerminalExterna();
@@ -168,8 +168,8 @@ describe('conekta', () => {
     expect(request).toHaveBeenCalledWith('conekta_q_id', { id: 1 });
   });
   it('conektaPorEstatus → conekta_q_estatus', async () => {
-    await conektaPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('conekta_q_estatus', { id_estatus: 2 });
+    await conektaPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('conekta_q_estatus', { estatus: 2 });
   });
   it('conektaPorIdUsuario → conekta_q_id_usuario', async () => {
     await conektaPorIdUsuario({ id_usuario: 3 });
@@ -217,8 +217,8 @@ describe('openpay', () => {
     expect(request).toHaveBeenCalledWith('openpay_q_id', { id: 1 });
   });
   it('openpayPorEstatus → openpay_q_estatus', async () => {
-    await openpayPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('openpay_q_estatus', { id_estatus: 2 });
+    await openpayPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('openpay_q_estatus', { estatus: 2 });
   });
   it('openpayPorIdUsuario → openpay_q_id_usuario', async () => {
     await openpayPorIdUsuario({ id_usuario: 3 });
@@ -381,8 +381,8 @@ describe('movimiento', () => {
     expect(request).toHaveBeenCalledWith('movimiento_q_id_usuario_in_out_favor_o_contra', { id_usuario: 2, in_out: true, favor_o_contra: false });
   });
   it('movimientoQOidRelacionado → movimiento_q_oid_relacionado', async () => {
-    await movimientoQOidRelacionado({ oid_relacionado: 'abc' });
-    expect(request).toHaveBeenCalledWith('movimiento_q_oid_relacionado', { oid_relacionado: 'abc' });
+    await movimientoQOidRelacionado({ ie_relacionado: 'entrega', id_relacionado: 5 });
+    expect(request).toHaveBeenCalledWith('movimiento_q_oid_relacionado', { ie_relacionado: 'entrega', id_relacionado: 5 });
   });
   it('movimientoQInOut → movimiento_q_in_out', async () => {
     await movimientoQInOut({ in_out: true });
@@ -397,8 +397,8 @@ describe('movimiento', () => {
     expect(request).toHaveBeenCalledWith('movimiento_q_in_out_favor_o_contra', { in_out: true, favor_o_contra: false });
   });
   it('movimientoQOidRelacionadoInOut → movimiento_q_oid_relacionado_in_out', async () => {
-    await movimientoQOidRelacionadoInOut({ oid_relacionado: 'abc', in_out: true });
-    expect(request).toHaveBeenCalledWith('movimiento_q_oid_relacionado_in_out', { oid_relacionado: 'abc', in_out: true });
+    await movimientoQOidRelacionadoInOut({ ie_relacionado: 'entrega', id_relacionado: 5, in_out: true });
+    expect(request).toHaveBeenCalledWith('movimiento_q_oid_relacionado_in_out', { ie_relacionado: 'entrega', id_relacionado: 5, in_out: true });
   });
   it('misMovimientos → movimiento_q_mios', async () => {
     await misMovimientos();
@@ -495,10 +495,6 @@ describe('saldo_usuario', () => {
     await saldoPorId({ id: 1 });
     expect(request).toHaveBeenCalledWith('saldo_usuario_q_id', { id: 1 });
   });
-  it('saldoPorIdUsuario → saldo_usuario_q_id_usuario', async () => {
-    await saldoPorIdUsuario({ id_usuario: 2 });
-    expect(request).toHaveBeenCalledWith('saldo_usuario_q_id_usuario', { id_usuario: 2 });
-  });
   it('saldoBalancePorIdUsuario → saldo_usuario_q_id_usuario_balance', async () => {
     await saldoBalancePorIdUsuario({ id_usuario: 2 });
     expect(request).toHaveBeenCalledWith('saldo_usuario_q_id_usuario_balance', { id_usuario: 2 });
@@ -527,21 +523,17 @@ describe('saldo_usuario', () => {
     await searchSaldosNegativos({ texto_busqueda: 'x' });
     expect(request).toHaveBeenCalledWith('saldo_usuario_search_negativo', { texto_busqueda: 'x' });
   });
-  it('movimientosSaldo → saldo_usuario_movimientos', async () => {
-    await movimientosSaldo();
-    expect(request).toHaveBeenCalledWith('saldo_usuario_movimientos', {});
-  });
   it('depositarSaldo → saldo_usuario_depositar', async () => {
-    await depositarSaldo({ monto: 100 });
-    expect(request).toHaveBeenCalledWith('saldo_usuario_depositar', { monto: 100 });
+    await depositarSaldo({ id_usuario: 2, info_pago: { monto: 100 } });
+    expect(request).toHaveBeenCalledWith('saldo_usuario_depositar', { id_usuario: 2, info_pago: { monto: 100 } });
   });
   it('resolverSaldo → saldo_usuario_resolver', async () => {
-    await resolverSaldo({ id: 1 });
-    expect(request).toHaveBeenCalledWith('saldo_usuario_resolver', { id: 1 });
+    await resolverSaldo({ importe: 100 });
+    expect(request).toHaveBeenCalledWith('saldo_usuario_resolver', { importe: 100 });
   });
   it('retirarSaldo → saldo_usuario_retirar', async () => {
-    await retirarSaldo({ monto: 50 });
-    expect(request).toHaveBeenCalledWith('saldo_usuario_retirar', { monto: 50 });
+    await retirarSaldo({ id_usuario: 2, monto: 50 });
+    expect(request).toHaveBeenCalledWith('saldo_usuario_retirar', { id_usuario: 2, monto: 50 });
   });
   it('retirarPagoRepartidor → saldo_usuario_retirar_pago_repartidor', async () => {
     await retirarPagoRepartidor({ id_entrega: 5 });
@@ -601,8 +593,8 @@ describe('link_pago', () => {
     expect(request).toHaveBeenCalledWith('link_pago_q_creacion_mac_address', { mac_address: 'AA:BB:CC' });
   });
   it('linksPagoAdmon → link_pago_q_admon_p', async () => {
-    await linksPagoAdmon();
-    expect(request).toHaveBeenCalledWith('link_pago_q_admon_p', {});
+    await linksPagoAdmon({ estatus: true });
+    expect(request).toHaveBeenCalledWith('link_pago_q_admon_p', { estatus: true });
   });
   it('linksPagoPorEstatus → link_pago_q_estatus', async () => {
     await linksPagoPorEstatus({ estatus: 1 });
@@ -621,8 +613,8 @@ describe('link_pago', () => {
     expect(request).toHaveBeenCalledWith('link_pago_editar', { id: 1, campo: 'notas', valor: 'ok' });
   });
   it('pagarLinkPago → link_pago_pagar', async () => {
-    await pagarLinkPago({ token: 'abc123', id_tipo_pago: 1 });
-    expect(request).toHaveBeenCalledWith('link_pago_pagar', { token: 'abc123', id_tipo_pago: 1 });
+    await pagarLinkPago({ token: 'abc123', info_pago: { id_forma_pago: 1 } });
+    expect(request).toHaveBeenCalledWith('link_pago_pagar', { token: 'abc123', info_pago: { id_forma_pago: 1 } });
   });
   it('linkPagoEditParms → link_pago_edit_parms', async () => {
     await linkPagoEditParms();

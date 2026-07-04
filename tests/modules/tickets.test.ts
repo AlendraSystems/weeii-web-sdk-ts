@@ -95,8 +95,8 @@ describe('ticket', () => {
     expect(request).toHaveBeenCalledWith('ticket_registrar', { titulo: 'T', descripcion: 'D' });
   });
   it('ticketAutoAsignar → ticket_auto_asignar', async () => {
-    await ticketAutoAsignar({ id: 1 });
-    expect(request).toHaveBeenCalledWith('ticket_auto_asignar', { id: 1 });
+    await ticketAutoAsignar();
+    expect(request).toHaveBeenCalledWith('ticket_auto_asignar');
   });
   it('soltarTicket → ticket_soltar', async () => {
     await soltarTicket({ id: 1 });
@@ -106,9 +106,9 @@ describe('ticket', () => {
     await cerrarTicket({ id: 1 });
     expect(request).toHaveBeenCalledWith('ticket_cerrar', { id: 1 });
   });
-  it('calificarTicket → ticket_calificacion', async () => {
-    await calificarTicket({ id: 1, calificacion: 5 });
-    expect(request).toHaveBeenCalledWith('ticket_calificacion', { id: 1, calificacion: 5 });
+  it('calificarTicket → ticket_calificar', async () => {
+    await calificarTicket({ id: 1, resuelto: true, comentarios: 'ok' });
+    expect(request).toHaveBeenCalledWith('ticket_calificar', { id: 1, resuelto: true, comentarios: 'ok' });
   });
 });
 

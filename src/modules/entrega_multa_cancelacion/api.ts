@@ -38,7 +38,7 @@ export function misMultasCancelacion(
 }
 
 export function editarParamsMultaCancelacion(
-  params: Record<string, unknown>,
+  params: { parms: Record<string, unknown> },
 ): Promise<WeeiiIncomingMessage<{ entrega_multa_cancelacion: EntregaMultaCancelacion }>> {
   return request('entrega_multa_cancelacion_edit_parms', params);
 }

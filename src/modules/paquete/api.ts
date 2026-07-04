@@ -62,7 +62,7 @@ export function eliminarPaquete(
 }
 
 export function paquetePermitidoSortPromover(
-  params: { id: number; ids_ordenados: number[] },
+  params: { id_paquete: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('paquete_permitido_sort_promover', params);
 }

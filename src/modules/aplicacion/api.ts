@@ -32,13 +32,13 @@ export function registrarAplicacion(
 }
 
 export function editarAplicacion(
-  params: { id: number } & Partial<Pick<Aplicacion, 'nombre' | 'descripcion' | 'activo'>>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ aplicacion: Aplicacion }>> {
   return request('aplicacion_editar', params);
 }
 
 export function aplicacionEditParms(
-  params: { id: number },
+  params: { parms: Record<string, unknown> },
 ): Promise<WeeiiIncomingMessage<{ aplicacion: Aplicacion }>> {
   return request('aplicacion_edit_parms', params);
 }

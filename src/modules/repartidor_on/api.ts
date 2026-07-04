@@ -33,13 +33,13 @@ export function repartidorOnQLatLonDecDisponible(
 }
 
 export function repartidorOnQNDisponibles(
-  params: RepartidorOnQueryParams = {},
+  params: RepartidorOnGeoParams & { filas?: number },
 ): Promise<WeeiiIncomingMessage<{ repartidor_on: RepartidorOn[] }>> {
   return request('repartidor_on_q_n_disponibles', params);
 }
 
 export function repartidorOnEspecifico(
-  params: { id_usuario: number } & RepartidorOnQueryParams,
+  params: { id: number | number[] } & RepartidorOnQueryParams,
 ): Promise<WeeiiIncomingMessage<{ repartidor_on: RepartidorOn }>> {
   return request('repartidor_on_especifico', params);
 }

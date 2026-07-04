@@ -16,9 +16,7 @@ export interface TipoNotificacionSearchParams extends TipoNotificacionQueryParam
 }
 
 export interface EditarTipoNotificacionParams {
-  id:           number;
-  nombre?:      string;
-  clave?:       string;
-  descripcion?: string | null;
-  orden?:       number | null;
+  id:     number;
+  campo:  string;
+  valor:  unknown;
 }

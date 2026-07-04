@@ -14,7 +14,12 @@ import type {
 export type { EntregaMensaje } from './types.js';
 
 export function accederConversacion(
-  params: { id_entrega?: number } = {},
+  params: {
+    token_chat?: string;
+    nombre_usuario?: string | null;
+    codigo_acceso?: string;
+    profundidad?: number[];
+  } = {},
 ): Promise<WeeiiIncomingMessage<{ entrega_mensaje: EntregaMensaje[] }>> {
   return request('entrega_mensaje_acceder_conversacion', params);
 }

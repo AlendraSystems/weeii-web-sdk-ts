@@ -44,13 +44,13 @@ export function pruebaPorIdValidacion(
 }
 
 export function editarPrueba(
-  params: { id: number } & Partial<Pick<Prueba, 'contenido'>>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ prueba: Prueba }>> {
   return request('prueba_editar', params);
 }
 
 export function validarPrueba(
-  params: { id: number },
+  params: { id_prueba: number; estatus: boolean },
 ): Promise<WeeiiIncomingMessage<{ prueba: Prueba }>> {
   return request('prueba_validar', params);
 }

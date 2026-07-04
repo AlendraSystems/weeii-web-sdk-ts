@@ -95,8 +95,8 @@ describe('lider', () => {
     expect(request).toHaveBeenCalledWith('lider_registrar', { id_equipo: 1, id_usuario: 2 });
   });
   it('eliminarLider → lider_eliminar', async () => {
-    await eliminarLider({ id: 1 });
-    expect(request).toHaveBeenCalledWith('lider_eliminar', { id: 1 });
+    await eliminarLider({ id_lider: 1 });
+    expect(request).toHaveBeenCalledWith('lider_eliminar', { id_lider: 1 });
   });
 });
 
@@ -124,8 +124,8 @@ describe('miembro', () => {
     expect(request).toHaveBeenCalledWith('miembro_registrar', { id_equipo: 1, id_usuario: 2 });
   });
   it('eliminarMiembro → miembro_eliminar', async () => {
-    await eliminarMiembro({ id: 1 });
-    expect(request).toHaveBeenCalledWith('miembro_eliminar', { id: 1 });
+    await eliminarMiembro({ id_miembro: 1 });
+    expect(request).toHaveBeenCalledWith('miembro_eliminar', { id_miembro: 1 });
   });
 });
 
@@ -149,8 +149,8 @@ describe('equipo_chat', () => {
     expect(request).toHaveBeenCalledWith('equipo_chat_q_id_usuario_miembro', { id_usuario: 2 });
   });
   it('registrarEquipoChat → equipo_chat_registrar', async () => {
-    await registrarEquipoChat({ id_equipo: 1, nombre: 'General' });
-    expect(request).toHaveBeenCalledWith('equipo_chat_registrar', { id_equipo: 1, nombre: 'General' });
+    await registrarEquipoChat({ id_miembro: 1, id_usuario: 2 });
+    expect(request).toHaveBeenCalledWith('equipo_chat_registrar', { id_miembro: 1, id_usuario: 2 });
   });
 });
 

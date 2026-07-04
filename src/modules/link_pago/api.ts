@@ -83,13 +83,13 @@ export function linksPagoCreacionMacAddress(
 }
 
 export function linksPagoAdmon(
-  params: LinkPagoQueryParams = {},
+  params: { estatus: boolean } & LinkPagoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ link_pago: LinkPago[] }>> {
   return request('link_pago_q_admon_p', params);
 }
 
 export function linksPagoPorEstatus(
-  params: { id_estatus: number } & LinkPagoQueryParams,
+  params: { estatus: number } & LinkPagoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ link_pago: LinkPago[] }>> {
   return request('link_pago_q_estatus', params);
 }
@@ -115,7 +115,7 @@ export function editarLinkPago(
 }
 
 export function pagarLinkPago(
-  params: { token: string; id_tipo_pago: number },
+  params: { token: string; codigo?: string | null; info_pago: Record<string, unknown>; pagador_nombre?: string | null; pagador_email?: string | null },
 ): Promise<WeeiiIncomingMessage<{ link_pago: LinkPago }>> {
   return request('link_pago_pagar', params);
 }

@@ -38,7 +38,7 @@ export function bannersPublicoGeneral(
 }
 
 export function bannerPublicoGeneralSortPromover(
-  params: { id: number; ids_ordenados: number[] },
+  params: { id_banner: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('banner_publico_general_sort_promover', params);
 }

@@ -50,25 +50,25 @@ export function editarHistoria(
 }
 
 export function eliminarHistoria(
-  params: { id: number },
+  params: { id_historia: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('historia_eliminar', params);
 }
 
 export function publicarHistoria(
-  params: { id: number },
+  params: { id_historia: number },
 ): Promise<WeeiiIncomingMessage<{ historia: Historia }>> {
   return request('historia_publicar', params);
 }
 
 export function mostrarHistoria(
-  params: { id: number },
+  params: { id_historia: number; estatus?: boolean },
 ): Promise<WeeiiIncomingMessage<{ historia: Historia }>> {
   return request('historia_mostrar', params);
 }
 
 export function historiaPublicoGeneralSortPromover(
-  params: { id: number; ids_ordenados: number[] },
+  params: { id_historia: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('historia_publico_general_sort_promover', params);
 }

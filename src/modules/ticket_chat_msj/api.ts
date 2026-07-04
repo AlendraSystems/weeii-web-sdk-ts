@@ -68,13 +68,13 @@ export function ticketChatMsjPorIdChatUsr(
 }
 
 export function ticketChatMsjPorIdUsuarioCanal(
-  params: { id_usuario: number } & TicketChatMsjQueryParams,
+  params: { id_usuario_canal: number } & TicketChatMsjQueryParams,
 ): Promise<WeeiiIncomingMessage<{ ticket_chat_msj: TicketChatMsj[] }>> {
   return request('ticket_chat_msj_q_id_usuario_canal', params);
 }
 
 export function registrarTicketChatMsj(
-  params: { id_chat: number; mensaje: string },
+  params: { id_chat: number; cuerpo: string },
 ): Promise<WeeiiIncomingMessage<{ ticket_chat_msj: TicketChatMsj }>> {
   return request('ticket_chat_msj_registrar', params);
 }

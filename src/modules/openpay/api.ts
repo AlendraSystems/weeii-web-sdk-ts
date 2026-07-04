@@ -32,7 +32,7 @@ export function openpayPorId(
 }
 
 export function openpayPorEstatus(
-  params: { id_estatus: number } & OpenpayQueryParams,
+  params: { estatus: number } & OpenpayQueryParams,
 ): Promise<WeeiiIncomingMessage<{ openpay: Openpay[] }>> {
   return request('openpay_q_estatus', params);
 }

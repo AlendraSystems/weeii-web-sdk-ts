@@ -80,7 +80,7 @@ export function eliminarCategoria(
 }
 
 export function sortPromoverCategoriasNegocio(
-  params: { id_negocio: number; ids_ordenados: number[] },
+  params: { id_categoria: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('categoria_id_negocio_catalogo_sort_promover', params);
 }

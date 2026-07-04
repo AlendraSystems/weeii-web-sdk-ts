@@ -41,12 +41,12 @@ describe('aplicacion', () => {
     expect(request).toHaveBeenCalledWith('aplicacion_registrar', { nombre: 'A' });
   });
   it('editarAplicacion → aplicacion_editar', async () => {
-    await editarAplicacion({ id: 1, nombre: 'B' });
-    expect(request).toHaveBeenCalledWith('aplicacion_editar', { id: 1, nombre: 'B' });
+    await editarAplicacion({ id: 1, campo: 'nombre', valor: 'B' });
+    expect(request).toHaveBeenCalledWith('aplicacion_editar', { id: 1, campo: 'nombre', valor: 'B' });
   });
   it('aplicacionEditParms → aplicacion_edit_parms', async () => {
-    await aplicacionEditParms({ id: 1 });
-    expect(request).toHaveBeenCalledWith('aplicacion_edit_parms', { id: 1 });
+    await aplicacionEditParms({ parms: {} });
+    expect(request).toHaveBeenCalledWith('aplicacion_edit_parms', { parms: {} });
   });
 });
 
@@ -62,8 +62,8 @@ describe('plataforma', () => {
     expect(request).toHaveBeenCalledWith('plataforma_search', { texto_busqueda: 'x' });
   });
   it('editarPlataforma → plataforma_editar', async () => {
-    await editarPlataforma({ id: 1, nombre: 'P' });
-    expect(request).toHaveBeenCalledWith('plataforma_editar', { id: 1, nombre: 'P' });
+    await editarPlataforma({ id: 1, campo: 'nombre', valor: 'P' });
+    expect(request).toHaveBeenCalledWith('plataforma_editar', { id: 1, campo: 'nombre', valor: 'P' });
   });
 });
 
@@ -116,8 +116,8 @@ describe('paquete', () => {
     expect(request).toHaveBeenCalledWith('paquete_eliminar', { id: 1 });
   });
   it('paquetePermitidoSortPromover → paquete_permitido_sort_promover', async () => {
-    await paquetePermitidoSortPromover({ id: 1, ids_ordenados: [1, 2] });
-    expect(request).toHaveBeenCalledWith('paquete_permitido_sort_promover', { id: 1, ids_ordenados: [1, 2] });
+    await paquetePermitidoSortPromover({ id_paquete: 1, direccion: true });
+    expect(request).toHaveBeenCalledWith('paquete_permitido_sort_promover', { id_paquete: 1, direccion: true });
   });
 });
 
@@ -137,8 +137,8 @@ describe('seguro', () => {
     expect(request).toHaveBeenCalledWith('seguro_registrar', { nombre: 'S' });
   });
   it('editarSeguro → seguro_editar', async () => {
-    await editarSeguro({ id: 1, nombre: 'T' });
-    expect(request).toHaveBeenCalledWith('seguro_editar', { id: 1, nombre: 'T' });
+    await editarSeguro({ id: 1, campo: 'nombre', valor: 'T' });
+    expect(request).toHaveBeenCalledWith('seguro_editar', { id: 1, campo: 'nombre', valor: 'T' });
   });
   it('seguroPorId → seguro_q_id', async () => {
     await seguroPorId({ id: 1 });
