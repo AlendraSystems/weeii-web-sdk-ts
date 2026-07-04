@@ -74,7 +74,7 @@ export function registrarValidacion(
 }
 
 export function validar(
-  params: { id: number } & Record<string, unknown>,
+  params: { id_validacion: number; estatus: boolean },
 ): Promise<WeeiiIncomingMessage<{ validacion: Validacion }>> {
   return request('validacion_validar', params);
 }

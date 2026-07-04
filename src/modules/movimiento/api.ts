@@ -34,49 +34,49 @@ export function movimientoQIdUsuario(
 }
 
 export function movimientoQIdUsuarioInOut(
-  params: { id_usuario: number; in_out: string } & MovimientoQueryParams,
+  params: { id_usuario: number; in_out: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_id_usuario_in_out', params);
 }
 
 export function movimientoQIdUsuarioFavorOContra(
-  params: { id_usuario: number; favor_o_contra: string } & MovimientoQueryParams,
+  params: { id_usuario: number; favor_o_contra: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_id_usuario_favor_o_contra', params);
 }
 
 export function movimientoQIdUsuarioInOutFavorOContra(
-  params: { id_usuario: number; in_out: string; favor_o_contra: string } & MovimientoQueryParams,
+  params: { id_usuario: number; in_out: boolean; favor_o_contra: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_id_usuario_in_out_favor_o_contra', params);
 }
 
 export function movimientoQOidRelacionado(
-  params: { oid_relacionado: string } & MovimientoQueryParams,
+  params: { ie_relacionado: string; id_relacionado: number } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_oid_relacionado', params);
 }
 
 export function movimientoQInOut(
-  params: { in_out: string } & MovimientoQueryParams,
+  params: { in_out: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_in_out', params);
 }
 
 export function movimientoQFavorOContra(
-  params: { favor_o_contra: string } & MovimientoQueryParams,
+  params: { favor_o_contra: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_favor_o_contra', params);
 }
 
 export function movimientoQInOutFavorOContra(
-  params: { in_out: string; favor_o_contra: string } & MovimientoQueryParams,
+  params: { in_out: boolean; favor_o_contra: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_in_out_favor_o_contra', params);
 }
 
 export function movimientoQOidRelacionadoInOut(
-  params: { oid_relacionado: string; in_out: string } & MovimientoQueryParams,
+  params: { ie_relacionado: string; id_relacionado: number; in_out: boolean } & MovimientoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ movimiento: Movimiento[] }>> {
   return request('movimiento_q_oid_relacionado_in_out', params);
 }

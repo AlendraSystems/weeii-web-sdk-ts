@@ -1,6 +1,6 @@
 import { request } from '../../api.js';
 import type { WeeiiIncomingMessage } from '../../api.js';
-import type { SaldoUsuario, MovimientoSaldo, SaldoQueryParams } from './types.js';
+import type { SaldoUsuario, SaldoQueryParams } from './types.js';
 
 export type { SaldoUsuario, MovimientoSaldo } from './types.js';
 
@@ -22,12 +22,6 @@ export function saldoPorId(
   params: { id: number },
 ): Promise<WeeiiIncomingMessage<{ saldo_usuario: SaldoUsuario }>> {
   return request('saldo_usuario_q_id', params);
-}
-
-export function saldoPorIdUsuario(
-  params: { id_usuario: number },
-): Promise<WeeiiIncomingMessage<{ saldo_usuario: SaldoUsuario }>> {
-  return request('saldo_usuario_q_id_usuario', params);
 }
 
 export function saldoBalancePorIdUsuario(
@@ -72,28 +66,22 @@ export function searchSaldosNegativos(
   return request('saldo_usuario_search_negativo', params);
 }
 
-export function movimientosSaldo(
-  params: SaldoQueryParams = {},
-): Promise<WeeiiIncomingMessage<{ movimiento_saldo: MovimientoSaldo[] }>> {
-  return request('saldo_usuario_movimientos', params);
-}
-
 // ── Mutations ─────────────────────────────────────────────────────────────────
 
 export function depositarSaldo(
-  params: { monto: number; referencia?: string },
+  params: { id_usuario?: number; pagar_deuda?: boolean; info_pago?: Record<string, unknown>; id_forma_pago?: number; motivo?: string; notas?: string } = {},
 ): Promise<WeeiiIncomingMessage<{ saldo_usuario: SaldoUsuario }>> {
   return request('saldo_usuario_depositar', params);
 }
 
 export function resolverSaldo(
-  params: { id: number } & Record<string, unknown>,
+  params: { importe: number },
 ): Promise<WeeiiIncomingMessage<{ saldo_usuario: SaldoUsuario }>> {
   return request('saldo_usuario_resolver', params);
 }
 
 export function retirarSaldo(
-  params: { monto: number } & Record<string, unknown>,
+  params: { id_usuario: number; monto: number },
 ): Promise<WeeiiIncomingMessage<{ saldo_usuario: SaldoUsuario }>> {
   return request('saldo_usuario_retirar', params);
 }

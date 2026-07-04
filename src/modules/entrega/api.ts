@@ -134,16 +134,10 @@ export function editarEntrega(
   return request('entrega_editar', params);
 }
 
-export function eliminarEntrega(
-  params: { id_entrega: number },
-): Promise<WeeiiIncomingMessage> {
-  return request('eliminar_entrega', params);
-}
-
 // ── Status transitions ────────────────────────────────────────────────────────
 
 export function entregaEnCola(
-  params: { id_entrega: number },
+  params: { id_entrega: number; info_pago: Record<string, unknown>; latitud?: number | null; longitud?: number | null },
 ): Promise<WeeiiIncomingMessage> {
   return request('entrega_en_cola', params);
 }

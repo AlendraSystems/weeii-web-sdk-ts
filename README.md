@@ -28,6 +28,7 @@ TypeScript SDK for the Weeii platform. Provides a fully-typed, reactive client t
 - [Example App](#example-app)
 - [Module Reference](#module-reference)
 - [Build & Test](#build--test)
+- [Releasing a New Version](#releasing-a-new-version)
 
 ---
 
@@ -846,6 +847,71 @@ pnpm test:watch
 # Coverage report
 pnpm test:coverage
 ```
+
+---
+
+## Releasing a New Version
+
+This project uses [Changesets](https://github.com/changesets/changesets) for versioning and a GitHub Actions workflow (`.github/workflows/release.yml`) for publishing to npm automatically.
+
+### Step-by-step
+
+**1. Make and commit your changes as normal.**
+
+**2. Create a changeset** — describes what changed and whether it is a `patch`, `minor`, or `major` bump:
+
+```bash
+pnpm changeset
+```
+
+The CLI will ask you:
+- Which packages are affected (just `@silasdevs/sdk`).
+- The bump type: `patch` (bug fixes), `minor` (new features, backwards-compatible), `major` (breaking changes).
+- A short summary of the change (this goes into `CHANGELOG.md`).
+
+A new file is created in `.changeset/`. Commit it together with your code changes.
+
+**3. Push to `main`.**
+
+```bash
+git push origin main
+```
+
+**4. The release workflow does the rest.**
+
+When the push lands on `main`, the `Release` GitHub Actions workflow runs:
+
+- If there are pending changesets, it opens (or updates) a **"Version Package" pull request** that bumps `package.json` and writes `CHANGELOG.md`.
+- When that PR is merged into `main`, the workflow runs again, detects no pending changesets, builds the package, and **publishes to npm** automatically.
+
+### Required GitHub secrets
+
+| Secret | Where to get it |
+|---|---|
+| `NPM_TOKEN` | npmjs.com → Account → Access Tokens → Automation token |
+
+`GITHUB_TOKEN` is provided automatically by GitHub Actions — no setup needed.
+
+### Semantic versioning guide
+
+| Change type | Bump | Example |
+|---|---|---|
+| Bug fix, internal refactor | `patch` | `1.0.0` → `1.0.1` |
+| New function or module | `minor` | `1.0.0` → `1.1.0` |
+| Removed or renamed export, breaking param change | `major` | `1.0.0` → `2.0.0` |
+
+### Manual publish (emergency only)
+
+If you need to publish without going through the automated pipeline:
+
+```bash
+pnpm typecheck && pnpm test && pnpm build
+npm publish --access public
+```
+
+You must be logged in to npm (`npm login`) and have publish access to the `@silasdevs` scope.
+
+---
 
 ## License
 

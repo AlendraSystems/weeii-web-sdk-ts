@@ -32,7 +32,7 @@ export function terminalExternaPorId(
 }
 
 export function terminalExternaPorEstatus(
-  params: { id_estatus: number } & TerminalExternaQueryParams,
+  params: { estatus: number } & TerminalExternaQueryParams,
 ): Promise<WeeiiIncomingMessage<{ terminal_externa: TerminalExterna[] }>> {
   return request('terminal_externa_q_estatus', params);
 }

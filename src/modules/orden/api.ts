@@ -19,7 +19,7 @@ export function ordenSearch(
 }
 
 export function ordenSearchEstatus(
-  params: { id_estatus: number } & OrdenSearchParams,
+  params: { estatus: number } & OrdenSearchParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_search_estatus', params);
 }
@@ -31,7 +31,7 @@ export function ordenSearchIdCliente(
 }
 
 export function ordenSearchIdClienteEstatus(
-  params: { id_cliente: number; id_estatus: number } & OrdenSearchParams,
+  params: { id_cliente: number; estatus: number } & OrdenSearchParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_search_id_cliente_estatus', params);
 }
@@ -43,7 +43,7 @@ export function ordenSearchIdNegocio(
 }
 
 export function ordenSearchIdNegocioEstatus(
-  params: { id_negocio: number; id_estatus: number } & OrdenSearchParams,
+  params: { id_negocio: number; estatus: number } & OrdenSearchParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_search_id_negocio_estatus', params);
 }
@@ -61,7 +61,7 @@ export function ordenesPorIdCliente(
 }
 
 export function ordenesPorIdClienteEstatus(
-  params: { id_cliente: number; id_estatus: number } & OrdenQueryParams,
+  params: { id_cliente: number; estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_id_cliente_estatus', params);
 }
@@ -73,13 +73,13 @@ export function ordenesPorIdNegocio(
 }
 
 export function ordenesPorIdNegocioEstatus(
-  params: { id_negocio: number; id_estatus: number } & OrdenQueryParams,
+  params: { id_negocio: number; estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_id_negocio_estatus', params);
 }
 
 export function ordenesPorEstatus(
-  params: { id_estatus: number } & OrdenQueryParams,
+  params: { estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_estatus', params);
 }
@@ -131,7 +131,7 @@ export function misOrdenes(
 }
 
 export function misOrdenesPorEstatus(
-  params: { id_estatus: number } & OrdenQueryParams,
+  params: { estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_mias_estatus', params);
 }
@@ -149,13 +149,13 @@ export function misVentasSinPresupuestosExternos(
 }
 
 export function misVentasPorEstatus(
-  params: { id_estatus: number } & OrdenQueryParams,
+  params: { estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_mis_ventas_estatus', params);
 }
 
 export function misVentasPorEstatusSinPresupuestosExternos(
-  params: { id_estatus: number } & OrdenQueryParams,
+  params: { estatus: number } & OrdenQueryParams,
 ): Promise<WeeiiIncomingMessage<{ orden: Orden[] }>> {
   return request('orden_q_mis_ventas_estatus_sin_presupuestos_externos', params);
 }

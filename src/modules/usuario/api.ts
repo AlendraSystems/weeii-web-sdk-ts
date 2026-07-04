@@ -177,31 +177,31 @@ export function confirmarCambioDeTelefono(
 }
 
 export function confirmarRegistroExpress(
-  params: { codigo: string },
+  params: { codigo_2fa: string },
 ): Promise<WeeiiIncomingMessage<{ usuario: Usuario }>> {
   return request('usuario_confirmar_registro_express', params);
 }
 
 export function usuarioDarseDeBaja(
-  params: { motivo?: string } = {},
+  params: { confirmacion: string; codigo: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('usuario_darse_de_baja', params);
 }
 
 export function usuarioSepuku(
-  params: { motivo?: string } = {},
+  params: { confirmacion: string; codigo: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('usuario_sepuku', params);
 }
 
 export function eliminarUsuario(
-  params: { id: number; motivo?: string },
+  params: { confirmacion: string; id_usuario: number; codigo: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('usuario_eliminar', params);
 }
 
 export function usuarioMassatsu(
-  params: { id: number; motivo?: string },
+  params: { confirmacion: string; id_usuario: number; codigo: string },
 ): Promise<WeeiiIncomingMessage> {
   return request('usuario_massatsu', params);
 }

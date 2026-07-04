@@ -33,7 +33,7 @@ export function saldoPagoPorId(
 }
 
 export function saldoPagoPorEstatus(
-  params: { id_estatus: number } & SaldoPagoQueryParams,
+  params: { estatus: number } & SaldoPagoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ saldo: SaldoPago[] }>> {
   return request('saldo_q_estatus', params);
 }

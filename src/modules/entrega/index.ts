@@ -18,7 +18,6 @@ export {
   registrarEntrega,
   agendarEntrega,
   editarEntrega,
-  eliminarEntrega,
   entregaEnCola,
   aceptarEntrega,
   rechazarEntrega,

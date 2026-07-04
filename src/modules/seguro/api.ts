@@ -32,7 +32,7 @@ export function registrarSeguro(
 }
 
 export function editarSeguro(
-  params: { id: number } & Partial<Pick<Seguro, 'nombre' | 'descripcion' | 'precio' | 'activo'>>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ seguro: Seguro }>> {
   return request('seguro_editar', params);
 }

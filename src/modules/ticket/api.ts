@@ -109,10 +109,8 @@ export function registrarTicket(
   return request('ticket_registrar', params);
 }
 
-export function ticketAutoAsignar(
-  params: { id: number },
-): Promise<WeeiiIncomingMessage<{ ticket: Ticket }>> {
-  return request('ticket_auto_asignar', params);
+export function ticketAutoAsignar(): Promise<WeeiiIncomingMessage<{ ticket: Ticket }>> {
+  return request('ticket_auto_asignar');
 }
 
 export function soltarTicket(
@@ -128,7 +126,7 @@ export function cerrarTicket(
 }
 
 export function calificarTicket(
-  params: { id: number; calificacion: number },
+  params: { id: number; resuelto: boolean; comentarios: string },
 ): Promise<WeeiiIncomingMessage<{ ticket: Ticket }>> {
-  return request('ticket_calificacion', params);
+  return request('ticket_calificar', params);
 }

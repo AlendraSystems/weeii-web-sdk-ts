@@ -107,8 +107,8 @@ describe('categoria', () => {
     expect(request).toHaveBeenCalledWith('categoria_eliminar', { id: 1 });
   });
   it('sortPromoverCategoriasNegocio → categoria_id_negocio_catalogo_sort_promover', async () => {
-    await sortPromoverCategoriasNegocio({ id_negocio: 2, ids_ordenados: [3, 1, 2] });
-    expect(request).toHaveBeenCalledWith('categoria_id_negocio_catalogo_sort_promover', { id_negocio: 2, ids_ordenados: [3, 1, 2] });
+    await sortPromoverCategoriasNegocio({ id_categoria: 2, direccion: true });
+    expect(request).toHaveBeenCalledWith('categoria_id_negocio_catalogo_sort_promover', { id_categoria: 2, direccion: true });
   });
 });
 
@@ -167,8 +167,8 @@ describe('negocio', () => {
     expect(request).toHaveBeenCalledWith('negocio_search_catalogo_cercanos', { texto_busqueda: 'x', latitud: 19.0, longitud: -99.0 });
   });
   it('miNegocio → negocio_q_id_usuario', async () => {
-    await miNegocio();
-    expect(request).toHaveBeenCalledWith('negocio_q_id_usuario', {});
+    await miNegocio({ id_usuario: 1 });
+    expect(request).toHaveBeenCalledWith('negocio_q_id_usuario', { id_usuario: 1 });
   });
   it('negocioPorId → negocio_q_id', async () => {
     await negocioPorId({ id: 1 });
@@ -221,24 +221,24 @@ describe('orden', () => {
     expect(request).toHaveBeenCalledWith('orden_search', { texto_busqueda: 'x' });
   });
   it('ordenSearchEstatus → orden_search_estatus', async () => {
-    await ordenSearchEstatus({ id_estatus: 1, texto_busqueda: 'x' });
-    expect(request).toHaveBeenCalledWith('orden_search_estatus', { id_estatus: 1, texto_busqueda: 'x' });
+    await ordenSearchEstatus({ estatus: 1, texto_busqueda: 'x' });
+    expect(request).toHaveBeenCalledWith('orden_search_estatus', { estatus: 1, texto_busqueda: 'x' });
   });
   it('ordenSearchIdCliente → orden_search_id_cliente', async () => {
     await ordenSearchIdCliente({ id_cliente: 2, texto_busqueda: 'x' });
     expect(request).toHaveBeenCalledWith('orden_search_id_cliente', { id_cliente: 2, texto_busqueda: 'x' });
   });
   it('ordenSearchIdClienteEstatus → orden_search_id_cliente_estatus', async () => {
-    await ordenSearchIdClienteEstatus({ id_cliente: 2, id_estatus: 1, texto_busqueda: 'x' });
-    expect(request).toHaveBeenCalledWith('orden_search_id_cliente_estatus', { id_cliente: 2, id_estatus: 1, texto_busqueda: 'x' });
+    await ordenSearchIdClienteEstatus({ id_cliente: 2, estatus: 1, texto_busqueda: 'x' });
+    expect(request).toHaveBeenCalledWith('orden_search_id_cliente_estatus', { id_cliente: 2, estatus: 1, texto_busqueda: 'x' });
   });
   it('ordenSearchIdNegocio → orden_search_id_negocio', async () => {
     await ordenSearchIdNegocio({ id_negocio: 3, texto_busqueda: 'x' });
     expect(request).toHaveBeenCalledWith('orden_search_id_negocio', { id_negocio: 3, texto_busqueda: 'x' });
   });
   it('ordenSearchIdNegocioEstatus → orden_search_id_negocio_estatus', async () => {
-    await ordenSearchIdNegocioEstatus({ id_negocio: 3, id_estatus: 1, texto_busqueda: 'x' });
-    expect(request).toHaveBeenCalledWith('orden_search_id_negocio_estatus', { id_negocio: 3, id_estatus: 1, texto_busqueda: 'x' });
+    await ordenSearchIdNegocioEstatus({ id_negocio: 3, estatus: 1, texto_busqueda: 'x' });
+    expect(request).toHaveBeenCalledWith('orden_search_id_negocio_estatus', { id_negocio: 3, estatus: 1, texto_busqueda: 'x' });
   });
   it('ordenPorId → orden_q_id', async () => {
     await ordenPorId({ id: 1 });
@@ -249,20 +249,20 @@ describe('orden', () => {
     expect(request).toHaveBeenCalledWith('orden_q_id_cliente', { id_cliente: 2 });
   });
   it('ordenesPorIdClienteEstatus → orden_q_id_cliente_estatus', async () => {
-    await ordenesPorIdClienteEstatus({ id_cliente: 2, id_estatus: 1 });
-    expect(request).toHaveBeenCalledWith('orden_q_id_cliente_estatus', { id_cliente: 2, id_estatus: 1 });
+    await ordenesPorIdClienteEstatus({ id_cliente: 2, estatus: 1 });
+    expect(request).toHaveBeenCalledWith('orden_q_id_cliente_estatus', { id_cliente: 2, estatus: 1 });
   });
   it('ordenesPorIdNegocio → orden_q_id_negocio', async () => {
     await ordenesPorIdNegocio({ id_negocio: 3 });
     expect(request).toHaveBeenCalledWith('orden_q_id_negocio', { id_negocio: 3 });
   });
   it('ordenesPorIdNegocioEstatus → orden_q_id_negocio_estatus', async () => {
-    await ordenesPorIdNegocioEstatus({ id_negocio: 3, id_estatus: 1 });
-    expect(request).toHaveBeenCalledWith('orden_q_id_negocio_estatus', { id_negocio: 3, id_estatus: 1 });
+    await ordenesPorIdNegocioEstatus({ id_negocio: 3, estatus: 1 });
+    expect(request).toHaveBeenCalledWith('orden_q_id_negocio_estatus', { id_negocio: 3, estatus: 1 });
   });
   it('ordenesPorEstatus → orden_q_estatus', async () => {
-    await ordenesPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('orden_q_estatus', { id_estatus: 2 });
+    await ordenesPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('orden_q_estatus', { estatus: 2 });
   });
   it('ordenesCreadasPorNegocio → orden_q_creada_por_negocio_p', async () => {
     await ordenesCreadasPorNegocio();
@@ -293,8 +293,8 @@ describe('orden', () => {
     expect(request).toHaveBeenCalledWith('orden_q_mias', {});
   });
   it('misOrdenesPorEstatus → orden_q_mias_estatus', async () => {
-    await misOrdenesPorEstatus({ id_estatus: 1 });
-    expect(request).toHaveBeenCalledWith('orden_q_mias_estatus', { id_estatus: 1 });
+    await misOrdenesPorEstatus({ estatus: 1 });
+    expect(request).toHaveBeenCalledWith('orden_q_mias_estatus', { estatus: 1 });
   });
   it('misVentas → orden_q_mis_ventas', async () => {
     await misVentas();
@@ -305,12 +305,12 @@ describe('orden', () => {
     expect(request).toHaveBeenCalledWith('orden_q_mis_ventas_sin_presupuestos_externos', {});
   });
   it('misVentasPorEstatus → orden_q_mis_ventas_estatus', async () => {
-    await misVentasPorEstatus({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('orden_q_mis_ventas_estatus', { id_estatus: 2 });
+    await misVentasPorEstatus({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('orden_q_mis_ventas_estatus', { estatus: 2 });
   });
   it('misVentasPorEstatusSinPresupuestosExternos → orden_q_mis_ventas_estatus_sin_presupuestos_externos', async () => {
-    await misVentasPorEstatusSinPresupuestosExternos({ id_estatus: 2 });
-    expect(request).toHaveBeenCalledWith('orden_q_mis_ventas_estatus_sin_presupuestos_externos', { id_estatus: 2 });
+    await misVentasPorEstatusSinPresupuestosExternos({ estatus: 2 });
+    expect(request).toHaveBeenCalledWith('orden_q_mis_ventas_estatus_sin_presupuestos_externos', { estatus: 2 });
   });
   it('registrarOrden → orden_registrar', async () => {
     await registrarOrden({ id_negocio: 1 });
@@ -455,12 +455,12 @@ describe('producto', () => {
     expect(request).toHaveBeenCalledWith('producto_eliminar', { id: 1 });
   });
   it('sortPromoverIdNegocio → producto_id_negocio_catalogo_sort_promover', async () => {
-    await sortPromoverIdNegocio({ id_negocio: 2, ids_ordenados: [3, 1, 2] });
-    expect(request).toHaveBeenCalledWith('producto_id_negocio_catalogo_sort_promover', { id_negocio: 2, ids_ordenados: [3, 1, 2] });
+    await sortPromoverIdNegocio({ id_producto: 2, direccion: true });
+    expect(request).toHaveBeenCalledWith('producto_id_negocio_catalogo_sort_promover', { id_producto: 2, direccion: true });
   });
   it('sortPromoverIdCategoria → producto_id_categoria_catalogo_sort_promover', async () => {
-    await sortPromoverIdCategoria({ id_categoria: 2, ids_ordenados: [2, 3, 1] });
-    expect(request).toHaveBeenCalledWith('producto_id_categoria_catalogo_sort_promover', { id_categoria: 2, ids_ordenados: [2, 3, 1] });
+    await sortPromoverIdCategoria({ id_producto: 2, direccion: false });
+    expect(request).toHaveBeenCalledWith('producto_id_categoria_catalogo_sort_promover', { id_producto: 2, direccion: false });
   });
 });
 

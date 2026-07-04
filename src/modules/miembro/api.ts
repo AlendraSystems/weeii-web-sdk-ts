@@ -44,7 +44,7 @@ export function registrarMiembro(
 }
 
 export function eliminarMiembro(
-  params: { id: number },
+  params: { id_miembro: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('miembro_eliminar', params);
 }

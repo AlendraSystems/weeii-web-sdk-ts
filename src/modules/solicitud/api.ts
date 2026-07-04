@@ -68,19 +68,19 @@ export function solicitudPorIdValidador(
 }
 
 export function solicitudValidadas(
-  params: SolicitudQueryParams = {},
+  params: { estatus: boolean | null } & SolicitudQueryParams,
 ): Promise<WeeiiIncomingMessage<{ solicitud: Solicitud[] }>> {
   return request('solicitud_q_validado', params);
 }
 
 export function registrarSolicitud(
-  params: { id_tramite: number } & Record<string, unknown>,
+  params: { id_validacion: number; id_usuario?: number },
 ): Promise<WeeiiIncomingMessage<{ solicitud: Solicitud }>> {
   return request('solicitud_registrar', params);
 }
 
 export function tomarSolicitud(
-  params: { id: number },
+  params: { id_solicitud: number; forzar?: boolean },
 ): Promise<WeeiiIncomingMessage<{ solicitud: Solicitud }>> {
   return request('solicitud_tomar', params);
 }
@@ -92,7 +92,7 @@ export function solicitudAutoAsignar(
 }
 
 export function validarSolicitud(
-  params: { id: number } & Record<string, unknown>,
+  params: { id_solicitud: number; estatus: boolean },
 ): Promise<WeeiiIncomingMessage<{ solicitud: Solicitud }>> {
   return request('solicitud_validar', params);
 }

@@ -22,7 +22,7 @@ export function tipoPagoSearch(
 }
 
 export function editarTipoPago(
-  params: { id: number } & Partial<TipoPago>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ tipo_pago: TipoPago }>> {
   return request('tipo_pago_editar', params);
 }

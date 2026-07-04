@@ -26,7 +26,7 @@ export function plataformaSearch(
 }
 
 export function editarPlataforma(
-  params: { id: number } & Partial<Pick<Plataforma, 'nombre' | 'descripcion' | 'activo'>>,
+  params: { id: number; campo: string; valor: unknown },
 ): Promise<WeeiiIncomingMessage<{ plataforma: Plataforma }>> {
   return request('plataforma_editar', params);
 }

@@ -32,7 +32,7 @@ export function misMultasAborcion(
 }
 
 export function editarParamsMultaAborcion(
-  params: Record<string, unknown>,
+  params: { parms: Record<string, unknown> },
 ): Promise<WeeiiIncomingMessage<{ entrega_multa_aborcion: EntregaMultaAborcion }>> {
   return request('entrega_multa_aborcion_edit_parms', params);
 }

@@ -44,7 +44,7 @@ export function registrarLider(
 }
 
 export function eliminarLider(
-  params: { id: number },
+  params: { id_lider: number },
 ): Promise<WeeiiIncomingMessage> {
   return request('lider_eliminar', params);
 }

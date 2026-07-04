@@ -34,7 +34,7 @@ export function puntosGpsPorIdEntregaIdUsuario(
 }
 
 export function registrarNuevoPunto(
-  params: { latitud: number; longitud: number; id_entrega?: number },
+  params: { latitud: number; longitud: number; id_entrega: number },
 ): Promise<WeeiiIncomingMessage<{ entrega_gps: EntregaGps }>> {
   return request('entrega_gps_registrar_nuevo_punto', params);
 }

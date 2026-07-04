@@ -44,8 +44,8 @@ describe('banner', () => {
     expect(request).toHaveBeenCalledWith('banner_q_publico_general', {});
   });
   it('bannerPublicoGeneralSortPromover → banner_publico_general_sort_promover', async () => {
-    await bannerPublicoGeneralSortPromover({ id: 1, ids_ordenados: [1, 2] });
-    expect(request).toHaveBeenCalledWith('banner_publico_general_sort_promover', { id: 1, ids_ordenados: [1, 2] });
+    await bannerPublicoGeneralSortPromover({ id_banner: 1, direccion: true });
+    expect(request).toHaveBeenCalledWith('banner_publico_general_sort_promover', { id_banner: 1, direccion: true });
   });
   it('registrarBannerVisto → banner_visto', async () => {
     await registrarBannerVisto({ id: 1 });
@@ -113,8 +113,8 @@ describe('historia', () => {
     expect(request).toHaveBeenCalledWith('historia_mostrar', { id: 1 });
   });
   it('historiaPublicoGeneralSortPromover → historia_publico_general_sort_promover', async () => {
-    await historiaPublicoGeneralSortPromover({ id: 1, ids_ordenados: [1, 2] });
-    expect(request).toHaveBeenCalledWith('historia_publico_general_sort_promover', { id: 1, ids_ordenados: [1, 2] });
+    await historiaPublicoGeneralSortPromover({ id_historia: 1, direccion: true });
+    expect(request).toHaveBeenCalledWith('historia_publico_general_sort_promover', { id_historia: 1, direccion: true });
   });
 });
 

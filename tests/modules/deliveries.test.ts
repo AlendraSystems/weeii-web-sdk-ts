@@ -24,7 +24,6 @@ import {
   registrarEntrega,
   agendarEntrega,
   editarEntrega,
-  eliminarEntrega,
   entregaEnCola,
   aceptarEntrega,
   rechazarEntrega,
@@ -252,14 +251,10 @@ describe('entrega', () => {
     expect(request).toHaveBeenCalledWith('entrega_editar', p);
   });
 
-  it('eliminarEntrega → eliminar_entrega with id_entrega field', async () => {
-    await eliminarEntrega({ id_entrega: 7 });
-    expect(request).toHaveBeenCalledWith('eliminar_entrega', { id_entrega: 7 });
-  });
-
-  it('entregaEnCola → entrega_en_cola with id_entrega field', async () => {
-    await entregaEnCola({ id_entrega: 3 });
-    expect(request).toHaveBeenCalledWith('entrega_en_cola', { id_entrega: 3 });
+  it('entregaEnCola → entrega_en_cola with id_entrega and info_pago fields', async () => {
+    const infoPago = { tipo: 'saldo' };
+    await entregaEnCola({ id_entrega: 3, info_pago: infoPago });
+    expect(request).toHaveBeenCalledWith('entrega_en_cola', { id_entrega: 3, info_pago: infoPago });
   });
 
   it('aceptarEntrega → entrega_aceptada with id_entrega field', async () => {
@@ -426,8 +421,8 @@ describe('entrega_gps', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 describe('entrega_mensaje', () => {
   it('accederConversacion → entrega_mensaje_acceder_conversacion', async () => {
-    await accederConversacion({ id_entrega: 1 });
-    expect(request).toHaveBeenCalledWith('entrega_mensaje_acceder_conversacion', { id_entrega: 1 });
+    await accederConversacion({ token_chat: 'abc' });
+    expect(request).toHaveBeenCalledWith('entrega_mensaje_acceder_conversacion', { token_chat: 'abc' });
   });
 
   it('entregaMensajeSearch → entrega_mensaje_search', async () => {

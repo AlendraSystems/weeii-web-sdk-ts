@@ -176,24 +176,24 @@ describe('usuario', () => {
     expect(fire).toHaveBeenCalledWith('usuario_confirmar_cambio_de_telefono', { codigo_2fa: '1234' }, expect.any(Function));
   });
   it('confirmarRegistroExpress → usuario_confirmar_registro_express', async () => {
-    await confirmarRegistroExpress({ codigo: 'abc123' });
-    expect(request).toHaveBeenCalledWith('usuario_confirmar_registro_express', { codigo: 'abc123' });
+    await confirmarRegistroExpress({ codigo_2fa: 'abc123' });
+    expect(request).toHaveBeenCalledWith('usuario_confirmar_registro_express', { codigo_2fa: 'abc123' });
   });
   it('usuarioSepuku → usuario_sepuku', async () => {
-    await usuarioSepuku();
-    expect(request).toHaveBeenCalledWith('usuario_sepuku', {});
+    await usuarioSepuku({ confirmacion: 'confirmo_que_deseo_eliminar_mi_usuario', codigo: '123456' });
+    expect(request).toHaveBeenCalledWith('usuario_sepuku', { confirmacion: 'confirmo_que_deseo_eliminar_mi_usuario', codigo: '123456' });
   });
   it('usuarioMassatsu → usuario_massatsu', async () => {
-    await usuarioMassatsu({ id: 5 });
-    expect(request).toHaveBeenCalledWith('usuario_massatsu', { id: 5 });
+    await usuarioMassatsu({ confirmacion: 'confirmo_que_deseo_eliminar_a_ese_usuario', id_usuario: 5, codigo: '123456' });
+    expect(request).toHaveBeenCalledWith('usuario_massatsu', { confirmacion: 'confirmo_que_deseo_eliminar_a_ese_usuario', id_usuario: 5, codigo: '123456' });
   });
   it('usuarioDarseDeBaja → usuario_darse_de_baja', async () => {
-    await usuarioDarseDeBaja();
-    expect(request).toHaveBeenCalledWith('usuario_darse_de_baja', {});
+    await usuarioDarseDeBaja({ confirmacion: 'confirmo_que_deseo_eliminar_mi_usuario', codigo: '123456' });
+    expect(request).toHaveBeenCalledWith('usuario_darse_de_baja', { confirmacion: 'confirmo_que_deseo_eliminar_mi_usuario', codigo: '123456' });
   });
   it('eliminarUsuario → usuario_eliminar', async () => {
-    await eliminarUsuario({ id: 7 });
-    expect(request).toHaveBeenCalledWith('usuario_eliminar', { id: 7 });
+    await eliminarUsuario({ confirmacion: 'confirmo_que_deseo_eliminar_a_ese_usuario', id_usuario: 7, codigo: '123456' });
+    expect(request).toHaveBeenCalledWith('usuario_eliminar', { confirmacion: 'confirmo_que_deseo_eliminar_a_ese_usuario', id_usuario: 7, codigo: '123456' });
   });
 });
 
@@ -376,12 +376,12 @@ describe('repartidor_on', () => {
     expect(request).toHaveBeenCalledWith('repartidor_on_q_lat_lon_dec_disponible', { latitud: 19.0, longitud: -99.0 });
   });
   it('repartidorOnQNDisponibles → repartidor_on_q_n_disponibles', async () => {
-    await repartidorOnQNDisponibles();
-    expect(request).toHaveBeenCalledWith('repartidor_on_q_n_disponibles', {});
+    await repartidorOnQNDisponibles({ latitud: 19.0, longitud: -99.0 });
+    expect(request).toHaveBeenCalledWith('repartidor_on_q_n_disponibles', { latitud: 19.0, longitud: -99.0 });
   });
   it('repartidorOnEspecifico → repartidor_on_especifico', async () => {
-    await repartidorOnEspecifico({ id_usuario: 1 });
-    expect(request).toHaveBeenCalledWith('repartidor_on_especifico', { id_usuario: 1 });
+    await repartidorOnEspecifico({ id: 1 });
+    expect(request).toHaveBeenCalledWith('repartidor_on_especifico', { id: 1 });
   });
   it('repartidorOnQIdUsuario → repartidor_on_q_id_usuario', async () => {
     await repartidorOnQIdUsuario({ id_usuario: 1 });

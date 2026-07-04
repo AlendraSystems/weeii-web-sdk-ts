@@ -32,7 +32,7 @@ export function notificacionDraftPorId(
 }
 
 export function notificacionDraftPorTipo(
-  params: { id_tipo_notificacion: number } & NotificacionDraftQueryParams,
+  params: { tipo: number } & NotificacionDraftQueryParams,
 ): Promise<WeeiiIncomingMessage<{ notificacion_draft: NotificacionDraft[] }>> {
   return request('notificacion_draft_q_id_tipo_notificacion', params);
 }

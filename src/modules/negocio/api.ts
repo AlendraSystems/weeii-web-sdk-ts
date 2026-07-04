@@ -41,7 +41,7 @@ export function negocioSearchCatalogoCercanos(
 }
 
 export function miNegocio(
-  params: NegocioQueryParams = {},
+  params: { id_usuario: number } & NegocioQueryParams,
 ): Promise<WeeiiIncomingMessage<{ negocio: Negocio }>> {
   return request('negocio_q_id_usuario', params);
 }
@@ -91,7 +91,7 @@ export function editarNegocio(
 }
 
 export function catalogoSortPromover(
-  params: { id: number; ids_ordenados: number[] },
+  params: { id_negocio: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('negocio_catalogo_sort_promover', params);
 }

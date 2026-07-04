@@ -111,13 +111,13 @@ export function eliminarProducto(
 }
 
 export function sortPromoverIdNegocio(
-  params: { id_negocio: number; ids_ordenados: number[] },
+  params: { id_producto: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('producto_id_negocio_catalogo_sort_promover', params);
 }
 
 export function sortPromoverIdCategoria(
-  params: { id_categoria: number; ids_ordenados: number[] },
+  params: { id_producto: number; direccion: boolean },
 ): Promise<WeeiiIncomingMessage> {
   return request('producto_id_categoria_catalogo_sort_promover', params);
 }

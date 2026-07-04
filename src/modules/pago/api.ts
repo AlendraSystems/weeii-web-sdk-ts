@@ -52,7 +52,7 @@ export function pagoQIdUsuarioUltimoMetodo(
 }
 
 export function pagoQOidRelacionado(
-  params: { oid_relacionado: string } & PagoQueryParams,
+  params: { ie_relacionado: string; id_relacionado: number } & PagoQueryParams,
 ): Promise<WeeiiIncomingMessage<{ pago: Pago[] }>> {
   return request('pago_q_oid_relacionado', params);
 }

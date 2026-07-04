@@ -222,8 +222,8 @@ describe('tipo_notificacion', () => {
   });
 
   it('editarTipoNotificacion → tipo_notificacion_editar', async () => {
-    await editarTipoNotificacion({ id: 2, titulo: 'Alerta' } as never);
-    expect(request).toHaveBeenCalledWith('tipo_notificacion_editar', { id: 2, titulo: 'Alerta' });
+    await editarTipoNotificacion({ id: 2, campo: 'nombre', valor: 'Alerta' });
+    expect(request).toHaveBeenCalledWith('tipo_notificacion_editar', { id: 2, campo: 'nombre', valor: 'Alerta' });
   });
 });
 
